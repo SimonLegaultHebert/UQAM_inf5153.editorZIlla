@@ -1,0 +1,118 @@
+/**
+ */
+package defaultname;
+
+import org.eclipse.emf.common.util.EList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Section Composite</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * <ul>
+ *   <li>{@link defaultname.SectionComposite#getSectionComponentList <em>Section Component List</em>}</li>
+ *   <li>{@link defaultname.SectionComposite#getTitle <em>Title</em>}</li>
+ *   <li>{@link defaultname.SectionComposite#getName <em>Name</em>}</li>
+ * </ul>
+ * </p>
+ *
+ * @see defaultname.DefaultnamePackage#getSectionComposite()
+ * @model
+ * @generated
+ */
+public interface SectionComposite extends SectionComponent {
+	/**
+	 * Returns the value of the '<em><b>Section Component List</b></em>' reference list.
+	 * The list contents are of type {@link defaultname.SectionComponent}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Section Component List</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Section Component List</em>' reference list.
+	 * @see defaultname.DefaultnamePackage#getSectionComposite_SectionComponentList()
+	 * @model
+	 * @generated
+	 */
+	EList<SectionComponent> getSectionComponentList();
+
+	/**
+	 * Returns the value of the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Title</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Title</em>' attribute.
+	 * @see #setTitle(String)
+	 * @see defaultname.DefaultnamePackage#getSectionComposite_Title()
+	 * @model
+	 * @generated
+	 */
+	String getTitle();
+
+	/**
+	 * Sets the value of the '{@link defaultname.SectionComposite#getTitle <em>Title</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Title</em>' attribute.
+	 * @see #getTitle()
+	 * @generated
+	 */
+	void setTitle(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see defaultname.DefaultnamePackage#getSectionComposite_Name()
+	 * @model
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link defaultname.SectionComposite#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void remove(SectionComponent sectionComponent);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void add(SectionComponent sectionComponent);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	SectionComponent getChild(int index);
+
+} // SectionComposite

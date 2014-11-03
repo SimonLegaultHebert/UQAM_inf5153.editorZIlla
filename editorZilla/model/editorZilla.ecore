@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="defaultname" nsURI="http://defaultname/1.0" nsPrefix="defaultname">
+  <eClassifiers xsi:type="ecore:EClass" name="SectionComponent" abstract="true">
+    <eOperations name="getName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="getTitle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SectionComposite" eSuperTypes="#//SectionComponent">
+    <eOperations name="remove">
+      <eParameters name="sectionComponent" eType="#//SectionComponent"/>
+    </eOperations>
+    <eOperations name="add">
+      <eParameters name="sectionComponent" eType="#//SectionComponent"/>
+    </eOperations>
+    <eOperations name="getChild" eType="#//SectionComponent">
+      <eParameters name="index" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sectionComponentList" upperBound="-1"
+        eType="#//SectionComponent"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Section" eSuperTypes="#//SectionComponent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PressePapier">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contient" eType="#//SectionComponent"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Document" eSuperTypes="#//DocumentBuilder #//DocumentStrategy">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="format" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pressePapier" lowerBound="1"
+        eType="#//PressePapier"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DocumentBuilder">
+    <eOperations name="delete" eType="#//Document">
+      <eParameters name="documentName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="load" eType="#//Document">
+      <eParameters name="documentName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="export">
+      <eParameters name="documentName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="save">
+      <eParameters name="document" eType="#//Document"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="document" lowerBound="1"
+        eType="#//Document"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="filePath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="strategy" lowerBound="1"
+        eType="#//DocumentStrategy" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DocumentStrategy" abstract="true" interface="true">
+    <eOperations name="load" eType="#//Document">
+      <eParameters name="fileName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="save">
+      <eParameters name="document" eType="#//Document"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="XMLStrategy" eSuperTypes="#//DocumentStrategy"/>
+</ecore:EPackage>
