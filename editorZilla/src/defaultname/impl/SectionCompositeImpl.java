@@ -160,34 +160,36 @@ public class SectionCompositeImpl extends SectionComponentImpl implements Sectio
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void remove(SectionComponent sectionComponent) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if(sectionComponentList.contains(sectionComponent)){
+			sectionComponentList.remove(sectionComponent);
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void add(SectionComponent sectionComponent) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		sectionComponentList.add(sectionComponent);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public SectionComponent getChild(int index) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		SectionComponent sectionComponent = null;
+		try{
+			sectionComponent = sectionComponentList.get(index);
+		}catch(ArrayIndexOutOfBoundsException e){
+			System.out.println("L'index n'existe pas dans la liste");
+		}
+		return sectionComponent;
 	}
 
 	/**

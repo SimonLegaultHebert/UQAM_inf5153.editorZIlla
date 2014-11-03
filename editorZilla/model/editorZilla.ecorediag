@@ -212,7 +212,7 @@
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_XRYj12OQEeSkDpm1obrDAA" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_XRYj2GOQEeSkDpm1obrDAA" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
     <element xmi:type="ecore:EReference" href="editorZilla.ecore#//SectionComposite/sectionComponentList"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_XRYj2WOQEeSkDpm1obrDAA" points="[0, 0, -103, 60]$[103, -60, 0, 0]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_XRYj2WOQEeSkDpm1obrDAA" points="[0, 0, -56, 174]$[65, -48, 9, 126]$[65, -174, 9, 0]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_XSAO4mOQEeSkDpm1obrDAA" id="(0.6652173913043479,0.0)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_XSAO42OQEeSkDpm1obrDAA" id="(0.4,1.0)"/>
   </edges>
