@@ -142,9 +142,29 @@ public class MainView extends javax.swing.JFrame {
     private void jTreeMouseClicked(java.awt.event.MouseEvent evt) {                                    
         
     	TreeSelectionModel selectionModel = jTree.getSelectionModel();
-        TreePath selectionPath = selectionModel.getSelectionPath();
-        DefaultMutableTreeNode child = (DefaultMutableTreeNode)selectionPath.getLastPathComponent();
-    	jTextArea.setText(child.toString());
+        String selectionPathString = selectionModel.getSelectionPath().toString();
+
+        //je vais faire une méthode soon avec des regex ou some shit
+        String[] sectionPathSplit = selectionPathString.split(",");
+        //il s'agit d'une section sans sous-section
+        String sectionPathInfo = "";
+        String subSectionPathInfo = "";
+        String content = "";
+        if(sectionPathSplit.length == 2){
+        	sectionPathInfo = sectionPathSplit[1];
+        	int sectionNumber = sectionPathInfo.charAt(sectionPathInfo.length() - 2) - 48;
+        	content = controller.getContent(sectionNumber);       	
+        }else{
+        	sectionPathInfo = sectionPathSplit[1];
+        	int sectionNumber = sectionPathInfo.charAt(sectionPathInfo.length() - 1) - 48;
+        	System.out.println(sectionNumber);
+        	subSectionPathInfo = sectionPathSplit[2];
+        	int subSectionNumber = subSectionPathInfo.charAt(subSectionPathInfo.length() - 2) - 48;
+        	System.out.println(subSectionNumber);
+        	content = controller.getContent(sectionNumber, subSectionNumber);
+        }
+           
+    	jTextArea.setText(content);
     }
 
     /**
