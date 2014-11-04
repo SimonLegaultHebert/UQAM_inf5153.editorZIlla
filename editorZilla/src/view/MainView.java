@@ -6,6 +6,8 @@
 
 package view;
 
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
@@ -24,8 +26,7 @@ public class MainView extends javax.swing.JFrame {
     /**
      * Creates new form MainView
      */
-    private static int sectionCount = 1;
-    private static ArrayList<Integer> subSectionCount = new ArrayList<Integer>();
+
     private Controller controller;
     
     public MainView(Controller controller) {
@@ -53,6 +54,13 @@ public class MainView extends javax.swing.JFrame {
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("SectionsRegister");
         jTree.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        
+        jTree.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTreeMouseClicked(evt);
+            }
+        });
+        
         jScrollPane1.setViewportView(jTree);
 
         jTextArea.setColumns(20);
@@ -111,14 +119,14 @@ public class MainView extends javax.swing.JFrame {
 
     private void addSubSectionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSubSectionButtonActionPerformed
 
-        TreeSelectionModel selectionModel = jTree.getSelectionModel();
-        TreePath selectionPath = selectionModel.getSelectionPath();
-        char sectionNumberChar = selectionPath.toString().charAt(selectionPath.toString().length() - 2);
-        int sectionNumber = (int)sectionNumberChar - 48;
-        DefaultMutableTreeNode child = (DefaultMutableTreeNode)selectionPath.getLastPathComponent();
-        DefaultTreeModel model = (DefaultTreeModel) jTree.getModel();
-        child.add(new DefaultMutableTreeNode(controller.addSubSection(sectionNumber)));
-        model.reload(child);
+       TreeSelectionModel selectionModel = jTree.getSelectionModel();
+       TreePath selectionPath = selectionModel.getSelectionPath();
+       char sectionNumberChar = selectionPath.toString().charAt(selectionPath.toString().length() - 2);
+       int sectionNumber = (int)sectionNumberChar - 48;
+       DefaultMutableTreeNode child = (DefaultMutableTreeNode)selectionPath.getLastPathComponent();
+       DefaultTreeModel model = (DefaultTreeModel) jTree.getModel();
+       child.add(new DefaultMutableTreeNode(controller.addSubSection(sectionNumber)));
+       model.reload(child);
 
     }//GEN-LAST:event_addSubSectionButtonActionPerformed
 
@@ -130,6 +138,14 @@ public class MainView extends javax.swing.JFrame {
       model.reload(root);       
       
     }//GEN-LAST:event_addSectionButtonActionPerformed
+    
+    private void jTreeMouseClicked(java.awt.event.MouseEvent evt) {                                    
+        
+    	TreeSelectionModel selectionModel = jTree.getSelectionModel();
+        TreePath selectionPath = selectionModel.getSelectionPath();
+        DefaultMutableTreeNode child = (DefaultMutableTreeNode)selectionPath.getLastPathComponent();
+    	jTextArea.setText(child.toString());
+    }
 
     /**
      * @param args the command line arguments
@@ -176,6 +192,9 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea;
     private javax.swing.JTree jTree;
     // End of variables declaration//GEN-END:variables
-       
+
+  
 
 }
+
+
