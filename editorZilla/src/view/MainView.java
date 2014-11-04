@@ -157,10 +157,8 @@ public class MainView extends javax.swing.JFrame {
         }else{
         	sectionPathInfo = sectionPathSplit[1];
         	int sectionNumber = sectionPathInfo.charAt(sectionPathInfo.length() - 1) - 48;
-        	System.out.println(sectionNumber);
         	subSectionPathInfo = sectionPathSplit[2];
         	int subSectionNumber = subSectionPathInfo.charAt(subSectionPathInfo.length() - 2) - 48;
-        	System.out.println(subSectionNumber);
         	content = controller.getContent(sectionNumber, subSectionNumber);
         }
            
