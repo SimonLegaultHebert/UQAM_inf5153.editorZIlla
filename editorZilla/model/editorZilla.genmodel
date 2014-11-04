@@ -5,13 +5,13 @@
   <foreignModel>editorZilla.ecore</foreignModel>
   <genPackages prefix="Defaultname" disposableProviderFactory="true" ecorePackage="editorZilla.ecore#/">
     <genClasses image="false" ecoreClass="editorZilla.ecore#//SectionComponent">
-      <genOperations ecoreOperation="editorZilla.ecore#//SectionComponent/getName"/>
+      <genOperations ecoreOperation="editorZilla.ecore#//SectionComponent/getText"/>
       <genOperations ecoreOperation="editorZilla.ecore#//SectionComponent/getTitle"/>
     </genClasses>
     <genClasses ecoreClass="editorZilla.ecore#//SectionComposite">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference editorZilla.ecore#//SectionComposite/sectionComponentList"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editorZilla.ecore#//SectionComposite/title"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editorZilla.ecore#//SectionComposite/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editorZilla.ecore#//SectionComposite/text"/>
       <genOperations ecoreOperation="editorZilla.ecore#//SectionComposite/remove">
         <genParameters ecoreParameter="editorZilla.ecore#//SectionComposite/remove/sectionComponent"/>
       </genOperations>
@@ -26,13 +26,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editorZilla.ecore#//Section/title"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editorZilla.ecore#//Section/text"/>
     </genClasses>
-    <genClasses ecoreClass="editorZilla.ecore#//PressePapier">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference editorZilla.ecore#//PressePapier/contient"/>
-    </genClasses>
     <genClasses ecoreClass="editorZilla.ecore#//Document">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editorZilla.ecore#//Document/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editorZilla.ecore#//Document/format"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference editorZilla.ecore#//Document/pressePapier"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference editorZilla.ecore#//Document/racine"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editorZilla.ecore#//Document/currentSectionTitle"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editorZilla.ecore#//Document/currentSectionText"/>
     </genClasses>
     <genClasses ecoreClass="editorZilla.ecore#//DocumentBuilder">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference editorZilla.ecore#//DocumentBuilder/document"/>

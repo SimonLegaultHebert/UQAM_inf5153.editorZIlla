@@ -21,7 +21,7 @@ public interface SectionComponent extends EObject {
 	 * @model kind="operation"
 	 * @generated
 	 */
-	String getName();
+	String getText();
 
 	/**
 	 * <!-- begin-user-doc -->

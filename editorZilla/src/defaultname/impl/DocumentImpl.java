@@ -4,13 +4,13 @@ package defaultname.impl;
 
 import defaultname.DefaultnamePackage;
 import defaultname.Document;
-import defaultname.PressePapier;
 
+import defaultname.SectionComponent;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -22,7 +22,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link defaultname.impl.DocumentImpl#getName <em>Name</em>}</li>
  *   <li>{@link defaultname.impl.DocumentImpl#getFormat <em>Format</em>}</li>
- *   <li>{@link defaultname.impl.DocumentImpl#getPressePapier <em>Presse Papier</em>}</li>
+ *   <li>{@link defaultname.impl.DocumentImpl#getRacine <em>Racine</em>}</li>
+ *   <li>{@link defaultname.impl.DocumentImpl#getCurrentSectionTitle <em>Current Section Title</em>}</li>
+ *   <li>{@link defaultname.impl.DocumentImpl#getCurrentSectionText <em>Current Section Text</em>}</li>
  * </ul>
  * </p>
  *
@@ -70,14 +72,54 @@ public class DocumentImpl extends DocumentBuilderImpl implements Document {
 	protected String format = FORMAT_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getPressePapier() <em>Presse Papier</em>}' reference.
+	 * The cached value of the '{@link #getRacine() <em>Racine</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPressePapier()
+	 * @see #getRacine()
 	 * @generated
 	 * @ordered
 	 */
-	protected PressePapier pressePapier;
+	protected SectionComponent racine;
+
+	/**
+	 * The default value of the '{@link #getCurrentSectionTitle() <em>Current Section Title</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCurrentSectionTitle()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CURRENT_SECTION_TITLE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCurrentSectionTitle() <em>Current Section Title</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCurrentSectionTitle()
+	 * @generated
+	 * @ordered
+	 */
+	protected String currentSectionTitle = CURRENT_SECTION_TITLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getCurrentSectionText() <em>Current Section Text</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCurrentSectionText()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CURRENT_SECTION_TEXT_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCurrentSectionText() <em>Current Section Text</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCurrentSectionText()
+	 * @generated
+	 * @ordered
+	 */
+	protected String currentSectionText = CURRENT_SECTION_TEXT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -145,16 +187,16 @@ public class DocumentImpl extends DocumentBuilderImpl implements Document {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PressePapier getPressePapier() {
-		if (pressePapier != null && pressePapier.eIsProxy()) {
-			InternalEObject oldPressePapier = (InternalEObject)pressePapier;
-			pressePapier = (PressePapier)eResolveProxy(oldPressePapier);
-			if (pressePapier != oldPressePapier) {
+	public SectionComponent getRacine() {
+		if (racine != null && racine.eIsProxy()) {
+			InternalEObject oldRacine = (InternalEObject)racine;
+			racine = (SectionComponent)eResolveProxy(oldRacine);
+			if (racine != oldRacine) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DefaultnamePackage.DOCUMENT__PRESSE_PAPIER, oldPressePapier, pressePapier));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DefaultnamePackage.DOCUMENT__RACINE, oldRacine, racine));
 			}
 		}
-		return pressePapier;
+		return racine;
 	}
 
 	/**
@@ -162,8 +204,8 @@ public class DocumentImpl extends DocumentBuilderImpl implements Document {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PressePapier basicGetPressePapier() {
-		return pressePapier;
+	public SectionComponent basicGetRacine() {
+		return racine;
 	}
 
 	/**
@@ -171,11 +213,53 @@ public class DocumentImpl extends DocumentBuilderImpl implements Document {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPressePapier(PressePapier newPressePapier) {
-		PressePapier oldPressePapier = pressePapier;
-		pressePapier = newPressePapier;
+	public void setRacine(SectionComponent newRacine) {
+		SectionComponent oldRacine = racine;
+		racine = newRacine;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DefaultnamePackage.DOCUMENT__PRESSE_PAPIER, oldPressePapier, pressePapier));
+			eNotify(new ENotificationImpl(this, Notification.SET, DefaultnamePackage.DOCUMENT__RACINE, oldRacine, racine));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getCurrentSectionTitle() {
+		return currentSectionTitle;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCurrentSectionTitle(String newCurrentSectionTitle) {
+		String oldCurrentSectionTitle = currentSectionTitle;
+		currentSectionTitle = newCurrentSectionTitle;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DefaultnamePackage.DOCUMENT__CURRENT_SECTION_TITLE, oldCurrentSectionTitle, currentSectionTitle));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getCurrentSectionText() {
+		return currentSectionText;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCurrentSectionText(String newCurrentSectionText) {
+		String oldCurrentSectionText = currentSectionText;
+		currentSectionText = newCurrentSectionText;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DefaultnamePackage.DOCUMENT__CURRENT_SECTION_TEXT, oldCurrentSectionText, currentSectionText));
 	}
 
 	/**
@@ -190,9 +274,13 @@ public class DocumentImpl extends DocumentBuilderImpl implements Document {
 				return getName();
 			case DefaultnamePackage.DOCUMENT__FORMAT:
 				return getFormat();
-			case DefaultnamePackage.DOCUMENT__PRESSE_PAPIER:
-				if (resolve) return getPressePapier();
-				return basicGetPressePapier();
+			case DefaultnamePackage.DOCUMENT__RACINE:
+				if (resolve) return getRacine();
+				return basicGetRacine();
+			case DefaultnamePackage.DOCUMENT__CURRENT_SECTION_TITLE:
+				return getCurrentSectionTitle();
+			case DefaultnamePackage.DOCUMENT__CURRENT_SECTION_TEXT:
+				return getCurrentSectionText();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -211,8 +299,14 @@ public class DocumentImpl extends DocumentBuilderImpl implements Document {
 			case DefaultnamePackage.DOCUMENT__FORMAT:
 				setFormat((String)newValue);
 				return;
-			case DefaultnamePackage.DOCUMENT__PRESSE_PAPIER:
-				setPressePapier((PressePapier)newValue);
+			case DefaultnamePackage.DOCUMENT__RACINE:
+				setRacine((SectionComponent)newValue);
+				return;
+			case DefaultnamePackage.DOCUMENT__CURRENT_SECTION_TITLE:
+				setCurrentSectionTitle((String)newValue);
+				return;
+			case DefaultnamePackage.DOCUMENT__CURRENT_SECTION_TEXT:
+				setCurrentSectionText((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -232,8 +326,14 @@ public class DocumentImpl extends DocumentBuilderImpl implements Document {
 			case DefaultnamePackage.DOCUMENT__FORMAT:
 				setFormat(FORMAT_EDEFAULT);
 				return;
-			case DefaultnamePackage.DOCUMENT__PRESSE_PAPIER:
-				setPressePapier((PressePapier)null);
+			case DefaultnamePackage.DOCUMENT__RACINE:
+				setRacine((SectionComponent)null);
+				return;
+			case DefaultnamePackage.DOCUMENT__CURRENT_SECTION_TITLE:
+				setCurrentSectionTitle(CURRENT_SECTION_TITLE_EDEFAULT);
+				return;
+			case DefaultnamePackage.DOCUMENT__CURRENT_SECTION_TEXT:
+				setCurrentSectionText(CURRENT_SECTION_TEXT_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -251,8 +351,12 @@ public class DocumentImpl extends DocumentBuilderImpl implements Document {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case DefaultnamePackage.DOCUMENT__FORMAT:
 				return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals(format);
-			case DefaultnamePackage.DOCUMENT__PRESSE_PAPIER:
-				return pressePapier != null;
+			case DefaultnamePackage.DOCUMENT__RACINE:
+				return racine != null;
+			case DefaultnamePackage.DOCUMENT__CURRENT_SECTION_TITLE:
+				return CURRENT_SECTION_TITLE_EDEFAULT == null ? currentSectionTitle != null : !CURRENT_SECTION_TITLE_EDEFAULT.equals(currentSectionTitle);
+			case DefaultnamePackage.DOCUMENT__CURRENT_SECTION_TEXT:
+				return CURRENT_SECTION_TEXT_EDEFAULT == null ? currentSectionText != null : !CURRENT_SECTION_TEXT_EDEFAULT.equals(currentSectionText);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -271,6 +375,10 @@ public class DocumentImpl extends DocumentBuilderImpl implements Document {
 		result.append(name);
 		result.append(", format: ");
 		result.append(format);
+		result.append(", currentSectionTitle: ");
+		result.append(currentSectionTitle);
+		result.append(", currentSectionText: ");
+		result.append(currentSectionText);
 		result.append(')');
 		return result.toString();
 	}

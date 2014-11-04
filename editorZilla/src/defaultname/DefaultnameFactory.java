@@ -40,15 +40,6 @@ public interface DefaultnameFactory extends EFactory {
 	Section createSection();
 
 	/**
-	 * Returns a new object of class '<em>Presse Papier</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Presse Papier</em>'.
-	 * @generated
-	 */
-	PressePapier createPressePapier();
-
-	/**
 	 * Returns a new object of class '<em>Document</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

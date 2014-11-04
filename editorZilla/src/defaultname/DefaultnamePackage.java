@@ -103,13 +103,13 @@ public interface DefaultnamePackage extends EPackage {
 	int SECTION_COMPOSITE__TITLE = SECTION_COMPONENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECTION_COMPOSITE__NAME = SECTION_COMPONENT_FEATURE_COUNT + 2;
+	int SECTION_COMPOSITE__TEXT = SECTION_COMPONENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Section Composite</em>' class.
@@ -158,34 +158,6 @@ public interface DefaultnamePackage extends EPackage {
 	int SECTION_FEATURE_COUNT = SECTION_COMPONENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link defaultname.impl.PressePapierImpl <em>Presse Papier</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see defaultname.impl.PressePapierImpl
-	 * @see defaultname.impl.DefaultnamePackageImpl#getPressePapier()
-	 * @generated
-	 */
-	int PRESSE_PAPIER = 3;
-
-	/**
-	 * The feature id for the '<em><b>Contient</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRESSE_PAPIER__CONTIENT = 0;
-
-	/**
-	 * The number of structural features of the '<em>Presse Papier</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRESSE_PAPIER_FEATURE_COUNT = 1;
-
-	/**
 	 * The meta object id for the '{@link defaultname.impl.DocumentBuilderImpl <em>Document Builder</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -193,7 +165,7 @@ public interface DefaultnamePackage extends EPackage {
 	 * @see defaultname.impl.DefaultnamePackageImpl#getDocumentBuilder()
 	 * @generated
 	 */
-	int DOCUMENT_BUILDER = 5;
+	int DOCUMENT_BUILDER = 4;
 
 	/**
 	 * The feature id for the '<em><b>Document</b></em>' reference.
@@ -239,7 +211,7 @@ public interface DefaultnamePackage extends EPackage {
 	 * @see defaultname.impl.DefaultnamePackageImpl#getDocument()
 	 * @generated
 	 */
-	int DOCUMENT = 4;
+	int DOCUMENT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Document</b></em>' reference.
@@ -287,13 +259,31 @@ public interface DefaultnamePackage extends EPackage {
 	int DOCUMENT__FORMAT = DOCUMENT_BUILDER_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Presse Papier</b></em>' reference.
+	 * The feature id for the '<em><b>Racine</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT__PRESSE_PAPIER = DOCUMENT_BUILDER_FEATURE_COUNT + 2;
+	int DOCUMENT__RACINE = DOCUMENT_BUILDER_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Current Section Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENT__CURRENT_SECTION_TITLE = DOCUMENT_BUILDER_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Current Section Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENT__CURRENT_SECTION_TEXT = DOCUMENT_BUILDER_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Document</em>' class.
@@ -302,7 +292,7 @@ public interface DefaultnamePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_FEATURE_COUNT = DOCUMENT_BUILDER_FEATURE_COUNT + 3;
+	int DOCUMENT_FEATURE_COUNT = DOCUMENT_BUILDER_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link defaultname.DocumentStrategy <em>Document Strategy</em>}' class.
@@ -312,7 +302,7 @@ public interface DefaultnamePackage extends EPackage {
 	 * @see defaultname.impl.DefaultnamePackageImpl#getDocumentStrategy()
 	 * @generated
 	 */
-	int DOCUMENT_STRATEGY = 6;
+	int DOCUMENT_STRATEGY = 5;
 
 	/**
 	 * The number of structural features of the '<em>Document Strategy</em>' class.
@@ -331,7 +321,7 @@ public interface DefaultnamePackage extends EPackage {
 	 * @see defaultname.impl.DefaultnamePackageImpl#getXMLStrategy()
 	 * @generated
 	 */
-	int XML_STRATEGY = 7;
+	int XML_STRATEGY = 6;
 
 	/**
 	 * The number of structural features of the '<em>XML Strategy</em>' class.
@@ -386,15 +376,15 @@ public interface DefaultnamePackage extends EPackage {
 	EAttribute getSectionComposite_Title();
 
 	/**
-	 * Returns the meta object for the attribute '{@link defaultname.SectionComposite#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link defaultname.SectionComposite#getText <em>Text</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see defaultname.SectionComposite#getName()
+	 * @return the meta object for the attribute '<em>Text</em>'.
+	 * @see defaultname.SectionComposite#getText()
 	 * @see #getSectionComposite()
 	 * @generated
 	 */
-	EAttribute getSectionComposite_Name();
+	EAttribute getSectionComposite_Text();
 
 	/**
 	 * Returns the meta object for class '{@link defaultname.Section <em>Section</em>}'.
@@ -429,27 +419,6 @@ public interface DefaultnamePackage extends EPackage {
 	EAttribute getSection_Text();
 
 	/**
-	 * Returns the meta object for class '{@link defaultname.PressePapier <em>Presse Papier</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Presse Papier</em>'.
-	 * @see defaultname.PressePapier
-	 * @generated
-	 */
-	EClass getPressePapier();
-
-	/**
-	 * Returns the meta object for the reference '{@link defaultname.PressePapier#getContient <em>Contient</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Contient</em>'.
-	 * @see defaultname.PressePapier#getContient()
-	 * @see #getPressePapier()
-	 * @generated
-	 */
-	EReference getPressePapier_Contient();
-
-	/**
 	 * Returns the meta object for class '{@link defaultname.Document <em>Document</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -482,15 +451,37 @@ public interface DefaultnamePackage extends EPackage {
 	EAttribute getDocument_Format();
 
 	/**
-	 * Returns the meta object for the reference '{@link defaultname.Document#getPressePapier <em>Presse Papier</em>}'.
+	 * Returns the meta object for the reference '{@link defaultname.Document#getRacine <em>Racine</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Presse Papier</em>'.
-	 * @see defaultname.Document#getPressePapier()
+	 * @return the meta object for the reference '<em>Racine</em>'.
+	 * @see defaultname.Document#getRacine()
 	 * @see #getDocument()
 	 * @generated
 	 */
-	EReference getDocument_PressePapier();
+	EReference getDocument_Racine();
+
+	/**
+	 * Returns the meta object for the attribute '{@link defaultname.Document#getCurrentSectionTitle <em>Current Section Title</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Current Section Title</em>'.
+	 * @see defaultname.Document#getCurrentSectionTitle()
+	 * @see #getDocument()
+	 * @generated
+	 */
+	EAttribute getDocument_CurrentSectionTitle();
+
+	/**
+	 * Returns the meta object for the attribute '{@link defaultname.Document#getCurrentSectionText <em>Current Section Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Current Section Text</em>'.
+	 * @see defaultname.Document#getCurrentSectionText()
+	 * @see #getDocument()
+	 * @generated
+	 */
+	EAttribute getDocument_CurrentSectionText();
 
 	/**
 	 * Returns the meta object for class '{@link defaultname.DocumentBuilder <em>Document Builder</em>}'.
@@ -614,12 +605,12 @@ public interface DefaultnamePackage extends EPackage {
 		EAttribute SECTION_COMPOSITE__TITLE = eINSTANCE.getSectionComposite_Title();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SECTION_COMPOSITE__NAME = eINSTANCE.getSectionComposite_Name();
+		EAttribute SECTION_COMPOSITE__TEXT = eINSTANCE.getSectionComposite_Text();
 
 		/**
 		 * The meta object literal for the '{@link defaultname.impl.SectionImpl <em>Section</em>}' class.
@@ -648,24 +639,6 @@ public interface DefaultnamePackage extends EPackage {
 		EAttribute SECTION__TEXT = eINSTANCE.getSection_Text();
 
 		/**
-		 * The meta object literal for the '{@link defaultname.impl.PressePapierImpl <em>Presse Papier</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see defaultname.impl.PressePapierImpl
-		 * @see defaultname.impl.DefaultnamePackageImpl#getPressePapier()
-		 * @generated
-		 */
-		EClass PRESSE_PAPIER = eINSTANCE.getPressePapier();
-
-		/**
-		 * The meta object literal for the '<em><b>Contient</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PRESSE_PAPIER__CONTIENT = eINSTANCE.getPressePapier_Contient();
-
-		/**
 		 * The meta object literal for the '{@link defaultname.impl.DocumentImpl <em>Document</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -692,12 +665,28 @@ public interface DefaultnamePackage extends EPackage {
 		EAttribute DOCUMENT__FORMAT = eINSTANCE.getDocument_Format();
 
 		/**
-		 * The meta object literal for the '<em><b>Presse Papier</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Racine</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DOCUMENT__PRESSE_PAPIER = eINSTANCE.getDocument_PressePapier();
+		EReference DOCUMENT__RACINE = eINSTANCE.getDocument_Racine();
+
+		/**
+		 * The meta object literal for the '<em><b>Current Section Title</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOCUMENT__CURRENT_SECTION_TITLE = eINSTANCE.getDocument_CurrentSectionTitle();
+
+		/**
+		 * The meta object literal for the '<em><b>Current Section Text</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOCUMENT__CURRENT_SECTION_TEXT = eINSTANCE.getDocument_CurrentSectionText();
 
 		/**
 		 * The meta object literal for the '{@link defaultname.impl.DocumentBuilderImpl <em>Document Builder</em>}' class.

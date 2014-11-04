@@ -7,6 +7,8 @@ import javax.swing.*;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.text.*;
 
+import controller.Controller;
+
 import java.io.File;
 
 /**
@@ -18,9 +20,12 @@ public class MainView extends JFrame {
     private JTextArea textArea = new JTextArea(50, 150);
     private int fontSize = 12;
     
-    public MainView()
+    public MainView(Controller controller)
     {
         textArea.setFont(new Font("TimesRoman", Font.PLAIN, fontSize));
+        //Quand on ouvre le logiciel, un documentBuilder est créer par défaut.
+        textArea.setText(controller.getCurrentSectionContent());
+        
         JScrollPane textScroll = new JScrollPane(textArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
         add(textScroll, BorderLayout.CENTER);
         
@@ -85,9 +90,5 @@ public class MainView extends JFrame {
             //action vide pour le prototype
         }
     };
-
-    public static void main(String[] args) {
-        new MainView();
-    }
 
 }

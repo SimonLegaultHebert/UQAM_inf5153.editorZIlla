@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link defaultname.SectionComposite#getSectionComponentList <em>Section Component List</em>}</li>
  *   <li>{@link defaultname.SectionComposite#getTitle <em>Title</em>}</li>
- *   <li>{@link defaultname.SectionComposite#getName <em>Name</em>}</li>
+ *   <li>{@link defaultname.SectionComposite#getText <em>Text</em>}</li>
  * </ul>
  * </p>
  *
@@ -41,6 +41,7 @@ public interface SectionComposite extends SectionComponent {
 
 	/**
 	 * Returns the value of the '<em><b>Title</b></em>' attribute.
+	 * The default value is <code>"Section 1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Title</em>' attribute isn't clear,
@@ -50,7 +51,7 @@ public interface SectionComposite extends SectionComponent {
 	 * @return the value of the '<em>Title</em>' attribute.
 	 * @see #setTitle(String)
 	 * @see defaultname.DefaultnamePackage#getSectionComposite_Title()
-	 * @model
+	 * @model default="Section 1"
 	 * @generated
 	 */
 	String getTitle();
@@ -66,30 +67,31 @@ public interface SectionComposite extends SectionComponent {
 	void setTitle(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * Returns the value of the '<em><b>Text</b></em>' attribute.
+	 * The default value is <code>"\"\""</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Text</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see defaultname.DefaultnamePackage#getSectionComposite_Name()
-	 * @model
+	 * @return the value of the '<em>Text</em>' attribute.
+	 * @see #setText(String)
+	 * @see defaultname.DefaultnamePackage#getSectionComposite_Text()
+	 * @model default="\"\""
 	 * @generated
 	 */
-	String getName();
+	String getText();
 
 	/**
-	 * Sets the value of the '{@link defaultname.SectionComposite#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link defaultname.SectionComposite#getText <em>Text</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
+	 * @param value the new value of the '<em>Text</em>' attribute.
+	 * @see #getText()
 	 * @generated
 	 */
-	void setName(String value);
+	void setText(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

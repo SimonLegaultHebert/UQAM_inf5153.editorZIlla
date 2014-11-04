@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <ul>
  *   <li>{@link defaultname.impl.SectionCompositeImpl#getSectionComponentList <em>Section Component List</em>}</li>
  *   <li>{@link defaultname.impl.SectionCompositeImpl#getTitle <em>Title</em>}</li>
- *   <li>{@link defaultname.impl.SectionCompositeImpl#getName <em>Name</em>}</li>
+ *   <li>{@link defaultname.impl.SectionCompositeImpl#getText <em>Text</em>}</li>
  * </ul>
  * </p>
  *
@@ -52,7 +52,7 @@ public class SectionCompositeImpl extends SectionComponentImpl implements Sectio
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TITLE_EDEFAULT = null;
+	protected static final String TITLE_EDEFAULT = "Section 1";
 
 	/**
 	 * The cached value of the '{@link #getTitle() <em>Title</em>}' attribute.
@@ -65,24 +65,24 @@ public class SectionCompositeImpl extends SectionComponentImpl implements Sectio
 	protected String title = TITLE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The default value of the '{@link #getText() <em>Text</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getText()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String NAME_EDEFAULT = null;
+	protected static final String TEXT_EDEFAULT = "\"\"";
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The cached value of the '{@link #getText() <em>Text</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getText()
 	 * @generated
 	 * @ordered
 	 */
-	protected String name = NAME_EDEFAULT;
+	protected String text = TEXT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -141,8 +141,8 @@ public class SectionCompositeImpl extends SectionComponentImpl implements Sectio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getName() {
-		return name;
+	public String getText() {
+		return text;
 	}
 
 	/**
@@ -150,11 +150,11 @@ public class SectionCompositeImpl extends SectionComponentImpl implements Sectio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
+	public void setText(String newText) {
+		String oldText = text;
+		text = newText;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DefaultnamePackage.SECTION_COMPOSITE__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, DefaultnamePackage.SECTION_COMPOSITE__TEXT, oldText, text));
 	}
 
 	/**
@@ -204,8 +204,8 @@ public class SectionCompositeImpl extends SectionComponentImpl implements Sectio
 				return getSectionComponentList();
 			case DefaultnamePackage.SECTION_COMPOSITE__TITLE:
 				return getTitle();
-			case DefaultnamePackage.SECTION_COMPOSITE__NAME:
-				return getName();
+			case DefaultnamePackage.SECTION_COMPOSITE__TEXT:
+				return getText();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -226,8 +226,8 @@ public class SectionCompositeImpl extends SectionComponentImpl implements Sectio
 			case DefaultnamePackage.SECTION_COMPOSITE__TITLE:
 				setTitle((String)newValue);
 				return;
-			case DefaultnamePackage.SECTION_COMPOSITE__NAME:
-				setName((String)newValue);
+			case DefaultnamePackage.SECTION_COMPOSITE__TEXT:
+				setText((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -247,8 +247,8 @@ public class SectionCompositeImpl extends SectionComponentImpl implements Sectio
 			case DefaultnamePackage.SECTION_COMPOSITE__TITLE:
 				setTitle(TITLE_EDEFAULT);
 				return;
-			case DefaultnamePackage.SECTION_COMPOSITE__NAME:
-				setName(NAME_EDEFAULT);
+			case DefaultnamePackage.SECTION_COMPOSITE__TEXT:
+				setText(TEXT_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -266,8 +266,8 @@ public class SectionCompositeImpl extends SectionComponentImpl implements Sectio
 				return sectionComponentList != null && !sectionComponentList.isEmpty();
 			case DefaultnamePackage.SECTION_COMPOSITE__TITLE:
 				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
-			case DefaultnamePackage.SECTION_COMPOSITE__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case DefaultnamePackage.SECTION_COMPOSITE__TEXT:
+				return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -284,8 +284,8 @@ public class SectionCompositeImpl extends SectionComponentImpl implements Sectio
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (title: ");
 		result.append(title);
-		result.append(", name: ");
-		result.append(name);
+		result.append(", text: ");
+		result.append(text);
 		result.append(')');
 		return result.toString();
 	}

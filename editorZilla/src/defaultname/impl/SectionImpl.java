@@ -34,7 +34,7 @@ public class SectionImpl extends SectionComponentImpl implements Section {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TITLE_EDEFAULT = null;
+	protected static final String TITLE_EDEFAULT = "\"Section 1\"";
 
 	/**
 	 * The cached value of the '{@link #getTitle() <em>Title</em>}' attribute.
@@ -54,7 +54,7 @@ public class SectionImpl extends SectionComponentImpl implements Section {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TEXT_EDEFAULT = null;
+	protected static final String TEXT_EDEFAULT = "\"\"";
 
 	/**
 	 * The cached value of the '{@link #getText() <em>Text</em>}' attribute.

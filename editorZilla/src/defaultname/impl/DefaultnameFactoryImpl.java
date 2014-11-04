@@ -58,7 +58,6 @@ public class DefaultnameFactoryImpl extends EFactoryImpl implements DefaultnameF
 		switch (eClass.getClassifierID()) {
 			case DefaultnamePackage.SECTION_COMPOSITE: return createSectionComposite();
 			case DefaultnamePackage.SECTION: return createSection();
-			case DefaultnamePackage.PRESSE_PAPIER: return createPressePapier();
 			case DefaultnamePackage.DOCUMENT: return createDocument();
 			case DefaultnamePackage.DOCUMENT_BUILDER: return createDocumentBuilder();
 			case DefaultnamePackage.XML_STRATEGY: return createXMLStrategy();
@@ -85,16 +84,6 @@ public class DefaultnameFactoryImpl extends EFactoryImpl implements DefaultnameF
 	public Section createSection() {
 		SectionImpl section = new SectionImpl();
 		return section;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PressePapier createPressePapier() {
-		PressePapierImpl pressePapier = new PressePapierImpl();
-		return pressePapier;
 	}
 
 	/**

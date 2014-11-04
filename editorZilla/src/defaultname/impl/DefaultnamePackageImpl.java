@@ -7,7 +7,6 @@ import defaultname.DefaultnamePackage;
 import defaultname.Document;
 import defaultname.DocumentBuilder;
 import defaultname.DocumentStrategy;
-import defaultname.PressePapier;
 import defaultname.Section;
 import defaultname.SectionComponent;
 import defaultname.SectionComposite;
@@ -48,13 +47,6 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 	 * @generated
 	 */
 	private EClass sectionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass pressePapierEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -186,7 +178,7 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSectionComposite_Name() {
+	public EAttribute getSectionComposite_Text() {
 		return (EAttribute)sectionCompositeEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -222,24 +214,6 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPressePapier() {
-		return pressePapierEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPressePapier_Contient() {
-		return (EReference)pressePapierEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getDocument() {
 		return documentEClass;
 	}
@@ -267,8 +241,26 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocument_PressePapier() {
+	public EReference getDocument_Racine() {
 		return (EReference)documentEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDocument_CurrentSectionTitle() {
+		return (EAttribute)documentEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDocument_CurrentSectionText() {
+		return (EAttribute)documentEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -358,19 +350,18 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 		sectionCompositeEClass = createEClass(SECTION_COMPOSITE);
 		createEReference(sectionCompositeEClass, SECTION_COMPOSITE__SECTION_COMPONENT_LIST);
 		createEAttribute(sectionCompositeEClass, SECTION_COMPOSITE__TITLE);
-		createEAttribute(sectionCompositeEClass, SECTION_COMPOSITE__NAME);
+		createEAttribute(sectionCompositeEClass, SECTION_COMPOSITE__TEXT);
 
 		sectionEClass = createEClass(SECTION);
 		createEAttribute(sectionEClass, SECTION__TITLE);
 		createEAttribute(sectionEClass, SECTION__TEXT);
 
-		pressePapierEClass = createEClass(PRESSE_PAPIER);
-		createEReference(pressePapierEClass, PRESSE_PAPIER__CONTIENT);
-
 		documentEClass = createEClass(DOCUMENT);
 		createEAttribute(documentEClass, DOCUMENT__NAME);
 		createEAttribute(documentEClass, DOCUMENT__FORMAT);
-		createEReference(documentEClass, DOCUMENT__PRESSE_PAPIER);
+		createEReference(documentEClass, DOCUMENT__RACINE);
+		createEAttribute(documentEClass, DOCUMENT__CURRENT_SECTION_TITLE);
+		createEAttribute(documentEClass, DOCUMENT__CURRENT_SECTION_TEXT);
 
 		documentBuilderEClass = createEClass(DOCUMENT_BUILDER);
 		createEReference(documentBuilderEClass, DOCUMENT_BUILDER__DOCUMENT);
@@ -419,14 +410,14 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 		// Initialize classes and features; add operations and parameters
 		initEClass(sectionComponentEClass, SectionComponent.class, "SectionComponent", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		addEOperation(sectionComponentEClass, ecorePackage.getEString(), "getName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(sectionComponentEClass, ecorePackage.getEString(), "getText", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(sectionComponentEClass, ecorePackage.getEString(), "getTitle", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(sectionCompositeEClass, SectionComposite.class, "SectionComposite", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSectionComposite_SectionComponentList(), this.getSectionComponent(), null, "sectionComponentList", null, 0, -1, SectionComposite.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSectionComposite_Title(), ecorePackage.getEString(), "title", null, 0, 1, SectionComposite.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSectionComposite_Name(), ecorePackage.getEString(), "name", null, 0, 1, SectionComposite.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSectionComposite_Title(), ecorePackage.getEString(), "title", "Section 1", 0, 1, SectionComposite.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSectionComposite_Text(), ecorePackage.getEString(), "text", "\"\"", 0, 1, SectionComposite.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = addEOperation(sectionCompositeEClass, null, "remove", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getSectionComponent(), "sectionComponent", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -438,16 +429,15 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 		addEParameter(op, ecorePackage.getEInt(), "index", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(sectionEClass, Section.class, "Section", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSection_Title(), ecorePackage.getEString(), "title", null, 0, 1, Section.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSection_Text(), ecorePackage.getEString(), "text", null, 0, 1, Section.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(pressePapierEClass, PressePapier.class, "PressePapier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPressePapier_Contient(), this.getSectionComponent(), null, "contient", null, 0, 1, PressePapier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSection_Title(), ecorePackage.getEString(), "title", "\"Section 1\"", 0, 1, Section.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSection_Text(), ecorePackage.getEString(), "text", "\"\"", 0, 1, Section.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(documentEClass, Document.class, "Document", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDocument_Name(), ecorePackage.getEString(), "name", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDocument_Format(), ecorePackage.getEString(), "format", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDocument_PressePapier(), this.getPressePapier(), null, "pressePapier", null, 1, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDocument_Racine(), this.getSectionComponent(), null, "racine", null, 1, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDocument_CurrentSectionTitle(), ecorePackage.getEString(), "currentSectionTitle", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDocument_CurrentSectionText(), ecorePackage.getEString(), "currentSectionText", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(documentBuilderEClass, DocumentBuilder.class, "DocumentBuilder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDocumentBuilder_Document(), this.getDocument(), null, "document", null, 1, 1, DocumentBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

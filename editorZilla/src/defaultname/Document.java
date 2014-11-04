@@ -13,7 +13,9 @@ package defaultname;
  * <ul>
  *   <li>{@link defaultname.Document#getName <em>Name</em>}</li>
  *   <li>{@link defaultname.Document#getFormat <em>Format</em>}</li>
- *   <li>{@link defaultname.Document#getPressePapier <em>Presse Papier</em>}</li>
+ *   <li>{@link defaultname.Document#getRacine <em>Racine</em>}</li>
+ *   <li>{@link defaultname.Document#getCurrentSectionTitle <em>Current Section Title</em>}</li>
+ *   <li>{@link defaultname.Document#getCurrentSectionText <em>Current Section Text</em>}</li>
  * </ul>
  * </p>
  *
@@ -75,29 +77,81 @@ public interface Document extends DocumentBuilder, DocumentStrategy {
 	void setFormat(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Presse Papier</b></em>' reference.
+	 * Returns the value of the '<em><b>Racine</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Presse Papier</em>' reference isn't clear,
+	 * If the meaning of the '<em>Racine</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Presse Papier</em>' reference.
-	 * @see #setPressePapier(PressePapier)
-	 * @see defaultname.DefaultnamePackage#getDocument_PressePapier()
+	 * @return the value of the '<em>Racine</em>' reference.
+	 * @see #setRacine(SectionComponent)
+	 * @see defaultname.DefaultnamePackage#getDocument_Racine()
 	 * @model required="true"
 	 * @generated
 	 */
-	PressePapier getPressePapier();
+	SectionComponent getRacine();
 
 	/**
-	 * Sets the value of the '{@link defaultname.Document#getPressePapier <em>Presse Papier</em>}' reference.
+	 * Sets the value of the '{@link defaultname.Document#getRacine <em>Racine</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Presse Papier</em>' reference.
-	 * @see #getPressePapier()
+	 * @param value the new value of the '<em>Racine</em>' reference.
+	 * @see #getRacine()
 	 * @generated
 	 */
-	void setPressePapier(PressePapier value);
+	void setRacine(SectionComponent value);
+
+	/**
+	 * Returns the value of the '<em><b>Current Section Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Current Section Title</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Current Section Title</em>' attribute.
+	 * @see #setCurrentSectionTitle(String)
+	 * @see defaultname.DefaultnamePackage#getDocument_CurrentSectionTitle()
+	 * @model
+	 * @generated
+	 */
+	String getCurrentSectionTitle();
+
+	/**
+	 * Sets the value of the '{@link defaultname.Document#getCurrentSectionTitle <em>Current Section Title</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Current Section Title</em>' attribute.
+	 * @see #getCurrentSectionTitle()
+	 * @generated
+	 */
+	void setCurrentSectionTitle(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Current Section Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Current Section Text</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Current Section Text</em>' attribute.
+	 * @see #setCurrentSectionText(String)
+	 * @see defaultname.DefaultnamePackage#getDocument_CurrentSectionText()
+	 * @model
+	 * @generated
+	 */
+	String getCurrentSectionText();
+
+	/**
+	 * Sets the value of the '{@link defaultname.Document#getCurrentSectionText <em>Current Section Text</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Current Section Text</em>' attribute.
+	 * @see #getCurrentSectionText()
+	 * @generated
+	 */
+	void setCurrentSectionText(String value);
 
 } // Document

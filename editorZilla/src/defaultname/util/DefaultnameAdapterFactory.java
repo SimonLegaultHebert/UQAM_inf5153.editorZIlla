@@ -80,10 +80,6 @@ public class DefaultnameAdapterFactory extends AdapterFactoryImpl {
 				return createSectionAdapter();
 			}
 			@Override
-			public Adapter casePressePapier(PressePapier object) {
-				return createPressePapierAdapter();
-			}
-			@Override
 			public Adapter caseDocument(Document object) {
 				return createDocumentAdapter();
 			}
@@ -158,20 +154,6 @@ public class DefaultnameAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSectionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link defaultname.PressePapier <em>Presse Papier</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see defaultname.PressePapier
-	 * @generated
-	 */
-	public Adapter createPressePapierAdapter() {
 		return null;
 	}
 

@@ -43,7 +43,7 @@ public abstract class SectionComponentImpl extends EObjectImpl implements Sectio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getName() {
+	public String getText() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
