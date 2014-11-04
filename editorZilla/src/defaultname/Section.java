@@ -23,7 +23,7 @@ package defaultname;
 public interface Section extends SectionComponent {
 	/**
 	 * Returns the value of the '<em><b>Title</b></em>' attribute.
-	 * The default value is <code>"\"Section 1\""</code>.
+	 * The default value is <code>"Section 1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Title</em>' attribute isn't clear,
@@ -33,7 +33,7 @@ public interface Section extends SectionComponent {
 	 * @return the value of the '<em>Title</em>' attribute.
 	 * @see #setTitle(String)
 	 * @see defaultname.DefaultnamePackage#getSection_Title()
-	 * @model default="\"Section 1\""
+	 * @model default="Section 1"
 	 * @generated
 	 */
 	String getTitle();
@@ -50,7 +50,7 @@ public interface Section extends SectionComponent {
 
 	/**
 	 * Returns the value of the '<em><b>Text</b></em>' attribute.
-	 * The default value is <code>"\"\""</code>.
+	 * The default value is <code>""</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Text</em>' attribute isn't clear,
@@ -60,7 +60,7 @@ public interface Section extends SectionComponent {
 	 * @return the value of the '<em>Text</em>' attribute.
 	 * @see #setText(String)
 	 * @see defaultname.DefaultnamePackage#getSection_Text()
-	 * @model default="\"\""
+	 * @model default=""
 	 * @generated
 	 */
 	String getText();

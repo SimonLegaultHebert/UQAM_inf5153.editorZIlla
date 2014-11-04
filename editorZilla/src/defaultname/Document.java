@@ -154,4 +154,12 @@ public interface Document extends DocumentBuilder, DocumentStrategy {
 	 */
 	void setCurrentSectionText(String value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	SectionComponent getSectionComponent();
+
 } // Document

@@ -68,7 +68,7 @@ public interface SectionComposite extends SectionComponent {
 
 	/**
 	 * Returns the value of the '<em><b>Text</b></em>' attribute.
-	 * The default value is <code>"\"\""</code>.
+	 * The default value is <code>""</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Text</em>' attribute isn't clear,
@@ -78,7 +78,7 @@ public interface SectionComposite extends SectionComponent {
 	 * @return the value of the '<em>Text</em>' attribute.
 	 * @see #setText(String)
 	 * @see defaultname.DefaultnamePackage#getSectionComposite_Text()
-	 * @model default="\"\""
+	 * @model default=""
 	 * @generated
 	 */
 	String getText();

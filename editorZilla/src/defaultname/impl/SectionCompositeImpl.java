@@ -72,7 +72,7 @@ public class SectionCompositeImpl extends SectionComponentImpl implements Sectio
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TEXT_EDEFAULT = "\"\"";
+	protected static final String TEXT_EDEFAULT = "";
 
 	/**
 	 * The cached value of the '{@link #getText() <em>Text</em>}' attribute.
@@ -174,6 +174,7 @@ public class SectionCompositeImpl extends SectionComponentImpl implements Sectio
 	 * @generated NOT
 	 */
 	public void add(SectionComponent sectionComponent) {
+		getSectionComponentList();
 		sectionComponentList.add(sectionComponent);
 	}
 
@@ -275,19 +276,11 @@ public class SectionCompositeImpl extends SectionComponentImpl implements Sectio
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (title: ");
-		result.append(title);
-		result.append(", text: ");
-		result.append(text);
-		result.append(')');
-		return result.toString();
+		return title;
 	}
 
 } //SectionCompositeImpl
