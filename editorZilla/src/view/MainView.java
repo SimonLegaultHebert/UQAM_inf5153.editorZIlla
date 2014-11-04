@@ -111,7 +111,6 @@ public class MainView extends javax.swing.JFrame {
 
     private void addSubSectionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSubSectionButtonActionPerformed
 
-    	
         TreeSelectionModel selectionModel = jTree.getSelectionModel();
         TreePath selectionPath = selectionModel.getSelectionPath();
         char sectionNumberChar = selectionPath.toString().charAt(selectionPath.toString().length() - 2);

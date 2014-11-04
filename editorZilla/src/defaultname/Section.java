@@ -23,7 +23,7 @@ package defaultname;
 public interface Section extends SectionComponent {
 	/**
 	 * Returns the value of the '<em><b>Title</b></em>' attribute.
-	 * The default value is <code>"Section 1"</code>.
+	 * The default value is <code>"Sous-Section"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Title</em>' attribute isn't clear,
@@ -33,7 +33,7 @@ public interface Section extends SectionComponent {
 	 * @return the value of the '<em>Title</em>' attribute.
 	 * @see #setTitle(String)
 	 * @see defaultname.DefaultnamePackage#getSection_Title()
-	 * @model default="Section 1"
+	 * @model default="Sous-Section"
 	 * @generated
 	 */
 	String getTitle();

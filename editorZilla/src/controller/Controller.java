@@ -35,7 +35,8 @@ public class Controller {
 		SectionComposite racine = (SectionComposite)documentBuilder.getDocument().getRacine();
 		SectionComposite newSection = DefaultnameFactory.eINSTANCE.createSectionComposite();
 		racine.add(newSection);
-		newSection.setTitle("Section " + racine.getSectionComponentList().size());
+		newSection.setTitle(newSection.getTitle() + " " + racine.getSectionComponentList().size());
+		System.out.println(racine.getSectionComponentList().size());
 		return newSection;	
 	}
 	
@@ -45,7 +46,7 @@ public class Controller {
 		EList<SectionComponent> sectionComponentList = racine.getSectionComponentList();
 		SectionComposite childSection = (SectionComposite)sectionComponentList.get(sectionNumber - 1);
 		childSection.add(newSubSection);	
-		newSubSection.setTitle(childSection.getTitle() + "-" + childSection.getSectionComponentList().size());
+		newSubSection.setTitle(newSubSection.getTitle() + " " + sectionNumber + "-" + childSection.getSectionComponentList().size());
 		return newSubSection;
 	}
 	

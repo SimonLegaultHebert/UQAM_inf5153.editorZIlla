@@ -52,7 +52,7 @@ public class SectionCompositeImpl extends SectionComponentImpl implements Sectio
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TITLE_EDEFAULT = "Section 1";
+	protected static final String TITLE_EDEFAULT = "Section";
 
 	/**
 	 * The cached value of the '{@link #getTitle() <em>Title</em>}' attribute.
