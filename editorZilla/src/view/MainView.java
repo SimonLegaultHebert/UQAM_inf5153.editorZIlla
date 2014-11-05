@@ -28,6 +28,8 @@ public class MainView extends javax.swing.JFrame {
      */
 
     private Controller controller;
+    private final int LEFT_CLICK = 1;
+    private final int RIGHT_CLICK = 3;
     
     public MainView(Controller controller) {
         initComponents();
@@ -49,6 +51,11 @@ public class MainView extends javax.swing.JFrame {
         jTextArea = new javax.swing.JTextArea();
         addSubSectionButton = new javax.swing.JButton();
         addSectionButton = new javax.swing.JButton();
+        
+        jTreePopupMenu = new javax.swing.JPopupMenu();
+        addSectionMenuItem = new javax.swing.JMenuItem();
+        addSubSectionMenuItem = new javax.swing.JMenuItem();
+        deleteMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,22 +73,32 @@ public class MainView extends javax.swing.JFrame {
         jTextArea.setColumns(20);
         jTextArea.setRows(5);
         jScrollPane2.setViewportView(jTextArea);
-
-        addSubSectionButton.setText("add SubSection");
-        addSubSectionButton.setActionCommand("add SubSection");
-        addSubSectionButton.addActionListener(new java.awt.event.ActionListener() {
+        
+        
+        addSectionMenuItem.setText("add Section");
+        addSectionMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addSubSectionButtonActionPerformed(evt);
+                addSectionMenuItemActionPerformed(evt);
             }
         });
+        jTreePopupMenu.add(addSectionMenuItem);
 
-        addSectionButton.setText("add Section");
-        addSectionButton.addActionListener(new java.awt.event.ActionListener() {
+        addSubSectionMenuItem.setText("add SubSection");
+        addSubSectionMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addSectionButtonActionPerformed(evt);
+                addSubSectionMenuItemActionPerformed(evt);
             }
         });
+        jTreePopupMenu.add(addSubSectionMenuItem);
 
+        deleteMenuItem.setText("delete");
+        deleteMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteMenuItemActionPerformed(evt);
+            }
+        });
+        jTreePopupMenu.add(deleteMenuItem);
+        
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -116,53 +133,65 @@ public class MainView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+    private void addSectionMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                                   
+    	DefaultTreeModel model = (DefaultTreeModel) jTree.getModel();
+        DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
+        root.add(new DefaultMutableTreeNode(controller.addSection()));
+        model.reload(root);  
+    }                                                  
 
-    private void addSubSectionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSubSectionButtonActionPerformed
+    private void addSubSectionMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                                      
+    	TreeSelectionModel selectionModel = jTree.getSelectionModel();
+        TreePath selectionPath = selectionModel.getSelectionPath();
+        char sectionNumberChar = selectionPath.toString().charAt(selectionPath.toString().length() - 2);
+        int sectionNumber = (int)sectionNumberChar - 48;
+        DefaultMutableTreeNode child = (DefaultMutableTreeNode)selectionPath.getLastPathComponent();
+        DefaultTreeModel model = (DefaultTreeModel) jTree.getModel();
+        child.add(new DefaultMutableTreeNode(controller.addSubSection(sectionNumber)));
+        model.reload(child);
+    }                                                     
 
-       TreeSelectionModel selectionModel = jTree.getSelectionModel();
-       TreePath selectionPath = selectionModel.getSelectionPath();
-       char sectionNumberChar = selectionPath.toString().charAt(selectionPath.toString().length() - 2);
-       int sectionNumber = (int)sectionNumberChar - 48;
-       DefaultMutableTreeNode child = (DefaultMutableTreeNode)selectionPath.getLastPathComponent();
-       DefaultTreeModel model = (DefaultTreeModel) jTree.getModel();
-       child.add(new DefaultMutableTreeNode(controller.addSubSection(sectionNumber)));
-       model.reload(child);
-
-    }//GEN-LAST:event_addSubSectionButtonActionPerformed
-
-    private void addSectionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSectionButtonActionPerformed
-     
-      DefaultTreeModel model = (DefaultTreeModel) jTree.getModel();
-      DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
-      root.add(new DefaultMutableTreeNode(controller.addSection()));
-      model.reload(root);       
-      
-    }//GEN-LAST:event_addSectionButtonActionPerformed
+    private void deleteMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                               
+        System.out.println("IMPLÉMENTEZ LE DELETE!");
+    }   
     
     private void jTreeMouseClicked(java.awt.event.MouseEvent evt) {                                    
         
     	TreeSelectionModel selectionModel = jTree.getSelectionModel();
         String selectionPathString = selectionModel.getSelectionPath().toString();
 
-        //je vais faire une méthode soon avec des regex ou some shit
-        String[] sectionPathSplit = selectionPathString.split(",");
-        //il s'agit d'une section sans sous-section
-        String sectionPathInfo = "";
-        String subSectionPathInfo = "";
-        String content = "";
-        if(sectionPathSplit.length == 2){
-        	sectionPathInfo = sectionPathSplit[1];
-        	int sectionNumber = sectionPathInfo.charAt(sectionPathInfo.length() - 2) - 48;
-        	content = controller.getContent(sectionNumber);       	
-        }else{
-        	sectionPathInfo = sectionPathSplit[1];
-        	int sectionNumber = sectionPathInfo.charAt(sectionPathInfo.length() - 1) - 48;
-        	subSectionPathInfo = sectionPathSplit[2];
-        	int subSectionNumber = subSectionPathInfo.charAt(subSectionPathInfo.length() - 2) - 48;
-        	content = controller.getContent(sectionNumber, subSectionNumber);
+        if(evt.getButton() == LEFT_CLICK){
+        
+          //je vais faire une méthode soon avec des regex ou some shit
+          String[] sectionPathSplit = selectionPathString.split(",");
+          //il s'agit d'une section sans sous-section
+          String sectionPathInfo = "";
+          String subSectionPathInfo = "";
+          String content = "";
+          if(sectionPathSplit.length == 2){
+          	sectionPathInfo = sectionPathSplit[1];
+          	int sectionNumber = sectionPathInfo.charAt(sectionPathInfo.length() - 2) - 48;
+          	content = controller.getContent(sectionNumber);       	
+          }else{
+          	sectionPathInfo = sectionPathSplit[1];
+          	int sectionNumber = sectionPathInfo.charAt(sectionPathInfo.length() - 1) - 48;
+          	subSectionPathInfo = sectionPathSplit[2];
+          	int subSectionNumber = subSectionPathInfo.charAt(subSectionPathInfo.length() - 2) - 48;
+          	content = controller.getContent(sectionNumber, subSectionNumber);
+          }
+          jTextArea.setText(content);
+        	
+        }else if(evt.getButton() == RIGHT_CLICK){
+        
+        	jTreePopupMenu.show(this, evt.getX(), evt.getY());
+        	
         }
+        
+        
+
            
-    	jTextArea.setText(content);
+    	
     }
 
     /**
@@ -209,6 +238,10 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea;
     private javax.swing.JTree jTree;
+    private javax.swing.JPopupMenu jTreePopupMenu;
+    private javax.swing.JMenuItem addSectionMenuItem;
+    private javax.swing.JMenuItem addSubSectionMenuItem;
+    private javax.swing.JMenuItem deleteMenuItem;
     // End of variables declaration//GEN-END:variables
 
   
