@@ -187,6 +187,15 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSectionComposite_Id() {
+		return (EAttribute)sectionCompositeEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSection() {
 		return sectionEClass;
 	}
@@ -207,6 +216,15 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 	 */
 	public EAttribute getSection_Text() {
 		return (EAttribute)sectionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSection_Id() {
+		return (EAttribute)sectionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -351,10 +369,12 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 		createEReference(sectionCompositeEClass, SECTION_COMPOSITE__SECTION_COMPONENT_LIST);
 		createEAttribute(sectionCompositeEClass, SECTION_COMPOSITE__TITLE);
 		createEAttribute(sectionCompositeEClass, SECTION_COMPOSITE__TEXT);
+		createEAttribute(sectionCompositeEClass, SECTION_COMPOSITE__ID);
 
 		sectionEClass = createEClass(SECTION);
 		createEAttribute(sectionEClass, SECTION__TITLE);
 		createEAttribute(sectionEClass, SECTION__TEXT);
+		createEAttribute(sectionEClass, SECTION__ID);
 
 		documentEClass = createEClass(DOCUMENT);
 		createEAttribute(documentEClass, DOCUMENT__NAME);
@@ -414,10 +434,13 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 
 		addEOperation(sectionComponentEClass, ecorePackage.getEString(), "getTitle", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		addEOperation(sectionComponentEClass, ecorePackage.getEString(), "getId", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(sectionCompositeEClass, SectionComposite.class, "SectionComposite", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSectionComposite_SectionComponentList(), this.getSectionComponent(), null, "sectionComponentList", null, 0, -1, SectionComposite.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSectionComposite_Title(), ecorePackage.getEString(), "title", "Section", 0, 1, SectionComposite.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSectionComposite_Text(), ecorePackage.getEString(), "text", "", 0, 1, SectionComposite.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSectionComposite_Id(), ecorePackage.getEString(), "id", null, 0, 1, SectionComposite.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = addEOperation(sectionCompositeEClass, null, "remove", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getSectionComponent(), "sectionComponent", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -431,6 +454,7 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 		initEClass(sectionEClass, Section.class, "Section", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSection_Title(), ecorePackage.getEString(), "title", "Sous-Section", 0, 1, Section.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSection_Text(), ecorePackage.getEString(), "text", "", 0, 1, Section.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSection_Id(), ecorePackage.getEString(), "id", null, 0, 1, Section.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(documentEClass, Document.class, "Document", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDocument_Name(), ecorePackage.getEString(), "name", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

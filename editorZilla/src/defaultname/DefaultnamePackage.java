@@ -112,13 +112,22 @@ public interface DefaultnamePackage extends EPackage {
 	int SECTION_COMPOSITE__TEXT = SECTION_COMPONENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECTION_COMPOSITE__ID = SECTION_COMPONENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Section Composite</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECTION_COMPOSITE_FEATURE_COUNT = SECTION_COMPONENT_FEATURE_COUNT + 3;
+	int SECTION_COMPOSITE_FEATURE_COUNT = SECTION_COMPONENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link defaultname.impl.SectionImpl <em>Section</em>}' class.
@@ -149,13 +158,22 @@ public interface DefaultnamePackage extends EPackage {
 	int SECTION__TEXT = SECTION_COMPONENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECTION__ID = SECTION_COMPONENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Section</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECTION_FEATURE_COUNT = SECTION_COMPONENT_FEATURE_COUNT + 2;
+	int SECTION_FEATURE_COUNT = SECTION_COMPONENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link defaultname.impl.DocumentBuilderImpl <em>Document Builder</em>}' class.
@@ -387,6 +405,17 @@ public interface DefaultnamePackage extends EPackage {
 	EAttribute getSectionComposite_Text();
 
 	/**
+	 * Returns the meta object for the attribute '{@link defaultname.SectionComposite#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see defaultname.SectionComposite#getId()
+	 * @see #getSectionComposite()
+	 * @generated
+	 */
+	EAttribute getSectionComposite_Id();
+
+	/**
 	 * Returns the meta object for class '{@link defaultname.Section <em>Section</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -417,6 +446,17 @@ public interface DefaultnamePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSection_Text();
+
+	/**
+	 * Returns the meta object for the attribute '{@link defaultname.Section#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see defaultname.Section#getId()
+	 * @see #getSection()
+	 * @generated
+	 */
+	EAttribute getSection_Id();
 
 	/**
 	 * Returns the meta object for class '{@link defaultname.Document <em>Document</em>}'.
@@ -613,6 +653,14 @@ public interface DefaultnamePackage extends EPackage {
 		EAttribute SECTION_COMPOSITE__TEXT = eINSTANCE.getSectionComposite_Text();
 
 		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SECTION_COMPOSITE__ID = eINSTANCE.getSectionComposite_Id();
+
+		/**
 		 * The meta object literal for the '{@link defaultname.impl.SectionImpl <em>Section</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -637,6 +685,14 @@ public interface DefaultnamePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SECTION__TEXT = eINSTANCE.getSection_Text();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SECTION__ID = eINSTANCE.getSection_Id();
 
 		/**
 		 * The meta object literal for the '{@link defaultname.impl.DocumentImpl <em>Document</em>}' class.

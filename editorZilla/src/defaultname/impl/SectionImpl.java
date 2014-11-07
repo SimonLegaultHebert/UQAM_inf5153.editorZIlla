@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link defaultname.impl.SectionImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link defaultname.impl.SectionImpl#getText <em>Text</em>}</li>
+ *   <li>{@link defaultname.impl.SectionImpl#getId <em>Id</em>}</li>
  * </ul>
  * </p>
  *
@@ -65,6 +66,26 @@ public class SectionImpl extends SectionComponentImpl implements Section {
 	 * @ordered
 	 */
 	protected String text = TEXT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String id = ID_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -132,6 +153,27 @@ public class SectionImpl extends SectionComponentImpl implements Section {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getId() {
+		return id;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setId(String newId) {
+		String oldId = id;
+		id = newId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DefaultnamePackage.SECTION__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -139,6 +181,8 @@ public class SectionImpl extends SectionComponentImpl implements Section {
 				return getTitle();
 			case DefaultnamePackage.SECTION__TEXT:
 				return getText();
+			case DefaultnamePackage.SECTION__ID:
+				return getId();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -156,6 +200,9 @@ public class SectionImpl extends SectionComponentImpl implements Section {
 				return;
 			case DefaultnamePackage.SECTION__TEXT:
 				setText((String)newValue);
+				return;
+			case DefaultnamePackage.SECTION__ID:
+				setId((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -175,6 +222,9 @@ public class SectionImpl extends SectionComponentImpl implements Section {
 			case DefaultnamePackage.SECTION__TEXT:
 				setText(TEXT_EDEFAULT);
 				return;
+			case DefaultnamePackage.SECTION__ID:
+				setId(ID_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -191,6 +241,8 @@ public class SectionImpl extends SectionComponentImpl implements Section {
 				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
 			case DefaultnamePackage.SECTION__TEXT:
 				return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
+			case DefaultnamePackage.SECTION__ID:
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 		}
 		return super.eIsSet(featureID);
 	}

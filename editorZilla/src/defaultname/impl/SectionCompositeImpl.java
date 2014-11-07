@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link defaultname.impl.SectionCompositeImpl#getSectionComponentList <em>Section Component List</em>}</li>
  *   <li>{@link defaultname.impl.SectionCompositeImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link defaultname.impl.SectionCompositeImpl#getText <em>Text</em>}</li>
+ *   <li>{@link defaultname.impl.SectionCompositeImpl#getId <em>Id</em>}</li>
  * </ul>
  * </p>
  *
@@ -83,6 +84,26 @@ public class SectionCompositeImpl extends SectionComponentImpl implements Sectio
 	 * @ordered
 	 */
 	protected String text = TEXT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String id = ID_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -160,6 +181,27 @@ public class SectionCompositeImpl extends SectionComponentImpl implements Sectio
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getId() {
+		return id;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setId(String newId) {
+		String oldId = id;
+		id = newId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DefaultnamePackage.SECTION_COMPOSITE__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public void remove(SectionComponent sectionComponent) {
@@ -207,6 +249,8 @@ public class SectionCompositeImpl extends SectionComponentImpl implements Sectio
 				return getTitle();
 			case DefaultnamePackage.SECTION_COMPOSITE__TEXT:
 				return getText();
+			case DefaultnamePackage.SECTION_COMPOSITE__ID:
+				return getId();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -230,6 +274,9 @@ public class SectionCompositeImpl extends SectionComponentImpl implements Sectio
 			case DefaultnamePackage.SECTION_COMPOSITE__TEXT:
 				setText((String)newValue);
 				return;
+			case DefaultnamePackage.SECTION_COMPOSITE__ID:
+				setId((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -251,6 +298,9 @@ public class SectionCompositeImpl extends SectionComponentImpl implements Sectio
 			case DefaultnamePackage.SECTION_COMPOSITE__TEXT:
 				setText(TEXT_EDEFAULT);
 				return;
+			case DefaultnamePackage.SECTION_COMPOSITE__ID:
+				setId(ID_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -269,6 +319,8 @@ public class SectionCompositeImpl extends SectionComponentImpl implements Sectio
 				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
 			case DefaultnamePackage.SECTION_COMPOSITE__TEXT:
 				return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
+			case DefaultnamePackage.SECTION_COMPOSITE__ID:
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 		}
 		return super.eIsSet(featureID);
 	}

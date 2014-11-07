@@ -16,6 +16,10 @@
         <element xmi:type="ecore:EOperation" href="editorZilla.ecore#//SectionComponent/getTitle"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_pHn3sWOzEeSFRviR_rCwEQ"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_zP24cGbTEeSw5N89fZr_Hg" type="2002">
+        <element xmi:type="ecore:EOperation" href="editorZilla.ecore#//SectionComponent/getId"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_zP24cWbTEeSw5N89fZr_Hg"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_pHmplmOzEeSFRviR_rCwEQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_pHmpl2OzEeSFRviR_rCwEQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_pHnQoGOzEeSFRviR_rCwEQ"/>
@@ -34,6 +38,10 @@
       <children xmi:type="notation:Node" xmi:id="_pHps4mOzEeSFRviR_rCwEQ" type="2001">
         <element xmi:type="ecore:EAttribute" href="editorZilla.ecore#//SectionComposite/text"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_pHps42OzEeSFRviR_rCwEQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_oF9y4GbTEeSw5N89fZr_Hg" type="2001">
+        <element xmi:type="ecore:EAttribute" href="editorZilla.ecore#//SectionComposite/id"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_oF9y4WbTEeSw5N89fZr_Hg"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_pHpF0WOzEeSFRviR_rCwEQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_pHpF0mOzEeSFRviR_rCwEQ"/>
@@ -70,6 +78,10 @@
       <children xmi:type="notation:Node" xmi:id="_pHtXQmOzEeSFRviR_rCwEQ" type="2001">
         <element xmi:type="ecore:EAttribute" href="editorZilla.ecore#//Section/text"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_pHtXQ2OzEeSFRviR_rCwEQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_xLt2cGbTEeSw5N89fZr_Hg" type="2001">
+        <element xmi:type="ecore:EAttribute" href="editorZilla.ecore#//Section/id"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_xLt2cWbTEeSw5N89fZr_Hg"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_pHswMWOzEeSFRviR_rCwEQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_pHswMmOzEeSFRviR_rCwEQ"/>

@@ -31,4 +31,12 @@ public interface SectionComponent extends EObject {
 	 */
 	String getTitle();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	String getId();
+
 } // SectionComponent

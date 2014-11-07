@@ -7,11 +7,13 @@
     <genClasses image="false" ecoreClass="editorZilla.ecore#//SectionComponent">
       <genOperations ecoreOperation="editorZilla.ecore#//SectionComponent/getText"/>
       <genOperations ecoreOperation="editorZilla.ecore#//SectionComponent/getTitle"/>
+      <genOperations ecoreOperation="editorZilla.ecore#//SectionComponent/getId"/>
     </genClasses>
     <genClasses ecoreClass="editorZilla.ecore#//SectionComposite">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference editorZilla.ecore#//SectionComposite/sectionComponentList"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editorZilla.ecore#//SectionComposite/title"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editorZilla.ecore#//SectionComposite/text"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editorZilla.ecore#//SectionComposite/id"/>
       <genOperations ecoreOperation="editorZilla.ecore#//SectionComposite/remove">
         <genParameters ecoreParameter="editorZilla.ecore#//SectionComposite/remove/sectionComponent"/>
       </genOperations>
@@ -25,6 +27,7 @@
     <genClasses ecoreClass="editorZilla.ecore#//Section">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editorZilla.ecore#//Section/title"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editorZilla.ecore#//Section/text"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editorZilla.ecore#//Section/id"/>
     </genClasses>
     <genClasses ecoreClass="editorZilla.ecore#//Document">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editorZilla.ecore#//Document/name"/>
