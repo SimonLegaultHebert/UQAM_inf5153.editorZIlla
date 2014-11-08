@@ -53,7 +53,7 @@ public class XMLStrategyImpl extends EObjectImpl implements XMLStrategy {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void save(Document document) {
 		// TODO: implement this method

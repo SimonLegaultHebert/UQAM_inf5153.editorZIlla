@@ -67,5 +67,5 @@
       <eParameters name="document" eType="#//Document"/>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="XMLStrategy" eSuperTypes="#//DocumentStrategy"/>
+  <eClassifiers xsi:type="ecore:EClass" name="XMIStrategy" eSuperTypes="#//DocumentStrategy"/>
 </ecore:EPackage>

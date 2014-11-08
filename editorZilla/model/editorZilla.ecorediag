@@ -205,7 +205,7 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_pHxouGOzEeSFRviR_rCwEQ"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_pHxBqWOzEeSFRviR_rCwEQ" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
-    <element xmi:type="ecore:EClass" href="editorZilla.ecore#//XMLStrategy"/>
+    <element xmi:type="ecore:EClass" href="editorZilla.ecore#//XMIStrategy"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pHxBqmOzEeSFRviR_rCwEQ" x="732" y="128"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_pHkNUWOzEeSFRviR_rCwEQ"/>

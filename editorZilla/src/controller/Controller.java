@@ -1,6 +1,20 @@
 package controller;
 
+import java.io.IOException;
+import java.util.Collections;
+import java.util.Map;
+
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import defaultname.*;
 
@@ -88,6 +102,42 @@ public class Controller {
 				}
 			}
 		}
+	}
+	
+	public void save(){
+        	
+     	Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
+        Map<String, Object> m = reg.getExtensionToFactoryMap();
+        m.put("website", new XMIResourceFactoryImpl());
+
+        // Obtain a new resource set
+        ResourceSet resSet = new ResourceSetImpl();
+
+        // create a resource
+        Resource resource = resSet.createResource(URI
+            .createURI("website/My2.website"));
+        // Get the first model element and cast it to the right type, in my
+        // example everything is hierarchical included in this first node
+        
+        EList<SectionComponent> sectionComponentList = racine.getSectionComponentList();
+        for(SectionComponent sectionComponent : sectionComponentList){
+        
+        	SectionComposite section = (SectionComposite)sectionComponent;
+        	resource.getContents().add(section);
+        	
+        	EList<SectionComponent> subSectionComponentList = section.getSectionComponentList();
+        	for(SectionComponent subSectionComponent : subSectionComponentList){
+        		Section subSection = (Section)subSectionComponent;
+        		resource.getContents().add(subSection);
+        	}
+        }
+        // now save the content.
+        try {       
+          resource.save(Collections.EMPTY_MAP);       
+        } catch (IOException e) {
+          // TODO Auto-generated catch block
+          e.printStackTrace();
+       } 
 	}
 	
 	

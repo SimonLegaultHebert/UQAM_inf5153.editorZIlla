@@ -157,17 +157,18 @@ public class MainView extends javax.swing.JFrame {
 
     private void deleteMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                               
         System.out.println("IMPLÉMENTEZ LE DELETE!");
+        System.out.println("À titre de test le bouton delete utilise le save()");
+        controller.save();
     }   
     
     private void jTreeMouseClicked(java.awt.event.MouseEvent evt) {                                    
         
-    	System.out.println("Last node used " + lastNodeUsed);
+    	//on save le texte du dernier node utilisé dans le tree
     	if(lastNodeUsed != null){
     		if(!lastNodeUsed.getUserObject().getClass().toString().equals("class java.lang.String")){
     			SectionComponent sectionComponent = (SectionComponent)lastNodeUsed.getUserObject();
     			controller.saveText(sectionComponent.getId(), jTextArea.getText());
     		}
-    		System.out.println(lastNodeUsed.getUserObject().getClass());
     	}
     	TreeSelectionModel selectionModel = jTree.getSelectionModel();
     	TreePath selectionPath = selectionModel.getSelectionPath();
@@ -184,19 +185,13 @@ public class MainView extends javax.swing.JFrame {
             	
             }catch(Exception e){
             	System.out.println("Petit bug à fix, le root va devoir être un SectionComposite et non une String");
-            }
-            
-          
+            }        
         	
         }else if(evt.getButton() == RIGHT_CLICK){
         
         	jTreePopupMenu.show(this, evt.getX(), evt.getY());
         	
-        }
-        
-        
-
-           
+        }        
     	
     }
 
