@@ -16,6 +16,8 @@ import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
 
 import controller.Controller;
+import defaultname.SectionComponent;
+import defaultname.SectionComposite;
 
 /**
  *
@@ -30,6 +32,7 @@ public class MainView extends javax.swing.JFrame {
     private Controller controller;
     private final int LEFT_CLICK = 1;
     private final int RIGHT_CLICK = 3;
+    private DefaultMutableTreeNode lastNodeUsed; //va servir pour sauvegarder le texte dans les sections et sous-sections
     
     public MainView(Controller controller) {
         initComponents();
@@ -144,12 +147,12 @@ public class MainView extends javax.swing.JFrame {
     private void addSubSectionMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                                      
     	TreeSelectionModel selectionModel = jTree.getSelectionModel();
         TreePath selectionPath = selectionModel.getSelectionPath();
-        char sectionNumberChar = selectionPath.toString().charAt(selectionPath.toString().length() - 2);
-        int sectionNumber = (int)sectionNumberChar - 48;
-        DefaultMutableTreeNode child = (DefaultMutableTreeNode)selectionPath.getLastPathComponent();
+        DefaultMutableTreeNode node = (DefaultMutableTreeNode)selectionPath.getLastPathComponent();
         DefaultTreeModel model = (DefaultTreeModel) jTree.getModel();
-        child.add(new DefaultMutableTreeNode(controller.addSubSection(sectionNumber)));
-        model.reload(child);
+        SectionComposite section = (SectionComposite)node.getUserObject();
+
+        node.add(new DefaultMutableTreeNode(controller.addSubSection(section.getId())));
+        model.reload(node);
     }                                                     
 
     private void deleteMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                               
@@ -158,29 +161,32 @@ public class MainView extends javax.swing.JFrame {
     
     private void jTreeMouseClicked(java.awt.event.MouseEvent evt) {                                    
         
+    	System.out.println("Last node used " + lastNodeUsed);
+    	if(lastNodeUsed != null){
+    		if(!lastNodeUsed.getUserObject().getClass().toString().equals("class java.lang.String")){
+    			SectionComponent sectionComponent = (SectionComponent)lastNodeUsed.getUserObject();
+    			controller.saveText(sectionComponent.getId(), jTextArea.getText());
+    		}
+    		System.out.println(lastNodeUsed.getUserObject().getClass());
+    	}
     	TreeSelectionModel selectionModel = jTree.getSelectionModel();
-        String selectionPathString = selectionModel.getSelectionPath().toString();
-
+    	TreePath selectionPath = selectionModel.getSelectionPath();
+    	DefaultMutableTreeNode node = (DefaultMutableTreeNode)selectionPath.getLastPathComponent();
+    	
+    	lastNodeUsed = node;
+    	
         if(evt.getButton() == LEFT_CLICK){
-        
-          //je vais faire une méthode soon avec des regex ou some shit
-          String[] sectionPathSplit = selectionPathString.split(",");
-          //il s'agit d'une section sans sous-section
-          String sectionPathInfo = "";
-          String subSectionPathInfo = "";
-          String content = "";
-          if(sectionPathSplit.length == 2){
-          	sectionPathInfo = sectionPathSplit[1];
-          	int sectionNumber = sectionPathInfo.charAt(sectionPathInfo.length() - 2) - 48;
-          	content = controller.getContent(sectionNumber);       	
-          }else{
-          	sectionPathInfo = sectionPathSplit[1];
-          	int sectionNumber = sectionPathInfo.charAt(sectionPathInfo.length() - 1) - 48;
-          	subSectionPathInfo = sectionPathSplit[2];
-          	int subSectionNumber = subSectionPathInfo.charAt(subSectionPathInfo.length() - 2) - 48;
-          	content = controller.getContent(sectionNumber, subSectionNumber);
-          }
-          jTextArea.setText(content);
+             
+            try{
+            	SectionComponent sectionComponent = (SectionComponent)node.getUserObject();
+            	String currentText = controller.getContent(sectionComponent.getId());
+            	jTextArea.setText(currentText);
+            	
+            }catch(Exception e){
+            	System.out.println("Petit bug à fix, le root va devoir être un SectionComposite et non une String");
+            }
+            
+          
         	
         }else if(evt.getButton() == RIGHT_CLICK){
         

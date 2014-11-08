@@ -2,6 +2,8 @@
  */
 package defaultname.impl;
 
+import java.util.UUID;
+
 import defaultname.DefaultnamePackage;
 import defaultname.Section;
 
@@ -151,9 +153,12 @@ public class SectionImpl extends SectionComponentImpl implements Section {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public String getId() {
+		if(id == null){
+			id = UUID.randomUUID().toString();
+		}
 		return id;
 	}
 

@@ -2,6 +2,7 @@
  */
 package defaultname.impl;
 
+
 import defaultname.DefaultnamePackage;
 import defaultname.SectionComponent;
 import defaultname.SectionComposite;
@@ -17,6 +18,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
+import java.util.UUID;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -181,9 +185,12 @@ public class SectionCompositeImpl extends SectionComponentImpl implements Sectio
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public String getId() {
+		if(id == null){
+			id = UUID.randomUUID().toString();
+		}
 		return id;
 	}
 

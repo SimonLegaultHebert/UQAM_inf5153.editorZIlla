@@ -22,52 +22,76 @@ public class Controller {
 		documentBuilder.setDocument(document);
 	}
 	
-//	public String getCurrentSectionContent(){
-//		String currentSectionContent = "";
-//		Document document = documentBuilder.getDocument();
-//		String title = document.getCurrentSectionTitle();
-//		String text = document.getCurrentSectionText();
-//		currentSectionContent = title + "\n" + text + "\n";
-//		return currentSectionContent;		
-//	}
-	
 	public SectionComposite addSection(){
 		SectionComposite newSection = DefaultnameFactory.eINSTANCE.createSectionComposite();
 		newSection.setTitle(newSection.getTitle() + " " + (racine.getSectionComponentList().size() + 1));
 		
 		String title = newSection.getTitle();
-		newSection.setText("Ce texte est implémenté dans le controller pour les tests!" + " " + title);
+		newSection.setText("Ce texte est implémenté dans le controller pour les tests!" + " " + title + "\n" + "Voici l'id de la section: " + newSection.getId());
 		
 		racine.add(newSection);
 		return newSection;	
 	}
 	
-	public Section addSubSection(int sectionNumber){
+	public Section addSubSection(String sectionId){
 		Section newSubSection = DefaultnameFactory.eINSTANCE.createSection();
 		EList<SectionComponent> sectionComponentList = racine.getSectionComponentList();
-		SectionComposite childSection = (SectionComposite)sectionComponentList.get(sectionNumber - 1);
-		newSubSection.setTitle(newSubSection.getTitle() + " " + sectionNumber + "-" + (childSection.getSectionComponentList().size() + 1));
-		
+		SectionComposite childSection = null;
+		for(SectionComponent sectionWithId : sectionComponentList){
+			if(sectionWithId.getId().equals(sectionId)){
+				childSection = (SectionComposite)sectionWithId;
+			}
+			
+		}
+		newSubSection.setTitle(newSubSection.getTitle() + "-" + (childSection.getSectionComponentList().size() + 1));		
 		String title = newSubSection.getTitle();
-		newSubSection.setText("Ce texte est implémenté dans le controller pour les tests!" + " " + title);
+		newSubSection.setText("Ce texte est implémenté dans le controller pour les tests!" + " " + title + "\n" + "Voici l'id de la sous-section: " + newSubSection.getId());
 		
 		childSection.add(newSubSection);			
 		return newSubSection;
 	}
 	
-	public String getContent(int sectionNumber){
+	public String getContent(String sectionComponentid){
 		EList<SectionComponent> sectionComponentList = racine.getSectionComponentList();
-		SectionComposite sectionComposite = (SectionComposite)sectionComponentList.get(sectionNumber - 1);
-		return sectionComposite.getText();
+		String currentText = "";
+		for(SectionComponent rootChild : sectionComponentList){
+			SectionComposite section = (SectionComposite)rootChild;
+			if(section.getId().equals(sectionComponentid)){
+				currentText = section.getText();
+			}else{
+				EList<SectionComponent> subSectionList = section.getSectionComponentList();
+				for(SectionComponent subSectionComponent : subSectionList){
+					if(subSectionComponent.getId().equals(sectionComponentid)){
+						currentText = subSectionComponent.getText();
+						break;
+					}
+				}
+			}
+		}
+		return currentText;
 	}
 	
-	public String getContent(int sectionNumber, int subSectionNumber){
+	public void saveText(String sectionComponentid, String currentText){
 		EList<SectionComponent> sectionComponentList = racine.getSectionComponentList();
-		SectionComposite sectionComposite = (SectionComposite)sectionComponentList.get(sectionNumber - 1);
-		EList<SectionComponent> subSectionList = sectionComposite.getSectionComponentList();
-		Section subSection = (Section)subSectionList.get(subSectionNumber - 1);
-		return subSection.getText();
+		for(SectionComponent rootChild : sectionComponentList){
+			SectionComposite section = (SectionComposite)rootChild;
+			if(section.getId().equals(sectionComponentid)){
+				section.setText(currentText);
+			}else{
+				EList<SectionComponent> subSectionList = section.getSectionComponentList();
+				for(SectionComponent subSectionComponent : subSectionList){
+					if(subSectionComponent.getId().equals(sectionComponentid)){
+						Section subSection = (Section)subSectionComponent;
+						subSection.setText(currentText);
+						break;
+					}
+				}
+			}
+		}
 	}
+	
+	
+
 	
 
 }
