@@ -29,6 +29,6 @@ public interface DocumentStrategy extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void save(Document document);
+	void save(Document document, String filePath);
 
 } // DocumentStrategy

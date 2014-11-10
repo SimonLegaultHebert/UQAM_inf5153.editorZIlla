@@ -5,8 +5,12 @@ package defaultname.impl;
 import defaultname.DefaultnamePackage;
 import defaultname.Document;
 
+import defaultname.DefaultnameFactory;
+import defaultname.Section;
 import defaultname.SectionComponent;
+import defaultname.SectionComposite;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
@@ -23,8 +27,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link defaultname.impl.DocumentImpl#getName <em>Name</em>}</li>
  *   <li>{@link defaultname.impl.DocumentImpl#getFormat <em>Format</em>}</li>
  *   <li>{@link defaultname.impl.DocumentImpl#getRacine <em>Racine</em>}</li>
- *   <li>{@link defaultname.impl.DocumentImpl#getCurrentSectionTitle <em>Current Section Title</em>}</li>
- *   <li>{@link defaultname.impl.DocumentImpl#getCurrentSectionText <em>Current Section Text</em>}</li>
  * </ul>
  * </p>
  *
@@ -76,50 +78,11 @@ public class DocumentImpl extends DocumentBuilderImpl implements Document {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRacine()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-	protected SectionComponent racine;
-
-	/**
-	 * The default value of the '{@link #getCurrentSectionTitle() <em>Current Section Title</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCurrentSectionTitle()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String CURRENT_SECTION_TITLE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getCurrentSectionTitle() <em>Current Section Title</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCurrentSectionTitle()
-	 * @generated
-	 * @ordered
-	 */
-	protected String currentSectionTitle = CURRENT_SECTION_TITLE_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getCurrentSectionText() <em>Current Section Text</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCurrentSectionText()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String CURRENT_SECTION_TEXT_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getCurrentSectionText() <em>Current Section Text</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCurrentSectionText()
-	 * @generated
-	 * @ordered
-	 */
-	protected String currentSectionText = CURRENT_SECTION_TEXT_EDEFAULT;
+	protected SectionComponent racine = DefaultnameFactory.eINSTANCE.createSectionComposite();
+	
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -223,43 +186,10 @@ public class DocumentImpl extends DocumentBuilderImpl implements Document {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	public String getCurrentSectionTitle() {
-		return currentSectionTitle;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCurrentSectionTitle(String newCurrentSectionTitle) {
-		String oldCurrentSectionTitle = currentSectionTitle;
-		currentSectionTitle = newCurrentSectionTitle;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DefaultnamePackage.DOCUMENT__CURRENT_SECTION_TITLE, oldCurrentSectionTitle, currentSectionTitle));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getCurrentSectionText() {
-		return currentSectionText;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCurrentSectionText(String newCurrentSectionText) {
-		String oldCurrentSectionText = currentSectionText;
-		currentSectionText = newCurrentSectionText;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DefaultnamePackage.DOCUMENT__CURRENT_SECTION_TEXT, oldCurrentSectionText, currentSectionText));
+	public SectionComponent getSectionComponent() {
+		return racine;
 	}
 
 	/**
@@ -267,8 +197,105 @@ public class DocumentImpl extends DocumentBuilderImpl implements Document {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public SectionComponent getSectionComponent() {
-		return racine;
+	public SectionComposite addSection() {
+		SectionComposite newSection = DefaultnameFactory.eINSTANCE.createSectionComposite();
+		SectionComposite racineComposite = (SectionComposite)getRacine();
+		newSection.setTitle(newSection.getTitle() + " " + (racineComposite.getSectionComponentList().size() + 1));
+		
+		String title = newSection.getTitle();
+		newSection.setText("Ce texte est implémenté dans le controller pour les tests!" + " " + title + "\n" + "Voici l'id de la section: " + newSection.getId());
+		
+		racineComposite.add(newSection);
+		setRacine(racineComposite);
+		return newSection;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Section addSubsection(String id) {
+		Section newSubsection = DefaultnameFactory.eINSTANCE.createSection();
+		SectionComposite racineComposite = (SectionComposite)getRacine();
+		EList<SectionComponent> sectionComponentList = racineComposite.getSectionComponentList();
+		SectionComposite childSection = null;
+		for(SectionComponent sectionWithId : sectionComponentList){
+			if(sectionWithId.getId().equals(id)){
+				childSection = (SectionComposite)sectionWithId;
+			}
+			
+		}
+		newSubsection.setTitle(newSubsection.getTitle() + "-" + (childSection.getSectionComponentList().size() + 1));		
+		String title = newSubsection.getTitle();
+		newSubsection.setText("Ce texte est implémenté dans le controller pour les tests!" + " " + title + "\n" + "Voici l'id de la sous-section: " + newSubsection.getId());
+		
+		childSection.add(newSubsection);	
+		setRacine(racineComposite);
+		return newSubsection;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public String getContent(String id) {
+		SectionComposite racineComposite = (SectionComposite)getRacine();
+		EList<SectionComponent> sectionComponentList = racineComposite.getSectionComponentList();
+		String currentText = "";
+		for(SectionComponent rootChild : sectionComponentList){
+			SectionComposite section = (SectionComposite)rootChild;
+			if(section.getId().equals(id)){
+				currentText = section.getText();
+			}else{
+				EList<SectionComponent> subSectionList = section.getSectionComponentList();
+				for(SectionComponent subSectionComponent : subSectionList){
+					if(subSectionComponent.getId().equals(id)){
+						currentText = subSectionComponent.getText();
+						break;
+					}
+				}
+			}
+		}
+		return currentText;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void saveText(String id, String currentText) {
+		SectionComposite racineComposite = (SectionComposite)getRacine();
+		EList<SectionComponent> sectionComponentList = racineComposite.getSectionComponentList();
+		for(SectionComponent rootChild : sectionComponentList){
+			SectionComposite section = (SectionComposite)rootChild;
+			if(section.getId().equals(id)){
+				section.setText(currentText);
+			}else{
+				EList<SectionComponent> subSectionList = section.getSectionComponentList();
+				for(SectionComponent subSectionComponent : subSectionList){
+					if(subSectionComponent.getId().equals(id)){
+						Section subSection = (Section)subSectionComponent;
+						subSection.setText(currentText);
+						break;
+					}
+				}
+			}
+		}
+		setRacine(racineComposite);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void save(Document document, String filePath) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -286,10 +313,6 @@ public class DocumentImpl extends DocumentBuilderImpl implements Document {
 			case DefaultnamePackage.DOCUMENT__RACINE:
 				if (resolve) return getRacine();
 				return basicGetRacine();
-			case DefaultnamePackage.DOCUMENT__CURRENT_SECTION_TITLE:
-				return getCurrentSectionTitle();
-			case DefaultnamePackage.DOCUMENT__CURRENT_SECTION_TEXT:
-				return getCurrentSectionText();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -310,12 +333,6 @@ public class DocumentImpl extends DocumentBuilderImpl implements Document {
 				return;
 			case DefaultnamePackage.DOCUMENT__RACINE:
 				setRacine((SectionComponent)newValue);
-				return;
-			case DefaultnamePackage.DOCUMENT__CURRENT_SECTION_TITLE:
-				setCurrentSectionTitle((String)newValue);
-				return;
-			case DefaultnamePackage.DOCUMENT__CURRENT_SECTION_TEXT:
-				setCurrentSectionText((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -338,12 +355,6 @@ public class DocumentImpl extends DocumentBuilderImpl implements Document {
 			case DefaultnamePackage.DOCUMENT__RACINE:
 				setRacine((SectionComponent)null);
 				return;
-			case DefaultnamePackage.DOCUMENT__CURRENT_SECTION_TITLE:
-				setCurrentSectionTitle(CURRENT_SECTION_TITLE_EDEFAULT);
-				return;
-			case DefaultnamePackage.DOCUMENT__CURRENT_SECTION_TEXT:
-				setCurrentSectionText(CURRENT_SECTION_TEXT_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -362,10 +373,6 @@ public class DocumentImpl extends DocumentBuilderImpl implements Document {
 				return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals(format);
 			case DefaultnamePackage.DOCUMENT__RACINE:
 				return racine != null;
-			case DefaultnamePackage.DOCUMENT__CURRENT_SECTION_TITLE:
-				return CURRENT_SECTION_TITLE_EDEFAULT == null ? currentSectionTitle != null : !CURRENT_SECTION_TITLE_EDEFAULT.equals(currentSectionTitle);
-			case DefaultnamePackage.DOCUMENT__CURRENT_SECTION_TEXT:
-				return CURRENT_SECTION_TEXT_EDEFAULT == null ? currentSectionText != null : !CURRENT_SECTION_TEXT_EDEFAULT.equals(currentSectionText);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -384,10 +391,6 @@ public class DocumentImpl extends DocumentBuilderImpl implements Document {
 		result.append(name);
 		result.append(", format: ");
 		result.append(format);
-		result.append(", currentSectionTitle: ");
-		result.append(currentSectionTitle);
-		result.append(", currentSectionText: ");
-		result.append(currentSectionText);
 		result.append(')');
 		return result.toString();
 	}

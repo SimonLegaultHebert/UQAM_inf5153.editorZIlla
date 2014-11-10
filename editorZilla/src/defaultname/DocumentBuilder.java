@@ -51,6 +51,7 @@ public interface DocumentBuilder extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>File Path</b></em>' attribute.
+	 * The default value is <code>"DossierDefaut"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>File Path</em>' attribute isn't clear,
@@ -60,7 +61,7 @@ public interface DocumentBuilder extends EObject {
 	 * @return the value of the '<em>File Path</em>' attribute.
 	 * @see #setFilePath(String)
 	 * @see defaultname.DefaultnamePackage#getDocumentBuilder_FilePath()
-	 * @model
+	 * @model default="DossierDefaut"
 	 * @generated
 	 */
 	String getFilePath();
@@ -100,14 +101,6 @@ public interface DocumentBuilder extends EObject {
 	 * @generated
 	 */
 	void setStrategy(DocumentStrategy value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	Document delete(String documentName);
 
 	/**
 	 * <!-- begin-user-doc -->

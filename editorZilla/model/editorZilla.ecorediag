@@ -107,14 +107,6 @@
         <element xmi:type="ecore:EAttribute" href="editorZilla.ecore#//Document/format"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_pHulY2OzEeSFRviR_rCwEQ"/>
       </children>
-      <children xmi:type="notation:Node" xmi:id="_iMvTwGO0EeSFRviR_rCwEQ" type="2001">
-        <element xmi:type="ecore:EAttribute" href="editorZilla.ecore#//Document/currentSectionTitle"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_iMvTwWO0EeSFRviR_rCwEQ"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_iZxqMGO0EeSFRviR_rCwEQ" type="2001">
-        <element xmi:type="ecore:EAttribute" href="editorZilla.ecore#//Document/currentSectionText"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_iZxqMWO0EeSFRviR_rCwEQ"/>
-      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_pHt-VWOzEeSFRviR_rCwEQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_pHt-VmOzEeSFRviR_rCwEQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_pHt-V2OzEeSFRviR_rCwEQ"/>
@@ -123,6 +115,22 @@
       <children xmi:type="notation:Node" xmi:id="_2pn2IGRNEeSXhY0J2TpIXA" type="2002">
         <element xmi:type="ecore:EOperation" href="editorZilla.ecore#//Document/getSectionComponent"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_2pn2IWRNEeSXhY0J2TpIXA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_du_lYGj_EeSNIpmC-wkBtQ" type="2002">
+        <element xmi:type="ecore:EOperation" href="editorZilla.ecore#//Document/addSection"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_du_lYWj_EeSNIpmC-wkBtQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_ksZcYGj_EeSNIpmC-wkBtQ" type="2002">
+        <element xmi:type="ecore:EOperation" href="editorZilla.ecore#//Document/addSubsection"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_ksZcYWj_EeSNIpmC-wkBtQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_vW3bAGj_EeSNIpmC-wkBtQ" type="2002">
+        <element xmi:type="ecore:EOperation" href="editorZilla.ecore#//Document/getContent"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_vW3bAWj_EeSNIpmC-wkBtQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_4vAPEGj_EeSNIpmC-wkBtQ" type="2002">
+        <element xmi:type="ecore:EOperation" href="editorZilla.ecore#//Document/saveText"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_4vAPEWj_EeSNIpmC-wkBtQ"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_pHt-WWOzEeSFRviR_rCwEQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_pHt-WmOzEeSFRviR_rCwEQ"/>
@@ -144,10 +152,6 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_pHvMdGOzEeSFRviR_rCwEQ"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_pHvMdWOzEeSFRviR_rCwEQ" type="5002">
-      <children xmi:type="notation:Node" xmi:id="_pHvzgGOzEeSFRviR_rCwEQ" type="2002">
-        <element xmi:type="ecore:EOperation" href="editorZilla.ecore#//DocumentBuilder/delete"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_pHvzgWOzEeSFRviR_rCwEQ"/>
-      </children>
       <children xmi:type="notation:Node" xmi:id="_pHvzgmOzEeSFRviR_rCwEQ" type="2002">
         <element xmi:type="ecore:EOperation" href="editorZilla.ecore#//DocumentBuilder/load"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_pHvzg2OzEeSFRviR_rCwEQ"/>

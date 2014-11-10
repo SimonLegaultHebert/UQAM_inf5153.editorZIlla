@@ -33,17 +33,23 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editorZilla.ecore#//Document/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editorZilla.ecore#//Document/format"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference editorZilla.ecore#//Document/racine"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editorZilla.ecore#//Document/currentSectionTitle"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editorZilla.ecore#//Document/currentSectionText"/>
       <genOperations ecoreOperation="editorZilla.ecore#//Document/getSectionComponent"/>
+      <genOperations ecoreOperation="editorZilla.ecore#//Document/addSection"/>
+      <genOperations ecoreOperation="editorZilla.ecore#//Document/addSubsection">
+        <genParameters ecoreParameter="editorZilla.ecore#//Document/addSubsection/id"/>
+      </genOperations>
+      <genOperations ecoreOperation="editorZilla.ecore#//Document/getContent">
+        <genParameters ecoreParameter="editorZilla.ecore#//Document/getContent/id"/>
+      </genOperations>
+      <genOperations ecoreOperation="editorZilla.ecore#//Document/saveText">
+        <genParameters ecoreParameter="editorZilla.ecore#//Document/saveText/id"/>
+        <genParameters ecoreParameter="editorZilla.ecore#//Document/saveText/currentText"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="editorZilla.ecore#//DocumentBuilder">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference editorZilla.ecore#//DocumentBuilder/document"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editorZilla.ecore#//DocumentBuilder/filePath"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference editorZilla.ecore#//DocumentBuilder/strategy"/>
-      <genOperations ecoreOperation="editorZilla.ecore#//DocumentBuilder/delete">
-        <genParameters ecoreParameter="editorZilla.ecore#//DocumentBuilder/delete/documentName"/>
-      </genOperations>
       <genOperations ecoreOperation="editorZilla.ecore#//DocumentBuilder/load">
         <genParameters ecoreParameter="editorZilla.ecore#//DocumentBuilder/load/documentName"/>
       </genOperations>
@@ -60,6 +66,7 @@
       </genOperations>
       <genOperations ecoreOperation="editorZilla.ecore#//DocumentStrategy/save">
         <genParameters ecoreParameter="editorZilla.ecore#//DocumentStrategy/save/document"/>
+        <genParameters ecoreParameter="editorZilla.ecore#//DocumentStrategy/save/filePath"/>
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="editorZilla.ecore#//XMIStrategy"/>

@@ -286,31 +286,13 @@ public interface DefaultnamePackage extends EPackage {
 	int DOCUMENT__RACINE = DOCUMENT_BUILDER_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Current Section Title</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOCUMENT__CURRENT_SECTION_TITLE = DOCUMENT_BUILDER_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Current Section Text</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOCUMENT__CURRENT_SECTION_TEXT = DOCUMENT_BUILDER_FEATURE_COUNT + 4;
-
-	/**
 	 * The number of structural features of the '<em>Document</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_FEATURE_COUNT = DOCUMENT_BUILDER_FEATURE_COUNT + 5;
+	int DOCUMENT_FEATURE_COUNT = DOCUMENT_BUILDER_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link defaultname.DocumentStrategy <em>Document Strategy</em>}' class.
@@ -536,28 +518,6 @@ public interface DefaultnamePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDocument_Racine();
-
-	/**
-	 * Returns the meta object for the attribute '{@link defaultname.Document#getCurrentSectionTitle <em>Current Section Title</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Current Section Title</em>'.
-	 * @see defaultname.Document#getCurrentSectionTitle()
-	 * @see #getDocument()
-	 * @generated
-	 */
-	EAttribute getDocument_CurrentSectionTitle();
-
-	/**
-	 * Returns the meta object for the attribute '{@link defaultname.Document#getCurrentSectionText <em>Current Section Text</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Current Section Text</em>'.
-	 * @see defaultname.Document#getCurrentSectionText()
-	 * @see #getDocument()
-	 * @generated
-	 */
-	EAttribute getDocument_CurrentSectionText();
 
 	/**
 	 * Returns the meta object for class '{@link defaultname.DocumentBuilder <em>Document Builder</em>}'.
@@ -795,22 +755,6 @@ public interface DefaultnamePackage extends EPackage {
 		 * @generated
 		 */
 		EReference DOCUMENT__RACINE = eINSTANCE.getDocument_Racine();
-
-		/**
-		 * The meta object literal for the '<em><b>Current Section Title</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DOCUMENT__CURRENT_SECTION_TITLE = eINSTANCE.getDocument_CurrentSectionTitle();
-
-		/**
-		 * The meta object literal for the '<em><b>Current Section Text</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DOCUMENT__CURRENT_SECTION_TEXT = eINSTANCE.getDocument_CurrentSectionText();
 
 		/**
 		 * The meta object literal for the '{@link defaultname.impl.DocumentBuilderImpl <em>Document Builder</em>}' class.

@@ -42,7 +42,7 @@ public interface SectionComposite extends SectionComponent {
 
 	/**
 	 * Returns the value of the '<em><b>Title</b></em>' attribute.
-	 * The default value is <code>"Section"</code>.
+	 * The default value is <code>"Section Register"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Title</em>' attribute isn't clear,
@@ -52,7 +52,7 @@ public interface SectionComposite extends SectionComponent {
 	 * @return the value of the '<em>Title</em>' attribute.
 	 * @see #setTitle(String)
 	 * @see defaultname.DefaultnamePackage#getSectionComposite_Title()
-	 * @model default="Section"
+	 * @model default="Section Register"
 	 * @generated
 	 */
 	String getTitle();

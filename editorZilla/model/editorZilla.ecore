@@ -19,7 +19,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="sectionComponentList" upperBound="-1"
         eType="#//SectionComponent"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral="Section"/>
+        defaultValueLiteral="Section Register"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral=""/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -33,17 +33,23 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Document" eSuperTypes="#//DocumentBuilder #//DocumentStrategy">
     <eOperations name="getSectionComponent" eType="#//SectionComponent"/>
+    <eOperations name="addSection" eType="#//SectionComposite"/>
+    <eOperations name="addSubsection" eType="#//Section">
+      <eParameters name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="getContent" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eParameters name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="saveText">
+      <eParameters name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="currentText" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="format" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="racine" lowerBound="1"
         eType="#//SectionComponent"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="currentSectionTitle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="currentSectionText" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DocumentBuilder">
-    <eOperations name="delete" eType="#//Document">
-      <eParameters name="documentName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eOperations>
     <eOperations name="load" eType="#//Document">
       <eParameters name="documentName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
@@ -55,7 +61,8 @@
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="document" lowerBound="1"
         eType="#//Document"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="filePath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="filePath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="DossierDefaut"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="strategy" lowerBound="1"
         eType="#//DocumentStrategy" containment="true"/>
   </eClassifiers>
@@ -65,6 +72,7 @@
     </eOperations>
     <eOperations name="save">
       <eParameters name="document" eType="#//Document"/>
+      <eParameters name="filePath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XMIStrategy" eSuperTypes="#//DocumentStrategy"/>

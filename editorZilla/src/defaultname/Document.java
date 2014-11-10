@@ -14,8 +14,6 @@ package defaultname;
  *   <li>{@link defaultname.Document#getName <em>Name</em>}</li>
  *   <li>{@link defaultname.Document#getFormat <em>Format</em>}</li>
  *   <li>{@link defaultname.Document#getRacine <em>Racine</em>}</li>
- *   <li>{@link defaultname.Document#getCurrentSectionTitle <em>Current Section Title</em>}</li>
- *   <li>{@link defaultname.Document#getCurrentSectionText <em>Current Section Text</em>}</li>
  * </ul>
  * </p>
  *
@@ -103,63 +101,43 @@ public interface Document extends DocumentBuilder, DocumentStrategy {
 	void setRacine(SectionComponent value);
 
 	/**
-	 * Returns the value of the '<em><b>Current Section Title</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Current Section Title</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Current Section Title</em>' attribute.
-	 * @see #setCurrentSectionTitle(String)
-	 * @see defaultname.DefaultnamePackage#getDocument_CurrentSectionTitle()
-	 * @model
-	 * @generated
-	 */
-	String getCurrentSectionTitle();
-
-	/**
-	 * Sets the value of the '{@link defaultname.Document#getCurrentSectionTitle <em>Current Section Title</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Current Section Title</em>' attribute.
-	 * @see #getCurrentSectionTitle()
-	 * @generated
-	 */
-	void setCurrentSectionTitle(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Current Section Text</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Current Section Text</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Current Section Text</em>' attribute.
-	 * @see #setCurrentSectionText(String)
-	 * @see defaultname.DefaultnamePackage#getDocument_CurrentSectionText()
-	 * @model
-	 * @generated
-	 */
-	String getCurrentSectionText();
-
-	/**
-	 * Sets the value of the '{@link defaultname.Document#getCurrentSectionText <em>Current Section Text</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Current Section Text</em>' attribute.
-	 * @see #getCurrentSectionText()
-	 * @generated
-	 */
-	void setCurrentSectionText(String value);
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
 	 */
 	SectionComponent getSectionComponent();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	SectionComposite addSection();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Section addSubsection(String id);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	String getContent(String id);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void saveText(String id, String currentText);
 
 } // Document
