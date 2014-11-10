@@ -69,6 +69,7 @@ public class DocumentBuilderImpl extends EObjectImpl implements DocumentBuilder 
 	 * @generated NOT
 	 * @ordered
 	 */
+	//Strategy utilisée par défaut
 	protected DocumentStrategy strategy =  DefaultnameFactory.eINSTANCE.createXMIStrategy();
 
 	/**
