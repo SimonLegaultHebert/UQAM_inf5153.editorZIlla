@@ -68,4 +68,11 @@
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XMIStrategy" eSuperTypes="#//DocumentStrategy"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PressePapier">
+    <eOperations name="copyText"/>
+    <eOperations name="moveText"/>
+    <eOperations name="pasteText"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="textSelected"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pressePaper" eType="#//Document"/>
+  </eClassifiers>
 </ecore:EPackage>
