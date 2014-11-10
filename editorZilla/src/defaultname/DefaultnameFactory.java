@@ -58,13 +58,22 @@ public interface DefaultnameFactory extends EFactory {
 	DocumentBuilder createDocumentBuilder();
 
 	/**
-	 * Returns a new object of class '<em>XML Strategy</em>'.
+	 * Returns a new object of class '<em>XMI Strategy</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>XML Strategy</em>'.
+	 * @return a new object of class '<em>XMI Strategy</em>'.
 	 * @generated
 	 */
-	XMLStrategy createXMLStrategy();
+	XMIStrategy createXMIStrategy();
+
+	/**
+	 * Returns a new object of class '<em>Presse Papier</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Presse Papier</em>'.
+	 * @generated
+	 */
+	PressePapier createPressePapier();
 
 	/**
 	 * Returns the package supported by this factory.

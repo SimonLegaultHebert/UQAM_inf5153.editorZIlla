@@ -106,10 +106,16 @@ public class DefaultnameSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DefaultnamePackage.XML_STRATEGY: {
-				XMLStrategy xmlStrategy = (XMLStrategy)theEObject;
-				T result = caseXMLStrategy(xmlStrategy);
-				if (result == null) result = caseDocumentStrategy(xmlStrategy);
+			case DefaultnamePackage.XMI_STRATEGY: {
+				XMIStrategy xmiStrategy = (XMIStrategy)theEObject;
+				T result = caseXMIStrategy(xmiStrategy);
+				if (result == null) result = caseDocumentStrategy(xmiStrategy);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DefaultnamePackage.PRESSE_PAPIER: {
+				PressePapier pressePapier = (PressePapier)theEObject;
+				T result = casePressePapier(pressePapier);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -208,17 +214,32 @@ public class DefaultnameSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>XML Strategy</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>XMI Strategy</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>XML Strategy</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>XMI Strategy</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseXMLStrategy(XMLStrategy object) {
+	public T caseXMIStrategy(XMIStrategy object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Presse Papier</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Presse Papier</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePressePapier(PressePapier object) {
 		return null;
 	}
 

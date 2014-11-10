@@ -62,6 +62,13 @@
         <genParameters ecoreParameter="editorZilla.ecore#//DocumentStrategy/save/document"/>
       </genOperations>
     </genClasses>
-    <genClasses ecoreClass="editorZilla.ecore#//XMLStrategy"/>
+    <genClasses ecoreClass="editorZilla.ecore#//XMIStrategy"/>
+    <genClasses ecoreClass="editorZilla.ecore#//PressePapier">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editorZilla.ecore#//PressePapier/textSelected"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference editorZilla.ecore#//PressePapier/pressePaper"/>
+      <genOperations ecoreOperation="editorZilla.ecore#//PressePapier/copyText"/>
+      <genOperations ecoreOperation="editorZilla.ecore#//PressePapier/moveText"/>
+      <genOperations ecoreOperation="editorZilla.ecore#//PressePapier/pasteText"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

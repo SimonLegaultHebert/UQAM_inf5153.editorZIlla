@@ -92,8 +92,12 @@ public class DefaultnameAdapterFactory extends AdapterFactoryImpl {
 				return createDocumentStrategyAdapter();
 			}
 			@Override
-			public Adapter caseXMLStrategy(XMLStrategy object) {
-				return createXMLStrategyAdapter();
+			public Adapter caseXMIStrategy(XMIStrategy object) {
+				return createXMIStrategyAdapter();
+			}
+			@Override
+			public Adapter casePressePapier(PressePapier object) {
+				return createPressePapierAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -200,16 +204,30 @@ public class DefaultnameAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link defaultname.XMLStrategy <em>XML Strategy</em>}'.
+	 * Creates a new adapter for an object of class '{@link defaultname.XMIStrategy <em>XMI Strategy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see defaultname.XMLStrategy
+	 * @see defaultname.XMIStrategy
 	 * @generated
 	 */
-	public Adapter createXMLStrategyAdapter() {
+	public Adapter createXMIStrategyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link defaultname.PressePapier <em>Presse Papier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see defaultname.PressePapier
+	 * @generated
+	 */
+	public Adapter createPressePapierAdapter() {
 		return null;
 	}
 

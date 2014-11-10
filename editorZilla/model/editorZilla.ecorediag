@@ -238,7 +238,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_eaf_kWhGEeSvUsXMP3Mpog" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="editorZilla.ecore#//PressePapier"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_eaf_kmhGEeSvUsXMP3Mpog" x="435" y="570" width="361" height="121"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_eaf_kmhGEeSvUsXMP3Mpog" x="360" y="540" width="361" height="121"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_pHkNUWOzEeSFRviR_rCwEQ"/>
   <element xmi:type="ecore:EPackage" href="editorZilla.ecore#/"/>

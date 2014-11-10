@@ -332,24 +332,60 @@ public interface DefaultnamePackage extends EPackage {
 	int DOCUMENT_STRATEGY_FEATURE_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link defaultname.impl.XMLStrategyImpl <em>XML Strategy</em>}' class.
+	 * The meta object id for the '{@link defaultname.impl.XMIStrategyImpl <em>XMI Strategy</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see defaultname.impl.XMLStrategyImpl
-	 * @see defaultname.impl.DefaultnamePackageImpl#getXMLStrategy()
+	 * @see defaultname.impl.XMIStrategyImpl
+	 * @see defaultname.impl.DefaultnamePackageImpl#getXMIStrategy()
 	 * @generated
 	 */
-	int XML_STRATEGY = 6;
+	int XMI_STRATEGY = 6;
 
 	/**
-	 * The number of structural features of the '<em>XML Strategy</em>' class.
+	 * The number of structural features of the '<em>XMI Strategy</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_STRATEGY_FEATURE_COUNT = DOCUMENT_STRATEGY_FEATURE_COUNT + 0;
+	int XMI_STRATEGY_FEATURE_COUNT = DOCUMENT_STRATEGY_FEATURE_COUNT + 0;
 
+	/**
+	 * The meta object id for the '{@link defaultname.impl.PressePapierImpl <em>Presse Papier</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see defaultname.impl.PressePapierImpl
+	 * @see defaultname.impl.DefaultnamePackageImpl#getPressePapier()
+	 * @generated
+	 */
+	int PRESSE_PAPIER = 7;
+
+	/**
+	 * The feature id for the '<em><b>Text Selected</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRESSE_PAPIER__TEXT_SELECTED = 0;
+
+	/**
+	 * The feature id for the '<em><b>Presse Paper</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRESSE_PAPIER__PRESSE_PAPER = 1;
+
+	/**
+	 * The number of structural features of the '<em>Presse Papier</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRESSE_PAPIER_FEATURE_COUNT = 2;
 
 	/**
 	 * Returns the meta object for class '{@link defaultname.SectionComponent <em>Section Component</em>}'.
@@ -577,14 +613,46 @@ public interface DefaultnamePackage extends EPackage {
 	EClass getDocumentStrategy();
 
 	/**
-	 * Returns the meta object for class '{@link defaultname.XMLStrategy <em>XML Strategy</em>}'.
+	 * Returns the meta object for class '{@link defaultname.XMIStrategy <em>XMI Strategy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>XML Strategy</em>'.
-	 * @see defaultname.XMLStrategy
+	 * @return the meta object for class '<em>XMI Strategy</em>'.
+	 * @see defaultname.XMIStrategy
 	 * @generated
 	 */
-	EClass getXMLStrategy();
+	EClass getXMIStrategy();
+
+	/**
+	 * Returns the meta object for class '{@link defaultname.PressePapier <em>Presse Papier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Presse Papier</em>'.
+	 * @see defaultname.PressePapier
+	 * @generated
+	 */
+	EClass getPressePapier();
+
+	/**
+	 * Returns the meta object for the attribute '{@link defaultname.PressePapier#getTextSelected <em>Text Selected</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Text Selected</em>'.
+	 * @see defaultname.PressePapier#getTextSelected()
+	 * @see #getPressePapier()
+	 * @generated
+	 */
+	EAttribute getPressePapier_TextSelected();
+
+	/**
+	 * Returns the meta object for the reference '{@link defaultname.PressePapier#getPressePaper <em>Presse Paper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Presse Paper</em>'.
+	 * @see defaultname.PressePapier#getPressePaper()
+	 * @see #getPressePapier()
+	 * @generated
+	 */
+	EReference getPressePapier_PressePaper();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -789,14 +857,40 @@ public interface DefaultnamePackage extends EPackage {
 		EClass DOCUMENT_STRATEGY = eINSTANCE.getDocumentStrategy();
 
 		/**
-		 * The meta object literal for the '{@link defaultname.impl.XMLStrategyImpl <em>XML Strategy</em>}' class.
+		 * The meta object literal for the '{@link defaultname.impl.XMIStrategyImpl <em>XMI Strategy</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see defaultname.impl.XMLStrategyImpl
-		 * @see defaultname.impl.DefaultnamePackageImpl#getXMLStrategy()
+		 * @see defaultname.impl.XMIStrategyImpl
+		 * @see defaultname.impl.DefaultnamePackageImpl#getXMIStrategy()
 		 * @generated
 		 */
-		EClass XML_STRATEGY = eINSTANCE.getXMLStrategy();
+		EClass XMI_STRATEGY = eINSTANCE.getXMIStrategy();
+
+		/**
+		 * The meta object literal for the '{@link defaultname.impl.PressePapierImpl <em>Presse Papier</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see defaultname.impl.PressePapierImpl
+		 * @see defaultname.impl.DefaultnamePackageImpl#getPressePapier()
+		 * @generated
+		 */
+		EClass PRESSE_PAPIER = eINSTANCE.getPressePapier();
+
+		/**
+		 * The meta object literal for the '<em><b>Text Selected</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PRESSE_PAPIER__TEXT_SELECTED = eINSTANCE.getPressePapier_TextSelected();
+
+		/**
+		 * The meta object literal for the '<em><b>Presse Paper</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PRESSE_PAPIER__PRESSE_PAPER = eINSTANCE.getPressePapier_PressePaper();
 
 	}
 

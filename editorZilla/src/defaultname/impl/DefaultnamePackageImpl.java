@@ -7,10 +7,11 @@ import defaultname.DefaultnamePackage;
 import defaultname.Document;
 import defaultname.DocumentBuilder;
 import defaultname.DocumentStrategy;
+import defaultname.PressePapier;
 import defaultname.Section;
 import defaultname.SectionComponent;
 import defaultname.SectionComposite;
-import defaultname.XMLStrategy;
+import defaultname.XMIStrategy;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -74,7 +75,14 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass xmlStrategyEClass = null;
+	private EClass xmiStrategyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass pressePapierEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -331,8 +339,35 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getXMLStrategy() {
-		return xmlStrategyEClass;
+	public EClass getXMIStrategy() {
+		return xmiStrategyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPressePapier() {
+		return pressePapierEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPressePapier_TextSelected() {
+		return (EAttribute)pressePapierEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPressePapier_PressePaper() {
+		return (EReference)pressePapierEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -390,7 +425,11 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 
 		documentStrategyEClass = createEClass(DOCUMENT_STRATEGY);
 
-		xmlStrategyEClass = createEClass(XML_STRATEGY);
+		xmiStrategyEClass = createEClass(XMI_STRATEGY);
+
+		pressePapierEClass = createEClass(PRESSE_PAPIER);
+		createEAttribute(pressePapierEClass, PRESSE_PAPIER__TEXT_SELECTED);
+		createEReference(pressePapierEClass, PRESSE_PAPIER__PRESSE_PAPER);
 	}
 
 	/**
@@ -425,7 +464,7 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 		sectionEClass.getESuperTypes().add(this.getSectionComponent());
 		documentEClass.getESuperTypes().add(this.getDocumentBuilder());
 		documentEClass.getESuperTypes().add(this.getDocumentStrategy());
-		xmlStrategyEClass.getESuperTypes().add(this.getDocumentStrategy());
+		xmiStrategyEClass.getESuperTypes().add(this.getDocumentStrategy());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(sectionComponentEClass, SectionComponent.class, "SectionComponent", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -490,7 +529,17 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 		op = addEOperation(documentStrategyEClass, null, "save", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getDocument(), "document", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(xmlStrategyEClass, XMLStrategy.class, "XMLStrategy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(xmiStrategyEClass, XMIStrategy.class, "XMIStrategy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(pressePapierEClass, PressePapier.class, "PressePapier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPressePapier_TextSelected(), ecorePackage.getEString(), "textSelected", null, 0, 1, PressePapier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPressePapier_PressePaper(), this.getDocument(), null, "pressePaper", null, 0, 1, PressePapier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(pressePapierEClass, null, "copyText", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(pressePapierEClass, null, "moveText", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(pressePapierEClass, null, "pasteText", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
