@@ -108,7 +108,7 @@ public interface DocumentBuilder extends EObject {
 	 * @model
 	 * @generated
 	 */
-	Document load(String documentName);
+	Document load(String filePath);
 
 	/**
 	 * <!-- begin-user-doc -->

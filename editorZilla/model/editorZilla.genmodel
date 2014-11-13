@@ -51,7 +51,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editorZilla.ecore#//DocumentBuilder/filePath"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference editorZilla.ecore#//DocumentBuilder/strategy"/>
       <genOperations ecoreOperation="editorZilla.ecore#//DocumentBuilder/load">
-        <genParameters ecoreParameter="editorZilla.ecore#//DocumentBuilder/load/documentName"/>
+        <genParameters ecoreParameter="editorZilla.ecore#//DocumentBuilder/load/filePath"/>
       </genOperations>
       <genOperations ecoreOperation="editorZilla.ecore#//DocumentBuilder/export">
         <genParameters ecoreParameter="editorZilla.ecore#//DocumentBuilder/export/documentName"/>
@@ -62,7 +62,7 @@
     </genClasses>
     <genClasses image="false" ecoreClass="editorZilla.ecore#//DocumentStrategy">
       <genOperations ecoreOperation="editorZilla.ecore#//DocumentStrategy/load">
-        <genParameters ecoreParameter="editorZilla.ecore#//DocumentStrategy/load/fileName"/>
+        <genParameters ecoreParameter="editorZilla.ecore#//DocumentStrategy/load/filePath"/>
       </genOperations>
       <genOperations ecoreOperation="editorZilla.ecore#//DocumentStrategy/save">
         <genParameters ecoreParameter="editorZilla.ecore#//DocumentStrategy/save/document"/>

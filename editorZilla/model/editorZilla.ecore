@@ -51,7 +51,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DocumentBuilder">
     <eOperations name="load" eType="#//Document">
-      <eParameters name="documentName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="filePath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
     <eOperations name="export">
       <eParameters name="documentName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -68,7 +68,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DocumentStrategy" abstract="true" interface="true">
     <eOperations name="load" eType="#//Document">
-      <eParameters name="fileName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="filePath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
     <eOperations name="save">
       <eParameters name="document" eType="#//Document"/>

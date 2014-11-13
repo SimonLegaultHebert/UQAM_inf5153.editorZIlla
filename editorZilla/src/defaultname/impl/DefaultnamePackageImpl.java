@@ -500,7 +500,7 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 		initEReference(getDocumentBuilder_Strategy(), this.getDocumentStrategy(), null, "strategy", null, 1, 1, DocumentBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(documentBuilderEClass, this.getDocument(), "load", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "documentName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "filePath", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(documentBuilderEClass, null, "export", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "documentName", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -511,7 +511,7 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 		initEClass(documentStrategyEClass, DocumentStrategy.class, "DocumentStrategy", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		op = addEOperation(documentStrategyEClass, this.getDocument(), "load", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "fileName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "filePath", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(documentStrategyEClass, null, "save", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getDocument(), "document", 0, 1, IS_UNIQUE, IS_ORDERED);

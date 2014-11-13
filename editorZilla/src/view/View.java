@@ -298,7 +298,7 @@ public class View extends javax.swing.JFrame {
     }                                                     
 
     private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                             
-        // TODO add your handling code here:
+        controller.load("DossierDefaut/Document par défaut");
     }                                            
 
     private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                             

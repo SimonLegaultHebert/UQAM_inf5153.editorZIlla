@@ -287,6 +287,7 @@ public class DocumentImpl extends DocumentBuilderImpl implements Document {
 		setRacine(racineComposite);
 	}
 
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

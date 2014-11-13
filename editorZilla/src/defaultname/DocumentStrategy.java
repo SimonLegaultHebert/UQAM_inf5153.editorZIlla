@@ -21,7 +21,7 @@ public interface DocumentStrategy extends EObject {
 	 * @model
 	 * @generated
 	 */
-	Document load(String fileName);
+	Document load(String filePath);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -36,6 +36,11 @@ public class Controller {
         documentBuilder.save(document);
 	}
 	
+	public void load(String filePath){
+		Document newDocument = documentBuilder.load(filePath);
+		documentBuilder.setDocument(newDocument);
+	}
+	
 	
 
 	

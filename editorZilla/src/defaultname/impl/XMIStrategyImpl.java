@@ -16,6 +16,7 @@ import defaultname.XMIStrategy;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -57,11 +58,30 @@ public class XMIStrategyImpl extends EObjectImpl implements XMIStrategy {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public Document load(String fileName) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public Document load(String filePath) {
+		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
+	    Map<String, Object> m = reg.getExtensionToFactoryMap();
+	    m.put("website", new XMIResourceFactoryImpl());
+		// Obtain a new resource set
+	    ResourceSet resSet = new ResourceSetImpl();
+	    // Get the resource
+	    Resource resource = resSet.getResource(URI.createURI(filePath + ".website"), true);
+	    
+	    //for(EObject object : resource.getContents()){
+	    	//System.out.println(object.eClass().getName());
+	    //}
+	    
+	    EList<EObject> testL = resource.getContents();
+	    SectionComposite test = (SectionComposite)testL.get(0);
+	    System.out.println(test.getText());
+	    System.out.println(test.getId());
+	    System.out.println(test.getTitle());
+	    
+	    
+	    Document document = null;
+	    return document;
 	}
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -78,8 +98,8 @@ public class XMIStrategyImpl extends EObjectImpl implements XMIStrategy {
 	      ResourceSet resSet = new ResourceSetImpl();
 
 	      // create a resource
-	      Resource resource = resSet.createResource(URI
-	          .createURI(filePath + "/" + document.getName() + ".website"));
+	      Resource resource = resSet.createResource(URI.createURI(filePath + "/" + document.getName() + ".website"));
+	          
 	      // Get the first model element and cast it to the right type, in my
 	      // example everything is hierarchical included in this first node
 	      
