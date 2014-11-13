@@ -1,5 +1,7 @@
 package controller;
 
+import org.eclipse.emf.common.util.EList;
+
 import defaultname.*;
 
 public class Controller {
@@ -16,12 +18,12 @@ public class Controller {
 		this.documentBuilder.setDocument(document);
 	}
 	
-	public SectionComposite addSection(){
-		return document.addSection();
+	public SectionComposite addSection(String title, String text){
+		return document.addSection(title, text);
 	}
 	
-	public Section addSubSection(String id){
-		return document.addSubsection(id);
+	public Section addSubSection(String id, String title, String text){
+		return document.addSubsection(id, title, text);
 	}
 	
 	public String getContent(String id){
@@ -38,6 +40,7 @@ public class Controller {
 	
 	public void load(String filePath){
 		Document newDocument = documentBuilder.load(filePath);
+		document = newDocument;
 		documentBuilder.setDocument(newDocument);
 	}
 	

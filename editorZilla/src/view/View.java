@@ -278,7 +278,7 @@ public class View extends javax.swing.JFrame {
     private void addSectionMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                                   
     	DefaultTreeModel model = (DefaultTreeModel) jTree.getModel();
         DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
-        root.add(new DefaultMutableTreeNode(controller.addSection()));
+        root.add(new DefaultMutableTreeNode(controller.addSection("Defaut Section", "")));
         model.reload(root); 
     }                                                  
 
@@ -289,7 +289,7 @@ public class View extends javax.swing.JFrame {
         DefaultTreeModel model = (DefaultTreeModel) jTree.getModel();
         SectionComposite section = (SectionComposite)node.getUserObject();
 
-        node.add(new DefaultMutableTreeNode(controller.addSubSection(section.getId())));
+        node.add(new DefaultMutableTreeNode(controller.addSubSection(section.getId(), "Defaut Subsection", "")));
         model.reload(node);
     }                                                     
 

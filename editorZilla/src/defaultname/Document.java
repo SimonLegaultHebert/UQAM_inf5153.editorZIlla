@@ -114,7 +114,7 @@ public interface Document extends DocumentBuilder, DocumentStrategy {
 	 * @model
 	 * @generated
 	 */
-	SectionComposite addSection();
+	SectionComposite addSection(String title, String text);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -122,7 +122,7 @@ public interface Document extends DocumentBuilder, DocumentStrategy {
 	 * @model
 	 * @generated
 	 */
-	Section addSubsection(String id);
+	Section addSubsection(String id, String title, String text);
 
 	/**
 	 * <!-- begin-user-doc -->

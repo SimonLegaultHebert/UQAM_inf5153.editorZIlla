@@ -56,6 +56,8 @@ public interface SectionComposite extends SectionComponent {
 	 * @generated
 	 */
 	String getTitle();
+	
+	void setSectionComponentList(EList<SectionComponent> newSectionComponentList);
 
 	/**
 	 * Sets the value of the '{@link defaultname.SectionComposite#getTitle <em>Title</em>}' attribute.

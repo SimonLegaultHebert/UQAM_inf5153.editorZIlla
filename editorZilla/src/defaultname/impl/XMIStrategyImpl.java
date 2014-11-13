@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.Map;
 
+import defaultname.DefaultnameFactory;
 import defaultname.DefaultnamePackage;
 import defaultname.Document;
 import defaultname.Section;
@@ -59,6 +60,8 @@ public class XMIStrategyImpl extends EObjectImpl implements XMIStrategy {
 	 * @generated NOT
 	 */
 	public Document load(String filePath) {
+		Document document = DefaultnameFactory.eINSTANCE.createDocument();
+		
 		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
 	    Map<String, Object> m = reg.getExtensionToFactoryMap();
 	    m.put("website", new XMIResourceFactoryImpl());
@@ -67,18 +70,28 @@ public class XMIStrategyImpl extends EObjectImpl implements XMIStrategy {
 	    // Get the resource
 	    Resource resource = resSet.getResource(URI.createURI(filePath + ".website"), true);
 	    
-	    //for(EObject object : resource.getContents()){
-	    	//System.out.println(object.eClass().getName());
-	    //}
+	    SectionComposite racine = DefaultnameFactory.eINSTANCE.createSectionComposite();
+	    int lastSection = -1;
+	    for(EObject object : resource.getContents()){
+	    	
+	    	if(object.eClass().getName().equals("SectionComposite")){
+	    		SectionComposite sectionComposite = (SectionComposite)object;
+	    		racine.add(sectionComposite);
+	    		++lastSection;
+	    	}else{	    		
+	    		Section subSection = (Section)object;
+	    		EList<SectionComponent> sectionList = racine.getSectionComponentList();
+	    		SectionComposite sectionComposite = (SectionComposite)sectionList.get(lastSection);
+	    		sectionComposite.add(subSection);  		
+	    		sectionList.remove(lastSection);
+	    		sectionList.add(lastSection, sectionComposite);
+	    		racine.setSectionComponentList(sectionList);
+	    	}
 	    
-	    EList<EObject> testL = resource.getContents();
-	    SectionComposite test = (SectionComposite)testL.get(0);
-	    System.out.println(test.getText());
-	    System.out.println(test.getId());
-	    System.out.println(test.getTitle());
+	    }
 	    
-	    
-	    Document document = null;
+	    document.setRacine(racine);	    
+	    document.setName("Document par défaut");
 	    return document;
 	}
 

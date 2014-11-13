@@ -482,10 +482,14 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 
 		addEOperation(documentEClass, this.getSectionComponent(), "getSectionComponent", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(documentEClass, this.getSectionComposite(), "addSection", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(documentEClass, this.getSectionComposite(), "addSection", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "title", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "text", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(documentEClass, this.getSection(), "addSubsection", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "id", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "title", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "text", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(documentEClass, ecorePackage.getEString(), "getContent", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "id", 0, 1, IS_UNIQUE, IS_ORDERED);

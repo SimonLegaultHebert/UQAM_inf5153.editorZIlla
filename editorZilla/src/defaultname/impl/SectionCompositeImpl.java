@@ -139,6 +139,15 @@ public class SectionCompositeImpl extends SectionComponentImpl implements Sectio
 		}
 		return sectionComponentList;
 	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void setSectionComponentList(EList<SectionComponent> newSectionComponentList) {
+		sectionComponentList = newSectionComponentList;
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

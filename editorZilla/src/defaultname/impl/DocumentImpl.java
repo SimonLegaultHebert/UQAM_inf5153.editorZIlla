@@ -197,14 +197,11 @@ public class DocumentImpl extends DocumentBuilderImpl implements Document {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public SectionComposite addSection() {
+	public SectionComposite addSection(String title, String text) {
 		SectionComposite newSection = DefaultnameFactory.eINSTANCE.createSectionComposite();
 		SectionComposite racineComposite = (SectionComposite)getRacine();
-		newSection.setTitle(newSection.getTitle() + " " + (racineComposite.getSectionComponentList().size() + 1));
-		
-		String title = newSection.getTitle();
-		newSection.setText("Ce texte est implémenté dans le controller pour les tests!" + " " + title + "\n" + "Voici l'id de la section: " + newSection.getId());
-		
+		newSection.setTitle(title);
+		newSection.setText(text);		
 		racineComposite.add(newSection);
 		setRacine(racineComposite);
 		return newSection;
@@ -215,7 +212,7 @@ public class DocumentImpl extends DocumentBuilderImpl implements Document {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public Section addSubsection(String id) {
+	public Section addSubsection(String id, String title, String text) {
 		Section newSubsection = DefaultnameFactory.eINSTANCE.createSection();
 		SectionComposite racineComposite = (SectionComposite)getRacine();
 		EList<SectionComponent> sectionComponentList = racineComposite.getSectionComponentList();
@@ -226,9 +223,9 @@ public class DocumentImpl extends DocumentBuilderImpl implements Document {
 			}
 			
 		}
-		newSubsection.setTitle(newSubsection.getTitle() + "-" + (childSection.getSectionComponentList().size() + 1));		
-		String title = newSubsection.getTitle();
-		newSubsection.setText("Ce texte est implémenté dans le controller pour les tests!" + " " + title + "\n" + "Voici l'id de la sous-section: " + newSubsection.getId());
+	
+		newSubsection.setTitle(title);
+		newSubsection.setText(text);
 		
 		childSection.add(newSubsection);	
 		setRacine(racineComposite);
