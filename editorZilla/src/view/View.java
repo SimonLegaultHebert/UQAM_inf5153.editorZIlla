@@ -1,11 +1,15 @@
 package view;
 
+import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
 
+import org.eclipse.emf.common.util.EList;
+
 import controller.Controller;
+import defaultname.Section;
 import defaultname.SectionComponent;
 import defaultname.SectionComposite;
 
@@ -273,7 +277,29 @@ public class View extends javax.swing.JFrame {
         	jTreePopupMenu.show(this, evt.getX(), evt.getY());
         	
         }
-    }                                  
+    }    
+    
+    private void reloadJTreeValues(SectionComponent racine){
+    	DefaultTreeModel model = (DefaultTreeModel)jTree.getModel();
+        DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
+        root.removeAllChildren();
+    	
+        SectionComposite racineComposite = (SectionComposite)racine;
+        EList<SectionComponent> sectionComponentList = racineComposite.getSectionComponentList();
+        for(int i = 0; i < sectionComponentList.size(); ++i){
+        	SectionComposite section = (SectionComposite)sectionComponentList.get(i);
+        	root.add(new DefaultMutableTreeNode(section));
+        	
+        	DefaultMutableTreeNode node = (DefaultMutableTreeNode)root.getChildAt(i);
+        	EList<SectionComponent> subsectionComponentList = section.getSectionComponentList();
+        	for(SectionComponent subsectionComponent : subsectionComponentList){
+        		Section subsection = (Section)subsectionComponent;
+        		node.add(new DefaultMutableTreeNode(subsection));
+        	}
+       	
+        }      
+        model.reload(root);
+    }
 
     private void addSectionMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                                   
     	DefaultTreeModel model = (DefaultTreeModel) jTree.getModel();
@@ -293,12 +319,13 @@ public class View extends javax.swing.JFrame {
         model.reload(node);
     }                                                     
 
-    private void deleteSectionMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                                      
-        System.out.println("IMPLÉMENTER LE DELETE");
+    private void deleteSectionMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                                         	
+    	System.out.println("IMPLÉMENTER LE DELETE");
     }                                                     
 
     private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                             
         controller.load("DossierDefaut/Document par défaut");
+    	reloadJTreeValues(controller.getDocument().getRacine());
     }                                            
 
     private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                             

@@ -22,14 +22,17 @@ public class Controller {
 		return document.addSection(title, text);
 	}
 	
+	//id de la section dans laquelle la sous-section est ajoutée
 	public Section addSubSection(String id, String title, String text){
 		return document.addSubsection(id, title, text);
 	}
 	
+	//id du SectionComponent
 	public String getContent(String id){
 		return document.getContent(id);
 	}
 	
+	//id du SectionComponent
 	public void saveText(String id, String currentText){
 		document.saveText(id, currentText);
 	}
@@ -42,6 +45,10 @@ public class Controller {
 		Document newDocument = documentBuilder.load(filePath);
 		document = newDocument;
 		documentBuilder.setDocument(newDocument);
+	}
+	
+	public Document getDocument(){
+		return document;
 	}
 	
 	
