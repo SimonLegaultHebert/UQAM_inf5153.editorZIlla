@@ -316,6 +316,7 @@ public class View extends javax.swing.JFrame {
        	
         }      
         model.reload(root);
+        jTextArea.setText("");
     }
 
     private void addSectionMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                                   
