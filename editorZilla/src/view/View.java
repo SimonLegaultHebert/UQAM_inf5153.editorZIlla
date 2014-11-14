@@ -52,6 +52,7 @@ public class View extends javax.swing.JFrame {
         cutButton = new javax.swing.JButton();
         pasteButton = new javax.swing.JButton();
         copyButton = new javax.swing.JButton();
+        newFileButton = new javax.swing.JButton();
         jMenuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         openMenuItem = new javax.swing.JMenuItem();
@@ -152,6 +153,14 @@ public class View extends javax.swing.JFrame {
                 copyButtonActionPerformed(evt);
             }
         });
+        
+        newFileButton.setIcon(new javax.swing.ImageIcon("icon\\Document-Blank-icon.png")); // NOI18N
+        newFileButton.setText("New");
+        newFileButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	newFileButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jButtonPanelLayout = new javax.swing.GroupLayout(jButtonPanel);
         jButtonPanel.setLayout(jButtonPanelLayout);
@@ -159,6 +168,8 @@ public class View extends javax.swing.JFrame {
             jButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jButtonPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(newFileButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(copyButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pasteButton)
@@ -171,9 +182,10 @@ public class View extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jButtonPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cutButton)
+                	.addComponent(newFileButton)
+                	.addComponent(cutButton)
                     .addComponent(pasteButton)
-                    .addComponent(copyButton))
+                    .addComponent(copyButton))                  
                 .addContainerGap())
         );
 
@@ -245,7 +257,11 @@ public class View extends javax.swing.JFrame {
 
     private void pasteButtonActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // TODO add your handling code here:
-    }                                           
+    }  
+    
+    private void newFileButtonActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        // TODO add your handling code here:
+    } 
 
     private void jTreeMouseClicked(java.awt.event.MouseEvent evt) {                                   
     	//on save le texte du dernier node utilisé dans le tree
@@ -390,6 +406,7 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JPopupMenu jTreePopupMenu;
     private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JButton pasteButton;
+    private javax.swing.JButton newFileButton;
     private javax.swing.JMenuItem saveMenuItem;
     // End of variables declaration                   
 }
