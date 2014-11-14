@@ -260,7 +260,8 @@ public class View extends javax.swing.JFrame {
     }  
     
     private void newFileButtonActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        // TODO add your handling code here:
+        controller.createNewDocument();
+        reloadJTreeValues(controller.getDocument().getRacine());
     } 
 
     private void jTreeMouseClicked(java.awt.event.MouseEvent evt) {                                   
