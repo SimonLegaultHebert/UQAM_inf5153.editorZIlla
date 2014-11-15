@@ -58,6 +58,7 @@ public class View extends javax.swing.JFrame {
         pasteButton = new javax.swing.JButton();
         copyButton = new javax.swing.JButton();
         newFileButton = new javax.swing.JButton();
+        quickSaveButton = new javax.swing.JButton();
         jMenuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         openMenuItem = new javax.swing.JMenuItem();
@@ -166,6 +167,14 @@ public class View extends javax.swing.JFrame {
             	newFileButtonActionPerformed(evt);
             }
         });
+        
+        quickSaveButton.setIcon(new javax.swing.ImageIcon("icon\\Programming-Save-icon.png")); // NOI18N
+        quickSaveButton.setText("Save");
+        quickSaveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	quickSaveButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jButtonPanelLayout = new javax.swing.GroupLayout(jButtonPanel);
         jButtonPanel.setLayout(jButtonPanelLayout);
@@ -173,6 +182,8 @@ public class View extends javax.swing.JFrame {
             jButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jButtonPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(quickSaveButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(newFileButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(copyButton)
@@ -187,6 +198,7 @@ public class View extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jButtonPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                	.addComponent(quickSaveButton)
                 	.addComponent(newFileButton)
                 	.addComponent(cutButton)
                     .addComponent(pasteButton)
@@ -268,6 +280,10 @@ public class View extends javax.swing.JFrame {
         controller.createNewDocument();
         reloadJTreeValues(controller.getDocument().getRacine());
     } 
+    
+    private void quickSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        controller.quickSave();
+    }
 
     private void jTreeMouseClicked(java.awt.event.MouseEvent evt) {                                   
     	//on save le texte du dernier node utilisé dans le tree
@@ -428,6 +444,7 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JButton pasteButton;
     private javax.swing.JButton newFileButton;
+    private javax.swing.JButton quickSaveButton;
     private javax.swing.JMenuItem saveMenuItem;
     // End of variables declaration                   
 }

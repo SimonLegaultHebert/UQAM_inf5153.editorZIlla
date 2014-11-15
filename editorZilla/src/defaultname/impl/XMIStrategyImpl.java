@@ -113,6 +113,11 @@ public class XMIStrategyImpl extends EObjectImpl implements XMIStrategy {
 	      // Obtain a new resource set
 	      ResourceSet resSet = new ResourceSetImpl();
 
+	      //si on fait un quick save en ouvrant le logiciel
+	      if(!filePath.contains(".website")){
+	    	  filePath = filePath + "//" +document.getName() + ".website";
+	      }
+	      
 	      // create a resource
 	      Resource resource = resSet.createResource(URI.createFileURI(filePath));
 	          

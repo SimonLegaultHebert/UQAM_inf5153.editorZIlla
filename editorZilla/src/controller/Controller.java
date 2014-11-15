@@ -14,7 +14,6 @@ public class Controller {
 		DefaultnamePackage.eINSTANCE.eClass();
 		this.documentBuilder = DefaultnameFactory.eINSTANCE.createDocumentBuilder();
 		this.document = DefaultnameFactory.eINSTANCE.createDocument();
-		this.document.setName("Document par défaut");
 		this.documentBuilder.setDocument(document);
 	}
 	
@@ -49,10 +48,14 @@ public class Controller {
 		documentBuilder.save(document);
 	}
 	
+	public void quickSave(){
+		documentBuilder.save(document);
+	}
+	
 	public void load(String filePath){
 		Document newDocument = documentBuilder.load(filePath);
-		newDocument.setFilePath(filePath);
 		document = newDocument;
+		documentBuilder.setFilePath(filePath);
 		documentBuilder.setDocument(newDocument);
 	}
 	

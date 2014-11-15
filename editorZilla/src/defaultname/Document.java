@@ -24,6 +24,7 @@ package defaultname;
 public interface Document extends DocumentBuilder, DocumentStrategy {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * The default value is <code>"document"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
@@ -33,7 +34,7 @@ public interface Document extends DocumentBuilder, DocumentStrategy {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see defaultname.DefaultnamePackage#getDocument_Name()
-	 * @model
+	 * @model default="document"
 	 * @generated
 	 */
 	String getName();
