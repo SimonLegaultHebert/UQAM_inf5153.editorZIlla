@@ -68,7 +68,8 @@ public class XMIStrategyImpl extends EObjectImpl implements XMIStrategy {
 		// Obtain a new resource set
 	    ResourceSet resSet = new ResourceSetImpl();
 	    // Get the resource
-	    Resource resource = resSet.getResource(URI.createURI(filePath + ".website"), true);
+	    System.out.println(filePath);
+	    Resource resource = resSet.getResource(URI.createFileURI(filePath), true);
 	    
 	    SectionComposite racine = DefaultnameFactory.eINSTANCE.createSectionComposite();
 	    int lastSection = -1;
@@ -111,7 +112,7 @@ public class XMIStrategyImpl extends EObjectImpl implements XMIStrategy {
 	      ResourceSet resSet = new ResourceSetImpl();
 
 	      // create a resource
-	      Resource resource = resSet.createResource(URI.createURI(filePath + "/" + document.getName() + ".website"));
+	      Resource resource = resSet.createResource(URI.createFileURI("C:\\Users\\Leg\\Documents\\editorZilla\\editorZilla\\DossierDefaut\\Document par défaut.website"));
 	          
 	      // Get the first model element and cast it to the right type, in my
 	      // example everything is hierarchical included in this first node

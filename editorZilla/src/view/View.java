@@ -1,5 +1,9 @@
 package view;
 
+import java.io.File;
+
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
@@ -342,7 +346,17 @@ public class View extends javax.swing.JFrame {
     }                                                     
 
     private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                             
-        controller.load("DossierDefaut/Document par défaut");
+    	JFileChooser fileChooser = new JFileChooser("DossierDefaut");
+    	int returnVal = fileChooser.showOpenDialog(openMenuItem); //Where frame is the parent component
+
+    	File file = null;
+    	if (returnVal == JFileChooser.APPROVE_OPTION) {
+    	    file = fileChooser.getSelectedFile();
+    	} else {
+    	    //User did not choose a valid file
+    	}
+    	//controller.load("DossierDefaut/Document par défaut");
+    	controller.load(file.getAbsolutePath());
     	reloadJTreeValues(controller.getDocument().getRacine());
     }                                            
 
