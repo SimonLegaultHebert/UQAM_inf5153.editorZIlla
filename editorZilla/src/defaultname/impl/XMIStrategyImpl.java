@@ -2,6 +2,7 @@
  */
 package defaultname.impl;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Map;
@@ -91,8 +92,9 @@ public class XMIStrategyImpl extends EObjectImpl implements XMIStrategy {
 	    
 	    }
 	    
+	    File newFile = new File(filePath);
 	    document.setRacine(racine);	    
-	    document.setName("Document par défaut");
+	    document.setName(newFile.getName());
 	    return document;
 	}
 
@@ -112,7 +114,7 @@ public class XMIStrategyImpl extends EObjectImpl implements XMIStrategy {
 	      ResourceSet resSet = new ResourceSetImpl();
 
 	      // create a resource
-	      Resource resource = resSet.createResource(URI.createFileURI("C:\\Users\\Leg\\Documents\\editorZilla\\editorZilla\\DossierDefaut\\Document par défaut.website"));
+	      Resource resource = resSet.createResource(URI.createFileURI(filePath));
 	          
 	      // Get the first model element and cast it to the right type, in my
 	      // example everything is hierarchical included in this first node

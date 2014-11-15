@@ -44,12 +44,14 @@ public class Controller {
 		documentBuilder.setDocument(document);
 	}
 	
-	public void save(){
-        documentBuilder.save(document);
+	public void save(String filePath){
+		documentBuilder.setFilePath(filePath);
+		documentBuilder.save(document);
 	}
 	
 	public void load(String filePath){
 		Document newDocument = documentBuilder.load(filePath);
+		newDocument.setFilePath(filePath);
 		document = newDocument;
 		documentBuilder.setDocument(newDocument);
 	}

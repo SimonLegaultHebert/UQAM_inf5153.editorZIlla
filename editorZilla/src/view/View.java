@@ -1,6 +1,7 @@
 package view;
 
 import java.io.File;
+import java.io.FileWriter;
 
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -347,21 +348,25 @@ public class View extends javax.swing.JFrame {
 
     private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                             
     	JFileChooser fileChooser = new JFileChooser("DossierDefaut");
-    	int returnVal = fileChooser.showOpenDialog(openMenuItem); //Where frame is the parent component
-
+    	int returnVal = fileChooser.showOpenDialog(openMenuItem); 
     	File file = null;
     	if (returnVal == JFileChooser.APPROVE_OPTION) {
     	    file = fileChooser.getSelectedFile();
-    	} else {
-    	    //User did not choose a valid file
-    	}
-    	//controller.load("DossierDefaut/Document par défaut");
+    	} 
     	controller.load(file.getAbsolutePath());
     	reloadJTreeValues(controller.getDocument().getRacine());
     }                                            
 
     private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                             
-        controller.save();
+    	JFileChooser fileChooser = new JFileChooser("DossierDefaut");
+        int retrival = fileChooser.showSaveDialog(saveMenuItem);
+        if (retrival == JFileChooser.APPROVE_OPTION) {
+        	String filePath = fileChooser.getSelectedFile().getAbsolutePath();
+        	if(!filePath.contains(".website")){
+        		filePath = filePath + ".website";
+        	}
+        	controller.save(filePath);
+        }  	
     }                                            
 
     private void exportMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                               
