@@ -5,6 +5,7 @@ import java.io.FileWriter;
 
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
@@ -27,6 +28,7 @@ public class View extends javax.swing.JFrame {
 	private Controller controller;
     private final int LEFT_CLICK = 1;
     private final int RIGHT_CLICK = 3;
+    private boolean hasBeenSaved = false;
     private DefaultMutableTreeNode lastNodeUsed; //va servir pour sauvegarder le texte dans les sections et sous-sections
     
     public View(Controller controller) {
@@ -277,12 +279,16 @@ public class View extends javax.swing.JFrame {
     }  
     
     private void newFileButtonActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        controller.createNewDocument();
+    	if(!hasBeenSaved){
+    		hasBeenSavedOption();
+    	}
+    	controller.createNewDocument();
         reloadJTreeValues(controller.getDocument().getRacine());
     } 
     
     private void quickSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {                                            
         controller.quickSave();
+        hasBeenSaved = true;
     }
 
     private void jTreeMouseClicked(java.awt.event.MouseEvent evt) {                                   
@@ -345,6 +351,7 @@ public class View extends javax.swing.JFrame {
         DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
         root.add(new DefaultMutableTreeNode(controller.addSection("Defaut Section", "")));
         model.reload(root); 
+        hasBeenSaved = false;
     }                                                  
 
     private void addSubsectionMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                                      
@@ -356,6 +363,7 @@ public class View extends javax.swing.JFrame {
 
         node.add(new DefaultMutableTreeNode(controller.addSubSection(section.getId(), "Defaut Subsection", "")));
         model.reload(node);
+        hasBeenSaved = false;
     }                                                     
 
     private void deleteSectionMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                                         	
@@ -363,6 +371,11 @@ public class View extends javax.swing.JFrame {
     }                                                     
 
     private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                             
+    	
+    	if(!hasBeenSaved){
+    		hasBeenSavedOption();
+    	}
+    	
     	JFileChooser fileChooser = new JFileChooser("DossierDefaut");
     	int returnVal = fileChooser.showOpenDialog(openMenuItem); 
     	File file = null;
@@ -382,12 +395,33 @@ public class View extends javax.swing.JFrame {
         		filePath = filePath + ".website";
         	}
         	controller.save(filePath);
+        	hasBeenSaved = true;
         }  	
     }                                            
 
     private void exportMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                               
         // TODO add your handling code here:
-    }                                              
+    }  
+    
+    private void hasBeenSavedOption(){
+    	JFrame frame = new JFrame();
+        String iconArray[] = { "Continue without saving", "Save and continue", "Cancel" };
+
+        Object jOptionPaneSelection = JOptionPane.showOptionDialog(frame, "Do you want to save your last modifications?", "Select an Option",
+            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, iconArray, iconArray[1]);
+        
+        System.out.println(jOptionPaneSelection.toString());
+        switch(jOptionPaneSelection.toString()){
+        	case "0": System.out.println("Continue without saving");
+        			  break;
+        	case "1": System.out.println("Save and continue");
+				      break;
+        	case "2": System.out.println("Cancel");
+			          break;      
+        }
+    }
+    
+     
 
 //    /**
 //     * @param args the command line arguments
