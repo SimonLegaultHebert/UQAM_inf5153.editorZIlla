@@ -45,8 +45,6 @@ public class DocumentBuilderImpl extends EObjectImpl implements DocumentBuilder 
 	
 	private static DocumentBuilder instance = null;
 	
-	private DocumentBuilder(){}
-	
 	public DocumentBuilder getInstance(){
 		if(instance == null){
 			instance = DefaultnameFactory.eINSTANCE.createDocumentBuilder();
