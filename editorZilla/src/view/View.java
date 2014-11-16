@@ -31,7 +31,6 @@ public class View extends javax.swing.JFrame {
     private final int LEFT_CLICK = 1;
     private final int RIGHT_CLICK = 3;
     private boolean hasBeenSaved = true;
-    private DefaultMutableTreeNode lastNodeUsed; //va servir pour sauvegarder le texte dans les sections et sous-sections
     
     public View(Controller controller) {
         initComponents();
@@ -141,19 +140,34 @@ public class View extends javax.swing.JFrame {
         );
         
         jTextArea.getDocument().addDocumentListener(new DocumentListener() {
-			
+			    	
 			@Override
 			public void removeUpdate(DocumentEvent arg0) {
+				TreeSelectionModel selectionModel = jTree.getSelectionModel();
+	        	TreePath selectionPath = selectionModel.getSelectionPath();
+				DefaultMutableTreeNode node = (DefaultMutableTreeNode)selectionPath.getLastPathComponent();
+	        	SectionComponent sectionComponent = (SectionComponent)node.getUserObject();
+				controller.saveText(sectionComponent.getId(), jTextArea.getText());
 				hasBeenSaved = false;			
 			}
 			
 			@Override
 			public void insertUpdate(DocumentEvent arg0) {
+				TreeSelectionModel selectionModel = jTree.getSelectionModel();
+	        	TreePath selectionPath = selectionModel.getSelectionPath();
+				DefaultMutableTreeNode node = (DefaultMutableTreeNode)selectionPath.getLastPathComponent();
+	        	SectionComponent sectionComponent = (SectionComponent)node.getUserObject();
+				controller.saveText(sectionComponent.getId(), jTextArea.getText());
 				hasBeenSaved = false;				
 			}
 			
 			@Override
 			public void changedUpdate(DocumentEvent arg0) {
+				TreeSelectionModel selectionModel = jTree.getSelectionModel();
+	        	TreePath selectionPath = selectionModel.getSelectionPath();
+				DefaultMutableTreeNode node = (DefaultMutableTreeNode)selectionPath.getLastPathComponent();
+	        	SectionComponent sectionComponent = (SectionComponent)node.getUserObject();
+				controller.saveText(sectionComponent.getId(), jTextArea.getText());
 				hasBeenSaved = false;				
 			}
 		});
@@ -312,18 +326,9 @@ public class View extends javax.swing.JFrame {
     }
 
     private void jTreeMouseClicked(java.awt.event.MouseEvent evt) {                                   
-    	//on save le texte du dernier node utilisé dans le tree
-    	if(lastNodeUsed != null){
-    		if(!lastNodeUsed.getUserObject().getClass().toString().equals("class java.lang.String")){
-    			SectionComponent sectionComponent = (SectionComponent)lastNodeUsed.getUserObject();
-    			controller.saveText(sectionComponent.getId(), jTextArea.getText());
-    		}
-    	}
     	TreeSelectionModel selectionModel = jTree.getSelectionModel();
     	TreePath selectionPath = selectionModel.getSelectionPath();
     	DefaultMutableTreeNode node = (DefaultMutableTreeNode)selectionPath.getLastPathComponent();
-    	
-    	lastNodeUsed = node;
     	
         if(evt.getButton() == LEFT_CLICK){
              
