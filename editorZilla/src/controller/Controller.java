@@ -42,7 +42,6 @@ public class Controller {
 	public void createNewDocument(){
 		documentBuilder = DefaultnameFactory.eINSTANCE.createDocumentBuilder();
 		document = DefaultnameFactory.eINSTANCE.createDocument();
-		document.setName("Document par défaut");
 		documentBuilder.setDocument(document);
 	}
 	
