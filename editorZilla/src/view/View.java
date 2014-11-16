@@ -31,6 +31,7 @@ public class View extends javax.swing.JFrame {
     private final int LEFT_CLICK = 1;
     private final int RIGHT_CLICK = 3;
     private boolean hasBeenSaved = true;
+    DefaultMutableTreeNode lastNodeUsed;
     
     public View(Controller controller) {
         initComponents();
@@ -143,32 +144,26 @@ public class View extends javax.swing.JFrame {
 			    	
 			@Override
 			public void removeUpdate(DocumentEvent arg0) {
-				TreeSelectionModel selectionModel = jTree.getSelectionModel();
-	        	TreePath selectionPath = selectionModel.getSelectionPath();
-				DefaultMutableTreeNode node = (DefaultMutableTreeNode)selectionPath.getLastPathComponent();
-	        	SectionComponent sectionComponent = (SectionComponent)node.getUserObject();
+				SectionComponent sectionComponent = (SectionComponent)lastNodeUsed.getUserObject();
 				controller.saveText(sectionComponent.getId(), jTextArea.getText());
-				hasBeenSaved = false;			
+				hasBeenSaved = false;	
+
 			}
 			
 			@Override
 			public void insertUpdate(DocumentEvent arg0) {
-				TreeSelectionModel selectionModel = jTree.getSelectionModel();
-	        	TreePath selectionPath = selectionModel.getSelectionPath();
-				DefaultMutableTreeNode node = (DefaultMutableTreeNode)selectionPath.getLastPathComponent();
-	        	SectionComponent sectionComponent = (SectionComponent)node.getUserObject();
+	        	SectionComponent sectionComponent = (SectionComponent)lastNodeUsed.getUserObject();
 				controller.saveText(sectionComponent.getId(), jTextArea.getText());
-				hasBeenSaved = false;				
+				hasBeenSaved = false;			
+
 			}
 			
 			@Override
 			public void changedUpdate(DocumentEvent arg0) {
-				TreeSelectionModel selectionModel = jTree.getSelectionModel();
-	        	TreePath selectionPath = selectionModel.getSelectionPath();
-				DefaultMutableTreeNode node = (DefaultMutableTreeNode)selectionPath.getLastPathComponent();
-	        	SectionComponent sectionComponent = (SectionComponent)node.getUserObject();
+				SectionComponent sectionComponent = (SectionComponent)lastNodeUsed.getUserObject();
 				controller.saveText(sectionComponent.getId(), jTextArea.getText());
-				hasBeenSaved = false;				
+				hasBeenSaved = false;	
+
 			}
 		});
 
@@ -314,10 +309,11 @@ public class View extends javax.swing.JFrame {
     
     private void newFileButtonActionPerformed(java.awt.event.ActionEvent evt) {                                            
     	if(!hasBeenSaved){
-    		hasBeenSavedOption();
+    		hasBeenSavedOption("newFile");
+    	}else{
+    		controller.createNewDocument();
+            reloadJTreeValues(controller.getDocument().getRacine());
     	}
-    	controller.createNewDocument();
-        reloadJTreeValues(controller.getDocument().getRacine());
     } 
     
     private void quickSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {                                            
@@ -329,6 +325,7 @@ public class View extends javax.swing.JFrame {
     	TreeSelectionModel selectionModel = jTree.getSelectionModel();
     	TreePath selectionPath = selectionModel.getSelectionPath();
     	DefaultMutableTreeNode node = (DefaultMutableTreeNode)selectionPath.getLastPathComponent();
+    	lastNodeUsed = node;
     	
         if(evt.getButton() == LEFT_CLICK){
              
@@ -395,20 +392,20 @@ public class View extends javax.swing.JFrame {
     	System.out.println("IMPLÉMENTER LE DELETE");
     }                                                     
 
-    private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                             
-    	
+    private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                                	
     	if(!hasBeenSaved){
-    		hasBeenSavedOption();
+    		hasBeenSavedOption("openFile");
+    	}else{
+    		JFileChooser fileChooser = new JFileChooser("DossierDefaut");
+        	int returnVal = fileChooser.showOpenDialog(openMenuItem); 
+        	File file = null;
+        	if (returnVal == JFileChooser.APPROVE_OPTION) {
+        	    file = fileChooser.getSelectedFile();
+        	} 
+        	controller.load(file.getAbsolutePath());
+        	reloadJTreeValues(controller.getDocument().getRacine());
     	}
     	
-    	JFileChooser fileChooser = new JFileChooser("DossierDefaut");
-    	int returnVal = fileChooser.showOpenDialog(openMenuItem); 
-    	File file = null;
-    	if (returnVal == JFileChooser.APPROVE_OPTION) {
-    	    file = fileChooser.getSelectedFile();
-    	} 
-    	controller.load(file.getAbsolutePath());
-    	reloadJTreeValues(controller.getDocument().getRacine());
     }                                            
 
     private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                             
@@ -428,22 +425,43 @@ public class View extends javax.swing.JFrame {
         // TODO add your handling code here:
     }  
     
-    private void hasBeenSavedOption(){
+    private void hasBeenSavedOption(String operation){
     	JFrame frame = new JFrame();
         String iconArray[] = { "Continue without saving", "Save and continue", "Cancel" };
 
         Object jOptionPaneSelection = JOptionPane.showOptionDialog(frame, "Do you want to save your last modifications?", "Select an Option",
             JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, iconArray, iconArray[1]);
-        
-        System.out.println(jOptionPaneSelection.toString());
         switch(jOptionPaneSelection.toString()){
         	case "0": System.out.println("Continue without saving");
-        			  break;
+        			  doNextOpration(operation);
+        	          break;
         	case "1": System.out.println("Save and continue");
-				      break;
+				      controller.quickSave();
+				      doNextOpration(operation);
+        			  break; 
         	case "2": System.out.println("Cancel");
-			          break;      
+		      		  break;
         }
+       
+    }
+    
+    private void doNextOpration(String operation){   
+    	if(operation.equals("newFile")){
+    		controller.createNewDocument();
+            reloadJTreeValues(controller.getDocument().getRacine());
+            hasBeenSaved = true;
+    	
+    	}else if(operation.equals("openFile")){
+    		JFileChooser fileChooser = new JFileChooser("DossierDefaut");
+        	int returnVal = fileChooser.showOpenDialog(openMenuItem); 
+        	File file = null;
+        	if (returnVal == JFileChooser.APPROVE_OPTION) {
+        	    file = fileChooser.getSelectedFile();
+        	} 
+        	controller.load(file.getAbsolutePath());
+        	reloadJTreeValues(controller.getDocument().getRacine());
+        	hasBeenSaved = true;
+    	}
     }
     
      
