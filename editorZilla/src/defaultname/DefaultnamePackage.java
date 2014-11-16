@@ -204,13 +204,22 @@ public interface DefaultnamePackage extends EPackage {
 	int DOCUMENT_BUILDER__FILE_PATH = 1;
 
 	/**
-	 * The feature id for the '<em><b>Strategy</b></em>' containment reference.
+	 * The feature id for the '<em><b>Document Strategy</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_BUILDER__STRATEGY = 2;
+	int DOCUMENT_BUILDER__DOCUMENT_STRATEGY = 2;
+
+	/**
+	 * The feature id for the '<em><b>Export Strategy</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENT_BUILDER__EXPORT_STRATEGY = 3;
 
 	/**
 	 * The number of structural features of the '<em>Document Builder</em>' class.
@@ -219,7 +228,7 @@ public interface DefaultnamePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_BUILDER_FEATURE_COUNT = 3;
+	int DOCUMENT_BUILDER_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link defaultname.impl.DocumentImpl <em>Document</em>}' class.
@@ -250,13 +259,22 @@ public interface DefaultnamePackage extends EPackage {
 	int DOCUMENT__FILE_PATH = DOCUMENT_BUILDER__FILE_PATH;
 
 	/**
-	 * The feature id for the '<em><b>Strategy</b></em>' containment reference.
+	 * The feature id for the '<em><b>Document Strategy</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT__STRATEGY = DOCUMENT_BUILDER__STRATEGY;
+	int DOCUMENT__DOCUMENT_STRATEGY = DOCUMENT_BUILDER__DOCUMENT_STRATEGY;
+
+	/**
+	 * The feature id for the '<em><b>Export Strategy</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENT__EXPORT_STRATEGY = DOCUMENT_BUILDER__EXPORT_STRATEGY;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -377,6 +395,44 @@ public interface DefaultnamePackage extends EPackage {
 	 * @ordered
 	 */
 	int PRESSE_PAPIER_FEATURE_COUNT = 3;
+
+	/**
+	 * The meta object id for the '{@link defaultname.ExportStrategy <em>Export Strategy</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see defaultname.ExportStrategy
+	 * @see defaultname.impl.DefaultnamePackageImpl#getExportStrategy()
+	 * @generated
+	 */
+	int EXPORT_STRATEGY = 8;
+
+	/**
+	 * The number of structural features of the '<em>Export Strategy</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPORT_STRATEGY_FEATURE_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link defaultname.impl.HTMLStrategyImpl <em>HTML Strategy</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see defaultname.impl.HTMLStrategyImpl
+	 * @see defaultname.impl.DefaultnamePackageImpl#getHTMLStrategy()
+	 * @generated
+	 */
+	int HTML_STRATEGY = 9;
+
+	/**
+	 * The number of structural features of the '<em>HTML Strategy</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTML_STRATEGY_FEATURE_COUNT = EXPORT_STRATEGY_FEATURE_COUNT + 0;
 
 	/**
 	 * Returns the meta object for class '{@link defaultname.SectionComponent <em>Section Component</em>}'.
@@ -561,15 +617,26 @@ public interface DefaultnamePackage extends EPackage {
 	EAttribute getDocumentBuilder_FilePath();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link defaultname.DocumentBuilder#getStrategy <em>Strategy</em>}'.
+	 * Returns the meta object for the containment reference '{@link defaultname.DocumentBuilder#getDocumentStrategy <em>Document Strategy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Strategy</em>'.
-	 * @see defaultname.DocumentBuilder#getStrategy()
+	 * @return the meta object for the containment reference '<em>Document Strategy</em>'.
+	 * @see defaultname.DocumentBuilder#getDocumentStrategy()
 	 * @see #getDocumentBuilder()
 	 * @generated
 	 */
-	EReference getDocumentBuilder_Strategy();
+	EReference getDocumentBuilder_DocumentStrategy();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link defaultname.DocumentBuilder#getExportStrategy <em>Export Strategy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Export Strategy</em>'.
+	 * @see defaultname.DocumentBuilder#getExportStrategy()
+	 * @see #getDocumentBuilder()
+	 * @generated
+	 */
+	EReference getDocumentBuilder_ExportStrategy();
 
 	/**
 	 * Returns the meta object for class '{@link defaultname.DocumentStrategy <em>Document Strategy</em>}'.
@@ -633,6 +700,26 @@ public interface DefaultnamePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPressePapier_StartPosition();
+
+	/**
+	 * Returns the meta object for class '{@link defaultname.ExportStrategy <em>Export Strategy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Export Strategy</em>'.
+	 * @see defaultname.ExportStrategy
+	 * @generated
+	 */
+	EClass getExportStrategy();
+
+	/**
+	 * Returns the meta object for class '{@link defaultname.HTMLStrategy <em>HTML Strategy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>HTML Strategy</em>'.
+	 * @see defaultname.HTMLStrategy
+	 * @generated
+	 */
+	EClass getHTMLStrategy();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -803,12 +890,20 @@ public interface DefaultnamePackage extends EPackage {
 		EAttribute DOCUMENT_BUILDER__FILE_PATH = eINSTANCE.getDocumentBuilder_FilePath();
 
 		/**
-		 * The meta object literal for the '<em><b>Strategy</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Document Strategy</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DOCUMENT_BUILDER__STRATEGY = eINSTANCE.getDocumentBuilder_Strategy();
+		EReference DOCUMENT_BUILDER__DOCUMENT_STRATEGY = eINSTANCE.getDocumentBuilder_DocumentStrategy();
+
+		/**
+		 * The meta object literal for the '<em><b>Export Strategy</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOCUMENT_BUILDER__EXPORT_STRATEGY = eINSTANCE.getDocumentBuilder_ExportStrategy();
 
 		/**
 		 * The meta object literal for the '{@link defaultname.DocumentStrategy <em>Document Strategy</em>}' class.
@@ -863,6 +958,26 @@ public interface DefaultnamePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PRESSE_PAPIER__START_POSITION = eINSTANCE.getPressePapier_StartPosition();
+
+		/**
+		 * The meta object literal for the '{@link defaultname.ExportStrategy <em>Export Strategy</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see defaultname.ExportStrategy
+		 * @see defaultname.impl.DefaultnamePackageImpl#getExportStrategy()
+		 * @generated
+		 */
+		EClass EXPORT_STRATEGY = eINSTANCE.getExportStrategy();
+
+		/**
+		 * The meta object literal for the '{@link defaultname.impl.HTMLStrategyImpl <em>HTML Strategy</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see defaultname.impl.HTMLStrategyImpl
+		 * @see defaultname.impl.DefaultnamePackageImpl#getHTMLStrategy()
+		 * @generated
+		 */
+		EClass HTML_STRATEGY = eINSTANCE.getHTMLStrategy();
 
 	}
 

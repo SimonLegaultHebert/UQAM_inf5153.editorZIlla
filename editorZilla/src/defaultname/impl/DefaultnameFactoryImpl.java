@@ -62,6 +62,7 @@ public class DefaultnameFactoryImpl extends EFactoryImpl implements DefaultnameF
 			case DefaultnamePackage.DOCUMENT_BUILDER: return createDocumentBuilder();
 			case DefaultnamePackage.XMI_STRATEGY: return createXMIStrategy();
 			case DefaultnamePackage.PRESSE_PAPIER: return createPressePapier();
+			case DefaultnamePackage.HTML_STRATEGY: return createHTMLStrategy();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -125,6 +126,16 @@ public class DefaultnameFactoryImpl extends EFactoryImpl implements DefaultnameF
 	public PressePapier createPressePapier() {
 		PressePapierImpl pressePapier = new PressePapierImpl();
 		return pressePapier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public HTMLStrategy createHTMLStrategy() {
+		HTMLStrategyImpl htmlStrategy = new HTMLStrategyImpl();
+		return htmlStrategy;
 	}
 
 	/**

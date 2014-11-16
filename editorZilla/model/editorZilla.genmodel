@@ -54,7 +54,8 @@
     <genClasses ecoreClass="editorZilla.ecore#//DocumentBuilder">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference editorZilla.ecore#//DocumentBuilder/document"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editorZilla.ecore#//DocumentBuilder/filePath"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference editorZilla.ecore#//DocumentBuilder/strategy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference editorZilla.ecore#//DocumentBuilder/documentStrategy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference editorZilla.ecore#//DocumentBuilder/exportStrategy"/>
       <genOperations ecoreOperation="editorZilla.ecore#//DocumentBuilder/load">
         <genParameters ecoreParameter="editorZilla.ecore#//DocumentBuilder/load/filePath"/>
       </genOperations>
@@ -85,5 +86,12 @@
       <genOperations ecoreOperation="editorZilla.ecore#//PressePapier/moveText"/>
       <genOperations ecoreOperation="editorZilla.ecore#//PressePapier/pasteText"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="editorZilla.ecore#//ExportStrategy">
+      <genOperations ecoreOperation="editorZilla.ecore#//ExportStrategy/export">
+        <genParameters ecoreParameter="editorZilla.ecore#//ExportStrategy/export/document"/>
+        <genParameters ecoreParameter="editorZilla.ecore#//ExportStrategy/export/filePath"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="editorZilla.ecore#//HTMLStrategy"/>
   </genPackages>
 </genmodel:GenModel>

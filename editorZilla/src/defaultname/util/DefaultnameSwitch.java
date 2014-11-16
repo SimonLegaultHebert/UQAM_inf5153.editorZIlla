@@ -119,6 +119,19 @@ public class DefaultnameSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DefaultnamePackage.EXPORT_STRATEGY: {
+				ExportStrategy exportStrategy = (ExportStrategy)theEObject;
+				T result = caseExportStrategy(exportStrategy);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DefaultnamePackage.HTML_STRATEGY: {
+				HTMLStrategy htmlStrategy = (HTMLStrategy)theEObject;
+				T result = caseHTMLStrategy(htmlStrategy);
+				if (result == null) result = caseExportStrategy(htmlStrategy);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -240,6 +253,36 @@ public class DefaultnameSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePressePapier(PressePapier object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Export Strategy</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Export Strategy</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExportStrategy(ExportStrategy object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>HTML Strategy</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>HTML Strategy</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseHTMLStrategy(HTMLStrategy object) {
 		return null;
 	}
 

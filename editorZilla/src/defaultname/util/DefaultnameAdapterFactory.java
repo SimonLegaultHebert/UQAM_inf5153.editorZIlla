@@ -100,6 +100,14 @@ public class DefaultnameAdapterFactory extends AdapterFactoryImpl {
 				return createPressePapierAdapter();
 			}
 			@Override
+			public Adapter caseExportStrategy(ExportStrategy object) {
+				return createExportStrategyAdapter();
+			}
+			@Override
+			public Adapter caseHTMLStrategy(HTMLStrategy object) {
+				return createHTMLStrategyAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -228,6 +236,34 @@ public class DefaultnameAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPressePapierAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link defaultname.ExportStrategy <em>Export Strategy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see defaultname.ExportStrategy
+	 * @generated
+	 */
+	public Adapter createExportStrategyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link defaultname.HTMLStrategy <em>HTML Strategy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see defaultname.HTMLStrategy
+	 * @generated
+	 */
+	public Adapter createHTMLStrategyAdapter() {
 		return null;
 	}
 

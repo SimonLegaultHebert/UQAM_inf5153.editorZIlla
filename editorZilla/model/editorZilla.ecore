@@ -70,8 +70,10 @@
         eType="#//Document"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="filePath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="DossierDefaut"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="strategy" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="documentStrategy" lowerBound="1"
         eType="#//DocumentStrategy" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exportStrategy" lowerBound="1"
+        eType="#//ExportStrategy" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DocumentStrategy" abstract="true" interface="true">
     <eOperations name="load" eType="#//Document">
@@ -94,4 +96,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="pressePaper" eType="#//Document"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="startPosition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExportStrategy" abstract="true" interface="true">
+    <eOperations name="export">
+      <eParameters name="document" eType="#//Document"/>
+      <eParameters name="filePath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HTMLStrategy" eSuperTypes="#//ExportStrategy"/>
 </ecore:EPackage>

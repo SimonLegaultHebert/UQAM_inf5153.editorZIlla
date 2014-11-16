@@ -14,7 +14,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link defaultname.DocumentBuilder#getDocument <em>Document</em>}</li>
  *   <li>{@link defaultname.DocumentBuilder#getFilePath <em>File Path</em>}</li>
- *   <li>{@link defaultname.DocumentBuilder#getStrategy <em>Strategy</em>}</li>
+ *   <li>{@link defaultname.DocumentBuilder#getDocumentStrategy <em>Document Strategy</em>}</li>
+ *   <li>{@link defaultname.DocumentBuilder#getExportStrategy <em>Export Strategy</em>}</li>
  * </ul>
  * </p>
  *
@@ -23,6 +24,9 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface DocumentBuilder extends EObject {
+	
+	DocumentBuilder getInstance();
+	
 	/**
 	 * Returns the value of the '<em><b>Document</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -77,30 +81,56 @@ public interface DocumentBuilder extends EObject {
 	void setFilePath(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Strategy</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Document Strategy</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Strategy</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Document Strategy</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Strategy</em>' containment reference.
-	 * @see #setStrategy(DocumentStrategy)
-	 * @see defaultname.DefaultnamePackage#getDocumentBuilder_Strategy()
+	 * @return the value of the '<em>Document Strategy</em>' containment reference.
+	 * @see #setDocumentStrategy(DocumentStrategy)
+	 * @see defaultname.DefaultnamePackage#getDocumentBuilder_DocumentStrategy()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	DocumentStrategy getStrategy();
+	DocumentStrategy getDocumentStrategy();
 
 	/**
-	 * Sets the value of the '{@link defaultname.DocumentBuilder#getStrategy <em>Strategy</em>}' containment reference.
+	 * Sets the value of the '{@link defaultname.DocumentBuilder#getDocumentStrategy <em>Document Strategy</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Strategy</em>' containment reference.
-	 * @see #getStrategy()
+	 * @param value the new value of the '<em>Document Strategy</em>' containment reference.
+	 * @see #getDocumentStrategy()
 	 * @generated
 	 */
-	void setStrategy(DocumentStrategy value);
+	void setDocumentStrategy(DocumentStrategy value);
+
+	/**
+	 * Returns the value of the '<em><b>Export Strategy</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Export Strategy</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Export Strategy</em>' containment reference.
+	 * @see #setExportStrategy(ExportStrategy)
+	 * @see defaultname.DefaultnamePackage#getDocumentBuilder_ExportStrategy()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	ExportStrategy getExportStrategy();
+
+	/**
+	 * Sets the value of the '{@link defaultname.DocumentBuilder#getExportStrategy <em>Export Strategy</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Export Strategy</em>' containment reference.
+	 * @see #getExportStrategy()
+	 * @generated
+	 */
+	void setExportStrategy(ExportStrategy value);
 
 	/**
 	 * <!-- begin-user-doc -->

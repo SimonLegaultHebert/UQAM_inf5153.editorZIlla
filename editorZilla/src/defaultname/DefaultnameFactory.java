@@ -76,6 +76,15 @@ public interface DefaultnameFactory extends EFactory {
 	PressePapier createPressePapier();
 
 	/**
+	 * Returns a new object of class '<em>HTML Strategy</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>HTML Strategy</em>'.
+	 * @generated
+	 */
+	HTMLStrategy createHTMLStrategy();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

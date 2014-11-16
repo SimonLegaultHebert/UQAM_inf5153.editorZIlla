@@ -1,7 +1,5 @@
 package controller;
 
-import org.eclipse.emf.common.util.EList;
-
 import defaultname.*;
 
 public class Controller {
@@ -12,7 +10,7 @@ public class Controller {
 	//Quand on ouvre le logiciel, le documentBuilder est créer par défaut.
 	public Controller(){	
 		DefaultnamePackage.eINSTANCE.eClass();
-		this.documentBuilder = DefaultnameFactory.eINSTANCE.createDocumentBuilder();
+		this.documentBuilder = DefaultnameFactory.eINSTANCE.createDocument().getInstance();
 		this.document = DefaultnameFactory.eINSTANCE.createDocument();
 		this.documentBuilder.setDocument(document);
 	}

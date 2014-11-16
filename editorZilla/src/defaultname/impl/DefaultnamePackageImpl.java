@@ -7,6 +7,8 @@ import defaultname.DefaultnamePackage;
 import defaultname.Document;
 import defaultname.DocumentBuilder;
 import defaultname.DocumentStrategy;
+import defaultname.ExportStrategy;
+import defaultname.HTMLStrategy;
 import defaultname.PressePapier;
 import defaultname.Section;
 import defaultname.SectionComponent;
@@ -83,6 +85,20 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 	 * @generated
 	 */
 	private EClass pressePapierEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass exportStrategyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass htmlStrategyEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -303,8 +319,17 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocumentBuilder_Strategy() {
+	public EReference getDocumentBuilder_DocumentStrategy() {
 		return (EReference)documentBuilderEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDocumentBuilder_ExportStrategy() {
+		return (EReference)documentBuilderEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -366,6 +391,24 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getExportStrategy() {
+		return exportStrategyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getHTMLStrategy() {
+		return htmlStrategyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DefaultnameFactory getDefaultnameFactory() {
 		return (DefaultnameFactory)getEFactoryInstance();
 	}
@@ -410,7 +453,8 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 		documentBuilderEClass = createEClass(DOCUMENT_BUILDER);
 		createEReference(documentBuilderEClass, DOCUMENT_BUILDER__DOCUMENT);
 		createEAttribute(documentBuilderEClass, DOCUMENT_BUILDER__FILE_PATH);
-		createEReference(documentBuilderEClass, DOCUMENT_BUILDER__STRATEGY);
+		createEReference(documentBuilderEClass, DOCUMENT_BUILDER__DOCUMENT_STRATEGY);
+		createEReference(documentBuilderEClass, DOCUMENT_BUILDER__EXPORT_STRATEGY);
 
 		documentStrategyEClass = createEClass(DOCUMENT_STRATEGY);
 
@@ -420,6 +464,10 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 		createEAttribute(pressePapierEClass, PRESSE_PAPIER__TEXT_SELECTED);
 		createEReference(pressePapierEClass, PRESSE_PAPIER__PRESSE_PAPER);
 		createEAttribute(pressePapierEClass, PRESSE_PAPIER__START_POSITION);
+
+		exportStrategyEClass = createEClass(EXPORT_STRATEGY);
+
+		htmlStrategyEClass = createEClass(HTML_STRATEGY);
 	}
 
 	/**
@@ -455,6 +503,7 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 		documentEClass.getESuperTypes().add(this.getDocumentBuilder());
 		documentEClass.getESuperTypes().add(this.getDocumentStrategy());
 		xmiStrategyEClass.getESuperTypes().add(this.getDocumentStrategy());
+		htmlStrategyEClass.getESuperTypes().add(this.getExportStrategy());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(sectionComponentEClass, SectionComponent.class, "SectionComponent", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -511,7 +560,8 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 		initEClass(documentBuilderEClass, DocumentBuilder.class, "DocumentBuilder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDocumentBuilder_Document(), this.getDocument(), null, "document", null, 1, 1, DocumentBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDocumentBuilder_FilePath(), ecorePackage.getEString(), "filePath", "DossierDefaut", 0, 1, DocumentBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDocumentBuilder_Strategy(), this.getDocumentStrategy(), null, "strategy", null, 1, 1, DocumentBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDocumentBuilder_DocumentStrategy(), this.getDocumentStrategy(), null, "documentStrategy", null, 1, 1, DocumentBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDocumentBuilder_ExportStrategy(), this.getExportStrategy(), null, "exportStrategy", null, 1, 1, DocumentBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(documentBuilderEClass, this.getDocument(), "load", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "filePath", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -544,6 +594,14 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 		addEOperation(pressePapierEClass, ecorePackage.getEInt(), "moveText", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(pressePapierEClass, ecorePackage.getEString(), "pasteText", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(exportStrategyEClass, ExportStrategy.class, "ExportStrategy", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = addEOperation(exportStrategyEClass, null, "export", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getDocument(), "document", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "filePath", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(htmlStrategyEClass, HTMLStrategy.class, "HTMLStrategy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

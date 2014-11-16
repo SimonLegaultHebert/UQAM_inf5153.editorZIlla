@@ -8,6 +8,7 @@ import defaultname.DefaultnamePackage;
 import defaultname.Document;
 import defaultname.DocumentBuilder;
 import defaultname.DocumentStrategy;
+import defaultname.ExportStrategy;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -24,7 +25,8 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <ul>
  *   <li>{@link defaultname.impl.DocumentBuilderImpl#getDocument <em>Document</em>}</li>
  *   <li>{@link defaultname.impl.DocumentBuilderImpl#getFilePath <em>File Path</em>}</li>
- *   <li>{@link defaultname.impl.DocumentBuilderImpl#getStrategy <em>Strategy</em>}</li>
+ *   <li>{@link defaultname.impl.DocumentBuilderImpl#getDocumentStrategy <em>Document Strategy</em>}</li>
+ *   <li>{@link defaultname.impl.DocumentBuilderImpl#getExportStrategy <em>Export Strategy</em>}</li>
  * </ul>
  * </p>
  *
@@ -40,6 +42,17 @@ public class DocumentBuilderImpl extends EObjectImpl implements DocumentBuilder 
 	 * @ordered
 	 */
 	protected Document document;
+	
+	private static DocumentBuilder instance = null;
+	
+	private DocumentBuilder(){}
+	
+	public DocumentBuilder getInstance(){
+		if(instance == null){
+			instance = DefaultnameFactory.eINSTANCE.createDocumentBuilder();
+		}		
+		return instance;
+	}
 
 	/**
 	 * The default value of the '{@link #getFilePath() <em>File Path</em>}' attribute.
@@ -62,15 +75,24 @@ public class DocumentBuilderImpl extends EObjectImpl implements DocumentBuilder 
 	protected String filePath = FILE_PATH_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getStrategy() <em>Strategy</em>}' containment reference.
+	 * The cached value of the '{@link #getDocumentStrategy() <em>Document Strategy</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getStrategy()
+	 * @see #getDocumentStrategy()
 	 * @generated NOT
 	 * @ordered
 	 */
-	//Strategy utilisée par défaut
-	protected DocumentStrategy strategy =  DefaultnameFactory.eINSTANCE.createXMIStrategy();
+	protected DocumentStrategy documentStrategy = DefaultnameFactory.eINSTANCE.createXMIStrategy();
+
+	/**
+	 * The cached value of the '{@link #getExportStrategy() <em>Export Strategy</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExportStrategy()
+	 * @generated
+	 * @ordered
+	 */
+	protected ExportStrategy exportStrategy;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -155,8 +177,8 @@ public class DocumentBuilderImpl extends EObjectImpl implements DocumentBuilder 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DocumentStrategy getStrategy() {
-		return strategy;
+	public DocumentStrategy getDocumentStrategy() {
+		return documentStrategy;
 	}
 
 	/**
@@ -164,11 +186,11 @@ public class DocumentBuilderImpl extends EObjectImpl implements DocumentBuilder 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStrategy(DocumentStrategy newStrategy, NotificationChain msgs) {
-		DocumentStrategy oldStrategy = strategy;
-		strategy = newStrategy;
+	public NotificationChain basicSetDocumentStrategy(DocumentStrategy newDocumentStrategy, NotificationChain msgs) {
+		DocumentStrategy oldDocumentStrategy = documentStrategy;
+		documentStrategy = newDocumentStrategy;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DefaultnamePackage.DOCUMENT_BUILDER__STRATEGY, oldStrategy, newStrategy);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DefaultnamePackage.DOCUMENT_BUILDER__DOCUMENT_STRATEGY, oldDocumentStrategy, newDocumentStrategy);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -179,18 +201,61 @@ public class DocumentBuilderImpl extends EObjectImpl implements DocumentBuilder 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStrategy(DocumentStrategy newStrategy) {
-		if (newStrategy != strategy) {
+	public void setDocumentStrategy(DocumentStrategy newDocumentStrategy) {
+		if (newDocumentStrategy != documentStrategy) {
 			NotificationChain msgs = null;
-			if (strategy != null)
-				msgs = ((InternalEObject)strategy).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DefaultnamePackage.DOCUMENT_BUILDER__STRATEGY, null, msgs);
-			if (newStrategy != null)
-				msgs = ((InternalEObject)newStrategy).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DefaultnamePackage.DOCUMENT_BUILDER__STRATEGY, null, msgs);
-			msgs = basicSetStrategy(newStrategy, msgs);
+			if (documentStrategy != null)
+				msgs = ((InternalEObject)documentStrategy).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DefaultnamePackage.DOCUMENT_BUILDER__DOCUMENT_STRATEGY, null, msgs);
+			if (newDocumentStrategy != null)
+				msgs = ((InternalEObject)newDocumentStrategy).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DefaultnamePackage.DOCUMENT_BUILDER__DOCUMENT_STRATEGY, null, msgs);
+			msgs = basicSetDocumentStrategy(newDocumentStrategy, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DefaultnamePackage.DOCUMENT_BUILDER__STRATEGY, newStrategy, newStrategy));
+			eNotify(new ENotificationImpl(this, Notification.SET, DefaultnamePackage.DOCUMENT_BUILDER__DOCUMENT_STRATEGY, newDocumentStrategy, newDocumentStrategy));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExportStrategy getExportStrategy() {
+		return exportStrategy;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetExportStrategy(ExportStrategy newExportStrategy, NotificationChain msgs) {
+		ExportStrategy oldExportStrategy = exportStrategy;
+		exportStrategy = newExportStrategy;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DefaultnamePackage.DOCUMENT_BUILDER__EXPORT_STRATEGY, oldExportStrategy, newExportStrategy);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExportStrategy(ExportStrategy newExportStrategy) {
+		if (newExportStrategy != exportStrategy) {
+			NotificationChain msgs = null;
+			if (exportStrategy != null)
+				msgs = ((InternalEObject)exportStrategy).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DefaultnamePackage.DOCUMENT_BUILDER__EXPORT_STRATEGY, null, msgs);
+			if (newExportStrategy != null)
+				msgs = ((InternalEObject)newExportStrategy).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DefaultnamePackage.DOCUMENT_BUILDER__EXPORT_STRATEGY, null, msgs);
+			msgs = basicSetExportStrategy(newExportStrategy, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DefaultnamePackage.DOCUMENT_BUILDER__EXPORT_STRATEGY, newExportStrategy, newExportStrategy));
 	}
 
 	/**
@@ -199,7 +264,7 @@ public class DocumentBuilderImpl extends EObjectImpl implements DocumentBuilder 
 	 * @generated NOT
 	 */
 	public Document load(String filePath) {
-		Document newDocument = strategy.load(filePath);
+		Document newDocument = documentStrategy.load(filePath);
 		return newDocument;
 	}
 
@@ -220,7 +285,7 @@ public class DocumentBuilderImpl extends EObjectImpl implements DocumentBuilder 
 	 * @generated NOT
 	 */
 	public void save(Document document) {
-		strategy.save(document, getFilePath());
+		documentStrategy.save(document, getFilePath());
 	}
 
 	/**
@@ -231,8 +296,10 @@ public class DocumentBuilderImpl extends EObjectImpl implements DocumentBuilder 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DefaultnamePackage.DOCUMENT_BUILDER__STRATEGY:
-				return basicSetStrategy(null, msgs);
+			case DefaultnamePackage.DOCUMENT_BUILDER__DOCUMENT_STRATEGY:
+				return basicSetDocumentStrategy(null, msgs);
+			case DefaultnamePackage.DOCUMENT_BUILDER__EXPORT_STRATEGY:
+				return basicSetExportStrategy(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -250,8 +317,10 @@ public class DocumentBuilderImpl extends EObjectImpl implements DocumentBuilder 
 				return basicGetDocument();
 			case DefaultnamePackage.DOCUMENT_BUILDER__FILE_PATH:
 				return getFilePath();
-			case DefaultnamePackage.DOCUMENT_BUILDER__STRATEGY:
-				return getStrategy();
+			case DefaultnamePackage.DOCUMENT_BUILDER__DOCUMENT_STRATEGY:
+				return getDocumentStrategy();
+			case DefaultnamePackage.DOCUMENT_BUILDER__EXPORT_STRATEGY:
+				return getExportStrategy();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -270,8 +339,11 @@ public class DocumentBuilderImpl extends EObjectImpl implements DocumentBuilder 
 			case DefaultnamePackage.DOCUMENT_BUILDER__FILE_PATH:
 				setFilePath((String)newValue);
 				return;
-			case DefaultnamePackage.DOCUMENT_BUILDER__STRATEGY:
-				setStrategy((DocumentStrategy)newValue);
+			case DefaultnamePackage.DOCUMENT_BUILDER__DOCUMENT_STRATEGY:
+				setDocumentStrategy((DocumentStrategy)newValue);
+				return;
+			case DefaultnamePackage.DOCUMENT_BUILDER__EXPORT_STRATEGY:
+				setExportStrategy((ExportStrategy)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -291,8 +363,11 @@ public class DocumentBuilderImpl extends EObjectImpl implements DocumentBuilder 
 			case DefaultnamePackage.DOCUMENT_BUILDER__FILE_PATH:
 				setFilePath(FILE_PATH_EDEFAULT);
 				return;
-			case DefaultnamePackage.DOCUMENT_BUILDER__STRATEGY:
-				setStrategy((DocumentStrategy)null);
+			case DefaultnamePackage.DOCUMENT_BUILDER__DOCUMENT_STRATEGY:
+				setDocumentStrategy((DocumentStrategy)null);
+				return;
+			case DefaultnamePackage.DOCUMENT_BUILDER__EXPORT_STRATEGY:
+				setExportStrategy((ExportStrategy)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -310,8 +385,10 @@ public class DocumentBuilderImpl extends EObjectImpl implements DocumentBuilder 
 				return document != null;
 			case DefaultnamePackage.DOCUMENT_BUILDER__FILE_PATH:
 				return FILE_PATH_EDEFAULT == null ? filePath != null : !FILE_PATH_EDEFAULT.equals(filePath);
-			case DefaultnamePackage.DOCUMENT_BUILDER__STRATEGY:
-				return strategy != null;
+			case DefaultnamePackage.DOCUMENT_BUILDER__DOCUMENT_STRATEGY:
+				return documentStrategy != null;
+			case DefaultnamePackage.DOCUMENT_BUILDER__EXPORT_STRATEGY:
+				return exportStrategy != null;
 		}
 		return super.eIsSet(featureID);
 	}
