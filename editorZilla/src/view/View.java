@@ -7,6 +7,8 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTree;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreePath;
@@ -28,7 +30,7 @@ public class View extends javax.swing.JFrame {
 	private Controller controller;
     private final int LEFT_CLICK = 1;
     private final int RIGHT_CLICK = 3;
-    private boolean hasBeenSaved = false;
+    private boolean hasBeenSaved = true;
     private DefaultMutableTreeNode lastNodeUsed; //va servir pour sauvegarder le texte dans les sections et sous-sections
     
     public View(Controller controller) {
@@ -137,6 +139,24 @@ public class View extends javax.swing.JFrame {
                 .addComponent(jScrollPane3)
                 .addContainerGap())
         );
+        
+        jTextArea.getDocument().addDocumentListener(new DocumentListener() {
+			
+			@Override
+			public void removeUpdate(DocumentEvent arg0) {
+				hasBeenSaved = false;			
+			}
+			
+			@Override
+			public void insertUpdate(DocumentEvent arg0) {
+				hasBeenSaved = false;				
+			}
+			
+			@Override
+			public void changedUpdate(DocumentEvent arg0) {
+				hasBeenSaved = false;				
+			}
+		});
 
         cutButton.setIcon(new javax.swing.ImageIcon("icon\\Editing-Cut-Filled-icon.png")); // NOI18N
         cutButton.setText("Cut");
