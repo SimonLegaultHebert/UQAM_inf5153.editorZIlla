@@ -31,8 +31,8 @@
     </genClasses>
     <genClasses ecoreClass="editorZilla.ecore#//Document">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editorZilla.ecore#//Document/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editorZilla.ecore#//Document/format"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference editorZilla.ecore#//Document/racine"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference editorZilla.ecore#//Document/pressePapier"/>
       <genOperations ecoreOperation="editorZilla.ecore#//Document/getSectionComponent"/>
       <genOperations ecoreOperation="editorZilla.ecore#//Document/addSection">
         <genParameters ecoreParameter="editorZilla.ecore#//Document/addSection/title"/>
@@ -78,7 +78,9 @@
     <genClasses ecoreClass="editorZilla.ecore#//PressePapier">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editorZilla.ecore#//PressePapier/textSelected"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference editorZilla.ecore#//PressePapier/pressePaper"/>
-      <genOperations ecoreOperation="editorZilla.ecore#//PressePapier/copyText"/>
+      <genOperations ecoreOperation="editorZilla.ecore#//PressePapier/copyText">
+        <genParameters ecoreParameter="editorZilla.ecore#//PressePapier/copyText/textToCopy"/>
+      </genOperations>
       <genOperations ecoreOperation="editorZilla.ecore#//PressePapier/moveText"/>
       <genOperations ecoreOperation="editorZilla.ecore#//PressePapier/pasteText"/>
     </genClasses>

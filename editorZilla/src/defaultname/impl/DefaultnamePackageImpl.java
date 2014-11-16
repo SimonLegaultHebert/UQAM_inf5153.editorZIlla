@@ -258,8 +258,8 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDocument_Format() {
-		return (EAttribute)documentEClass.getEStructuralFeatures().get(1);
+	public EReference getDocument_Racine() {
+		return (EReference)documentEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -267,7 +267,7 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDocument_Racine() {
+	public EReference getDocument_PressePapier() {
 		return (EReference)documentEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -395,8 +395,8 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 
 		documentEClass = createEClass(DOCUMENT);
 		createEAttribute(documentEClass, DOCUMENT__NAME);
-		createEAttribute(documentEClass, DOCUMENT__FORMAT);
 		createEReference(documentEClass, DOCUMENT__RACINE);
+		createEReference(documentEClass, DOCUMENT__PRESSE_PAPIER);
 
 		documentBuilderEClass = createEClass(DOCUMENT_BUILDER);
 		createEReference(documentBuilderEClass, DOCUMENT_BUILDER__DOCUMENT);
@@ -477,8 +477,8 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 
 		initEClass(documentEClass, Document.class, "Document", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDocument_Name(), ecorePackage.getEString(), "name", "document", 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDocument_Format(), ecorePackage.getEString(), "format", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDocument_Racine(), this.getSectionComponent(), null, "racine", null, 1, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDocument_PressePapier(), this.getPressePapier(), null, "pressePapier", null, 1, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(documentEClass, this.getSectionComponent(), "getSectionComponent", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -524,14 +524,15 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 		initEClass(xmiStrategyEClass, XMIStrategy.class, "XMIStrategy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(pressePapierEClass, PressePapier.class, "PressePapier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPressePapier_TextSelected(), ecorePackage.getEString(), "textSelected", null, 0, 1, PressePapier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPressePapier_TextSelected(), ecorePackage.getEString(), "textSelected", "", 0, 1, PressePapier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPressePapier_PressePaper(), this.getDocument(), null, "pressePaper", null, 0, 1, PressePapier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		addEOperation(pressePapierEClass, null, "copyText", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(pressePapierEClass, null, "copyText", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "textToCopy", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(pressePapierEClass, null, "moveText", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(pressePapierEClass, ecorePackage.getEString(), "moveText", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(pressePapierEClass, null, "pasteText", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(pressePapierEClass, ecorePackage.getEString(), "pasteText", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

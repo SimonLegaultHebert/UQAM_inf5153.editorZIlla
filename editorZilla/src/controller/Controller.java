@@ -59,6 +59,19 @@ public class Controller {
 		documentBuilder.setDocument(newDocument);
 	}
 	
+	public void copyText(String textToCopy){
+		PressePapier pressePapier = document.getPressePapier();
+		pressePapier.copyText(textToCopy);
+		document.setPressePapier(pressePapier);
+		
+	}
+	
+	public String pasteText(){
+		PressePapier pressePapier = document.getPressePapier();
+		String textToPaste = pressePapier.getTextSelected();
+		return textToPaste;
+	}
+	
 	public Document getDocument(){
 		return document;
 	}

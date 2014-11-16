@@ -268,22 +268,22 @@ public interface DefaultnamePackage extends EPackage {
 	int DOCUMENT__NAME = DOCUMENT_BUILDER_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Format</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOCUMENT__FORMAT = DOCUMENT_BUILDER_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Racine</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT__RACINE = DOCUMENT_BUILDER_FEATURE_COUNT + 2;
+	int DOCUMENT__RACINE = DOCUMENT_BUILDER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Presse Papier</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENT__PRESSE_PAPIER = DOCUMENT_BUILDER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Document</em>' class.
@@ -498,17 +498,6 @@ public interface DefaultnamePackage extends EPackage {
 	EAttribute getDocument_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link defaultname.Document#getFormat <em>Format</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Format</em>'.
-	 * @see defaultname.Document#getFormat()
-	 * @see #getDocument()
-	 * @generated
-	 */
-	EAttribute getDocument_Format();
-
-	/**
 	 * Returns the meta object for the reference '{@link defaultname.Document#getRacine <em>Racine</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -518,6 +507,17 @@ public interface DefaultnamePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDocument_Racine();
+
+	/**
+	 * Returns the meta object for the reference '{@link defaultname.Document#getPressePapier <em>Presse Papier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Presse Papier</em>'.
+	 * @see defaultname.Document#getPressePapier()
+	 * @see #getDocument()
+	 * @generated
+	 */
+	EReference getDocument_PressePapier();
 
 	/**
 	 * Returns the meta object for class '{@link defaultname.DocumentBuilder <em>Document Builder</em>}'.
@@ -741,20 +741,20 @@ public interface DefaultnamePackage extends EPackage {
 		EAttribute DOCUMENT__NAME = eINSTANCE.getDocument_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Format</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DOCUMENT__FORMAT = eINSTANCE.getDocument_Format();
-
-		/**
 		 * The meta object literal for the '<em><b>Racine</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference DOCUMENT__RACINE = eINSTANCE.getDocument_Racine();
+
+		/**
+		 * The meta object literal for the '<em><b>Presse Papier</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOCUMENT__PRESSE_PAPIER = eINSTANCE.getDocument_PressePapier();
 
 		/**
 		 * The meta object literal for the '{@link defaultname.impl.DocumentBuilderImpl <em>Document Builder</em>}' class.

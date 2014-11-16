@@ -300,11 +300,12 @@ public class View extends javax.swing.JFrame {
     }                                         
 
     private void copyButtonActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        // TODO add your handling code here:
+        String textSelected = jTextArea.getSelectedText();
+        controller.copyText(textSelected);
     }                                          
 
     private void pasteButtonActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        // TODO add your handling code here:
+        jTextArea.replaceSelection(controller.pasteText());
     }  
     
     private void newFileButtonActionPerformed(java.awt.event.ActionEvent evt) {                                            
