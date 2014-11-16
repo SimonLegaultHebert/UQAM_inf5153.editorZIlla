@@ -78,6 +78,7 @@
     <genClasses ecoreClass="editorZilla.ecore#//PressePapier">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editorZilla.ecore#//PressePapier/textSelected"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference editorZilla.ecore#//PressePapier/pressePaper"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute editorZilla.ecore#//PressePapier/startPosition"/>
       <genOperations ecoreOperation="editorZilla.ecore#//PressePapier/copyText">
         <genParameters ecoreParameter="editorZilla.ecore#//PressePapier/copyText/textToCopy"/>
       </genOperations>

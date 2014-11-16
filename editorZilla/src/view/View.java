@@ -296,12 +296,15 @@ public class View extends javax.swing.JFrame {
     }// </editor-fold>                        
 
     private void cutButtonActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        // TODO add your handling code here:
+    	jTextArea.replaceRange("", controller.moveText(), controller.moveText() + controller.pasteText().length());
+    	jTextArea.replaceSelection(controller.pasteText()); 	
+    	controller.removeTextSelected();
     }                                         
 
     private void copyButtonActionPerformed(java.awt.event.ActionEvent evt) {                                           
         String textSelected = jTextArea.getSelectedText();
-        controller.copyText(textSelected);
+        int startPosition = jTextArea.getSelectionStart();
+        controller.copyText(textSelected, startPosition);
     }                                          
 
     private void pasteButtonActionPerformed(java.awt.event.ActionEvent evt) {                                            

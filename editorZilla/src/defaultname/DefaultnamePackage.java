@@ -361,13 +361,22 @@ public interface DefaultnamePackage extends EPackage {
 	int PRESSE_PAPIER__PRESSE_PAPER = 1;
 
 	/**
+	 * The feature id for the '<em><b>Start Position</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRESSE_PAPIER__START_POSITION = 2;
+
+	/**
 	 * The number of structural features of the '<em>Presse Papier</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PRESSE_PAPIER_FEATURE_COUNT = 2;
+	int PRESSE_PAPIER_FEATURE_COUNT = 3;
 
 	/**
 	 * Returns the meta object for class '{@link defaultname.SectionComponent <em>Section Component</em>}'.
@@ -615,6 +624,17 @@ public interface DefaultnamePackage extends EPackage {
 	EReference getPressePapier_PressePaper();
 
 	/**
+	 * Returns the meta object for the attribute '{@link defaultname.PressePapier#getStartPosition <em>Start Position</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Start Position</em>'.
+	 * @see defaultname.PressePapier#getStartPosition()
+	 * @see #getPressePapier()
+	 * @generated
+	 */
+	EAttribute getPressePapier_StartPosition();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -835,6 +855,14 @@ public interface DefaultnamePackage extends EPackage {
 		 * @generated
 		 */
 		EReference PRESSE_PAPIER__PRESSE_PAPER = eINSTANCE.getPressePapier_PressePaper();
+
+		/**
+		 * The meta object literal for the '<em><b>Start Position</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PRESSE_PAPIER__START_POSITION = eINSTANCE.getPressePapier_StartPosition();
 
 	}
 

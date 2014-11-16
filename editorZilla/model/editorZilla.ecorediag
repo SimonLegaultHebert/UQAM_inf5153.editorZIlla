@@ -215,6 +215,10 @@
         <element xmi:type="ecore:EAttribute" href="editorZilla.ecore#//PressePapier/textSelected"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_Lf0BwWhHEeSvUsXMP3Mpog"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_5OqUcG2-EeSpSqVIvz3FxA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="editorZilla.ecore#//PressePapier/startPosition"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_5OqUcW2-EeSpSqVIvz3FxA"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_eaf_lWhGEeSvUsXMP3Mpog"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_eaf_lmhGEeSvUsXMP3Mpog"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_eaf_l2hGEeSvUsXMP3Mpog"/>

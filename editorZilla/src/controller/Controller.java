@@ -59,17 +59,29 @@ public class Controller {
 		documentBuilder.setDocument(newDocument);
 	}
 	
-	public void copyText(String textToCopy){
+	public void copyText(String textToCopy, int startPosition){
 		PressePapier pressePapier = document.getPressePapier();
 		pressePapier.copyText(textToCopy);
-		document.setPressePapier(pressePapier);
-		
+		pressePapier.setStartPosition(startPosition);
+		document.setPressePapier(pressePapier);		
 	}
 	
 	public String pasteText(){
 		PressePapier pressePapier = document.getPressePapier();
 		String textToPaste = pressePapier.getTextSelected();
 		return textToPaste;
+	}
+	
+	public int moveText(){
+		PressePapier pressePapier = document.getPressePapier();
+		int startPosition = pressePapier.getStartPosition();
+		return startPosition;
+	}
+	
+	public void removeTextSelected(){
+		PressePapier pressePapier = document.getPressePapier();
+		pressePapier.setTextSelected("");
+		document.setPressePapier(pressePapier);
 	}
 	
 	public Document getDocument(){

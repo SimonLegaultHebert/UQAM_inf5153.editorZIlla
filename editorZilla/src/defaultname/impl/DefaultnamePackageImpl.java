@@ -357,6 +357,15 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getPressePapier_StartPosition() {
+		return (EAttribute)pressePapierEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DefaultnameFactory getDefaultnameFactory() {
 		return (DefaultnameFactory)getEFactoryInstance();
 	}
@@ -410,6 +419,7 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 		pressePapierEClass = createEClass(PRESSE_PAPIER);
 		createEAttribute(pressePapierEClass, PRESSE_PAPIER__TEXT_SELECTED);
 		createEReference(pressePapierEClass, PRESSE_PAPIER__PRESSE_PAPER);
+		createEAttribute(pressePapierEClass, PRESSE_PAPIER__START_POSITION);
 	}
 
 	/**
@@ -526,11 +536,12 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 		initEClass(pressePapierEClass, PressePapier.class, "PressePapier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPressePapier_TextSelected(), ecorePackage.getEString(), "textSelected", "", 0, 1, PressePapier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPressePapier_PressePaper(), this.getDocument(), null, "pressePaper", null, 0, 1, PressePapier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPressePapier_StartPosition(), ecorePackage.getEInt(), "startPosition", null, 0, 1, PressePapier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(pressePapierEClass, null, "copyText", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "textToCopy", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(pressePapierEClass, ecorePackage.getEString(), "moveText", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(pressePapierEClass, ecorePackage.getEInt(), "moveText", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(pressePapierEClass, ecorePackage.getEString(), "pasteText", 0, 1, IS_UNIQUE, IS_ORDERED);
 
