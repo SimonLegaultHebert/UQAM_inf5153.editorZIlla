@@ -69,34 +69,54 @@ public class XMIStrategyImpl extends EObjectImpl implements XMIStrategy {
 		// Obtain a new resource set
 	    ResourceSet resSet = new ResourceSetImpl();
 	    // Get the resource
-	    System.out.println(filePath);
 	    Resource resource = resSet.getResource(URI.createFileURI(filePath), true);
 	    
 	    SectionComposite racine = DefaultnameFactory.eINSTANCE.createSectionComposite();
-	    int lastSection = -1;
-	    for(EObject object : resource.getContents()){
-	    	
-	    	if(object.eClass().getName().equals("SectionComposite")){
-	    		SectionComposite sectionComposite = (SectionComposite)object;
-	    		racine.add(sectionComposite);
-	    		++lastSection;
-	    	}else{	    		
-	    		Section subSection = (Section)object;
-	    		EList<SectionComponent> sectionList = racine.getSectionComponentList();
-	    		SectionComposite sectionComposite = (SectionComposite)sectionList.get(lastSection);
-	    		sectionComposite.add(subSection);  		
-	    		sectionList.remove(lastSection);
-	    		sectionList.add(lastSection, sectionComposite);
-	    		racine.setSectionComponentList(sectionList);
-	    	}
-	    
-	    }
-	    
+	    EList<EObject> object = resource.getContents();
+	    racine = (SectionComposite)object.get(0);
 	    File newFile = new File(filePath);
 	    document.setRacine(racine);	    
 	    document.setName(newFile.getName());
 	    return document;
 	}
+	
+//	public Document load(String filePath) {
+//		Document document = DefaultnameFactory.eINSTANCE.createDocument();
+//		
+//		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
+//	    Map<String, Object> m = reg.getExtensionToFactoryMap();
+//	    m.put("website", new XMIResourceFactoryImpl());
+//		// Obtain a new resource set
+//	    ResourceSet resSet = new ResourceSetImpl();
+//	    // Get the resource
+//	    System.out.println(filePath);
+//	    Resource resource = resSet.getResource(URI.createFileURI(filePath), true);
+//	    
+//	    SectionComposite racine = DefaultnameFactory.eINSTANCE.createSectionComposite();
+//	    int lastSection = -1;
+//	    for(EObject object : resource.getContents()){
+//	    	
+//	    	if(object.eClass().getName().equals("SectionComposite")){
+//	    		SectionComposite sectionComposite = (SectionComposite)object;
+//	    		racine.add(sectionComposite);
+//	    		++lastSection;
+//	    	}else{	    		
+//	    		Section subSection = (Section)object;
+//	    		EList<SectionComponent> sectionList = racine.getSectionComponentList();
+//	    		SectionComposite sectionComposite = (SectionComposite)sectionList.get(lastSection);
+//	    		sectionComposite.add(subSection);  		
+//	    		sectionList.remove(lastSection);
+//	    		sectionList.add(lastSection, sectionComposite);
+//	    		racine.setSectionComponentList(sectionList);
+//	    	}
+//	    
+//	    }
+//	    
+//	    File newFile = new File(filePath);
+//	    document.setRacine(racine);	    
+//	    document.setName(newFile.getName());
+//	    return document;
+//	}
 
 
 	/**
@@ -104,7 +124,6 @@ public class XMIStrategyImpl extends EObjectImpl implements XMIStrategy {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	//save
 	public void save(Document document, String filePath) {
 		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
 	      Map<String, Object> m = reg.getExtensionToFactoryMap();
@@ -125,18 +144,7 @@ public class XMIStrategyImpl extends EObjectImpl implements XMIStrategy {
 	      // example everything is hierarchical included in this first node
 	      
 	      SectionComposite racineComposite = (SectionComposite)document.getRacine();
-	      EList<SectionComponent> sectionComponentList = racineComposite.getSectionComponentList();
-	      for(SectionComponent sectionComponent : sectionComponentList){
-	      
-	      	SectionComposite section = (SectionComposite)sectionComponent;
-	      	resource.getContents().add(section);
-	      	
-	      	EList<SectionComponent> subSectionComponentList = section.getSectionComponentList();
-	      	for(SectionComponent subSectionComponent : subSectionComponentList){
-	      		Section subSection = (Section)subSectionComponent;
-	      		resource.getContents().add(subSection);
-	      	}
-	      }
+	      resource.getContents().add(racineComposite);
 	      // now save the content.
 	      try {       
 	        resource.save(Collections.EMPTY_MAP);       
@@ -144,6 +152,46 @@ public class XMIStrategyImpl extends EObjectImpl implements XMIStrategy {
 	        // TODO Auto-generated catch block
 	        e.printStackTrace();
 	     } 
+	      
+//	public void save(Document document, String filePath) {
+//		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
+//	      Map<String, Object> m = reg.getExtensionToFactoryMap();
+//	      m.put("website", new XMIResourceFactoryImpl());
+//
+//	      // Obtain a new resource set
+//	      ResourceSet resSet = new ResourceSetImpl();
+//
+//	      //si on fait un quick save en ouvrant le logiciel
+//	      if(!filePath.contains(".website")){
+//	    	  filePath = filePath + "//" +document.getName() + ".website";
+//	      }
+//	      
+//	      // create a resource
+//	      Resource resource = resSet.createResource(URI.createFileURI(filePath));
+//	          
+//	      // Get the first model element and cast it to the right type, in my
+//	      // example everything is hierarchical included in this first node
+//	      
+//	      SectionComposite racineComposite = (SectionComposite)document.getRacine();
+//	      EList<SectionComponent> sectionComponentList = racineComposite.getSectionComponentList();
+//	      for(SectionComponent sectionComponent : sectionComponentList){
+//	      
+//	      	SectionComposite section = (SectionComposite)sectionComponent;
+//	      	resource.getContents().add(section);
+//	      	
+//	      	EList<SectionComponent> subSectionComponentList = section.getSectionComponentList();
+//	      	for(SectionComponent subSectionComponent : subSectionComponentList){
+//	      		Section subSection = (Section)subSectionComponent;
+//	      		resource.getContents().add(subSection);
+//	      	}
+//	      }
+//	      // now save the content.
+//	      try {       
+//	        resource.save(Collections.EMPTY_MAP);       
+//	      } catch (IOException e) {
+//	        // TODO Auto-generated catch block
+//	        e.printStackTrace();
+//	     } 
 	}
 
 } //XMIStrategyImpl

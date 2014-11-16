@@ -140,30 +140,51 @@ public class View extends javax.swing.JFrame {
                 .addContainerGap())
         );
         
-        jTextArea.getDocument().addDocumentListener(new DocumentListener() {
+//        jTextArea.getDocument().addDocumentListener(new DocumentListener() {
+//			    	
+//			@Override
+//			public void removeUpdate(DocumentEvent arg0) {
+//				SectionComponent sectionComponent = (SectionComponent)lastNodeUsed.getUserObject();
+//				controller.saveText(sectionComponent.getId(), jTextArea.getText());
+//				hasBeenSaved = false;	
+//
+//			}
+//			
+//			@Override
+//			public void insertUpdate(DocumentEvent arg0) {
+//	        	SectionComponent sectionComponent = (SectionComponent)lastNodeUsed.getUserObject();
+//				controller.saveText(sectionComponent.getId(), jTextArea.getText());
+//				hasBeenSaved = false;			
+//
+//			}
+//			
+//			@Override
+//			public void changedUpdate(DocumentEvent arg0) {
+//				SectionComponent sectionComponent = (SectionComponent)lastNodeUsed.getUserObject();
+//				controller.saveText(sectionComponent.getId(), jTextArea.getText());
+//				hasBeenSaved = false;	
+//
+//			}
+//		});
+        
+      jTextArea.getDocument().addDocumentListener(new DocumentListener() {
 			    	
 			@Override
 			public void removeUpdate(DocumentEvent arg0) {
-				SectionComponent sectionComponent = (SectionComponent)lastNodeUsed.getUserObject();
-				controller.saveText(sectionComponent.getId(), jTextArea.getText());
+				controller.saveRacine(jTextArea.getText());
 				hasBeenSaved = false;	
-
 			}
 			
 			@Override
 			public void insertUpdate(DocumentEvent arg0) {
-	        	SectionComponent sectionComponent = (SectionComponent)lastNodeUsed.getUserObject();
-				controller.saveText(sectionComponent.getId(), jTextArea.getText());
+				controller.saveRacine(jTextArea.getText());
 				hasBeenSaved = false;			
-
 			}
 			
 			@Override
 			public void changedUpdate(DocumentEvent arg0) {
-				SectionComponent sectionComponent = (SectionComponent)lastNodeUsed.getUserObject();
-				controller.saveText(sectionComponent.getId(), jTextArea.getText());
+				controller.saveRacine(jTextArea.getText());
 				hasBeenSaved = false;	
-
 			}
 		});
 
@@ -326,27 +347,27 @@ public class View extends javax.swing.JFrame {
     }
 
     private void jTreeMouseClicked(java.awt.event.MouseEvent evt) {                                   
-    	TreeSelectionModel selectionModel = jTree.getSelectionModel();
-    	TreePath selectionPath = selectionModel.getSelectionPath();
-    	DefaultMutableTreeNode node = (DefaultMutableTreeNode)selectionPath.getLastPathComponent();
-    	lastNodeUsed = node;
-    	
-        if(evt.getButton() == LEFT_CLICK){
-             
-            try{
-            	SectionComponent sectionComponent = (SectionComponent)node.getUserObject();
-            	String currentText = controller.getContent(sectionComponent.getId());
-            	jTextArea.setText(currentText);
-            	
-            }catch(Exception e){
-            	System.out.println("Petit bug à fix, le root va devoir être un SectionComposite et non une String");
-            }        
-        	
-        }else if(evt.getButton() == RIGHT_CLICK){
-        
-        	jTreePopupMenu.show(this, evt.getX(), evt.getY());
-        	
-        }
+//    	TreeSelectionModel selectionModel = jTree.getSelectionModel();
+//    	TreePath selectionPath = selectionModel.getSelectionPath();
+//    	DefaultMutableTreeNode node = (DefaultMutableTreeNode)selectionPath.getLastPathComponent();
+//    	lastNodeUsed = node;
+//    	
+//        if(evt.getButton() == LEFT_CLICK){
+//             
+//            try{
+//            	SectionComponent sectionComponent = (SectionComponent)node.getUserObject();
+//            	String currentText = controller.getContent(sectionComponent.getId());
+//            	jTextArea.setText(currentText);
+//            	
+//            }catch(Exception e){
+//            	System.out.println("Petit bug à fix, le root va devoir être un SectionComposite et non une String");
+//            }        
+//        	
+//        }else if(evt.getButton() == RIGHT_CLICK){
+//        
+//        	jTreePopupMenu.show(this, evt.getX(), evt.getY());
+//        	
+//        }
     }    
     
     private void reloadJTreeValues(SectionComponent racine){
@@ -407,7 +428,10 @@ public class View extends javax.swing.JFrame {
         	    file = fileChooser.getSelectedFile();
         	} 
         	controller.load(file.getAbsolutePath());
-        	reloadJTreeValues(controller.getDocument().getRacine());
+        	//reloadJTreeValues(controller.getDocument().getRacine());
+        	//refresh pour la remise du TP2
+        	jTextArea.setText(controller.getDocument().getRacine().getText());
+        	hasBeenSaved = true;
     	}
     	
     }                                            
@@ -463,8 +487,11 @@ public class View extends javax.swing.JFrame {
         	    file = fileChooser.getSelectedFile();
         	} 
         	controller.load(file.getAbsolutePath());
-        	reloadJTreeValues(controller.getDocument().getRacine());
+        	//reloadJTreeValues(controller.getDocument().getRacine());
+        	//refresh pour la remise du TP2
+        	jTextArea.setText(controller.getDocument().getRacine().getText());
         	hasBeenSaved = true;
+        	
     	}
     }
     

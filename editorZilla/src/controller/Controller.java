@@ -36,6 +36,11 @@ public class Controller {
 		document.saveText(id, currentText);
 	}
 	
+	public void saveRacine(String currentText){
+		SectionComponent racine = document.getRacine();
+		document.saveText(racine.getId(), currentText);
+	}
+	
 	public void createNewDocument(){
 		documentBuilder = DefaultnameFactory.eINSTANCE.createDocumentBuilder();
 		document = DefaultnameFactory.eINSTANCE.createDocument();
