@@ -65,7 +65,7 @@ public class XMIStrategyImpl extends EObjectImpl implements XMIStrategy {
 		
 		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
 	    Map<String, Object> m = reg.getExtensionToFactoryMap();
-	    m.put("website", new XMIResourceFactoryImpl());
+	    m.put("eZilla", new XMIResourceFactoryImpl());
 		// Obtain a new resource set
 	    ResourceSet resSet = new ResourceSetImpl();
 	    // Get the resource
@@ -127,14 +127,14 @@ public class XMIStrategyImpl extends EObjectImpl implements XMIStrategy {
 	public void save(Document document, String filePath) {
 		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
 	      Map<String, Object> m = reg.getExtensionToFactoryMap();
-	      m.put("website", new XMIResourceFactoryImpl());
+	      m.put("eZilla", new XMIResourceFactoryImpl());
 
 	      // Obtain a new resource set
 	      ResourceSet resSet = new ResourceSetImpl();
 
 	      //si on fait un quick save en ouvrant le logiciel
-	      if(!filePath.contains(".website")){
-	    	  filePath = filePath + "//" +document.getName() + ".website";
+	      if(!filePath.contains(".eZilla")){
+	    	  filePath = filePath + "//" +document.getName() + ".eZilla";
 	      }
 	      
 	      // create a resource

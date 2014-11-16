@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTree;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreePath;
@@ -422,27 +423,35 @@ public class View extends javax.swing.JFrame {
     		hasBeenSavedOption("openFile");
     	}else{
     		JFileChooser fileChooser = new JFileChooser("DossierDefaut");
+    		FileNameExtensionFilter eZillaExtensionFiler = new FileNameExtensionFilter("eZilla file", "eZilla");
+    		fileChooser.setFileFilter(eZillaExtensionFiler);
         	int returnVal = fileChooser.showOpenDialog(openMenuItem); 
         	File file = null;
         	if (returnVal == JFileChooser.APPROVE_OPTION) {
         	    file = fileChooser.getSelectedFile();
+        	}        	
+        	if(!file.getName().contains(".eZilla")){
+        		JOptionPane.showMessageDialog(new JFrame(), "Select a .eZilla file!");   
+        	}else{
+        		controller.load(file.getAbsolutePath());
+                //reloadJTreeValues(controller.getDocument().getRacine());
+                //refresh pour la remise du TP2
+                jTextArea.setText(controller.getDocument().getRacine().getText());
+                hasBeenSaved = true;      		
         	} 
-        	controller.load(file.getAbsolutePath());
-        	//reloadJTreeValues(controller.getDocument().getRacine());
-        	//refresh pour la remise du TP2
-        	jTextArea.setText(controller.getDocument().getRacine().getText());
-        	hasBeenSaved = true;
     	}
     	
     }                                            
 
     private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                             
     	JFileChooser fileChooser = new JFileChooser("DossierDefaut");
-        int retrival = fileChooser.showSaveDialog(saveMenuItem);
+		FileNameExtensionFilter eZillaExtensionFiler = new FileNameExtensionFilter("eZilla File", "eZilla");
+		fileChooser.setFileFilter(eZillaExtensionFiler);
+    	int retrival = fileChooser.showSaveDialog(saveMenuItem);
         if (retrival == JFileChooser.APPROVE_OPTION) {
         	String filePath = fileChooser.getSelectedFile().getAbsolutePath();
-        	if(!filePath.contains(".website")){
-        		filePath = filePath + ".website";
+        	if(!filePath.contains(".eZilla")){
+        		filePath = filePath + ".eZilla";
         	}
         	controller.save(filePath);
         	hasBeenSaved = true;
@@ -481,17 +490,23 @@ public class View extends javax.swing.JFrame {
     	
     	}else if(operation.equals("openFile")){
     		JFileChooser fileChooser = new JFileChooser("DossierDefaut");
-        	int returnVal = fileChooser.showOpenDialog(openMenuItem); 
+    		FileNameExtensionFilter eZillaExtensionFiler = new FileNameExtensionFilter("eZilla File", "eZilla");
+    		fileChooser.setFileFilter(eZillaExtensionFiler);
+    		int returnVal = fileChooser.showOpenDialog(openMenuItem); 
         	File file = null;
         	if (returnVal == JFileChooser.APPROVE_OPTION) {
         	    file = fileChooser.getSelectedFile();
         	} 
-        	controller.load(file.getAbsolutePath());
-        	//reloadJTreeValues(controller.getDocument().getRacine());
-        	//refresh pour la remise du TP2
-        	jTextArea.setText(controller.getDocument().getRacine().getText());
-        	hasBeenSaved = true;
         	
+        	if(!file.getName().contains(".eZilla")){
+        		JOptionPane.showMessageDialog(new JFrame("Error!"), "Select a .eZilla file!"); 
+        	}else{
+        		controller.load(file.getAbsolutePath());
+                //reloadJTreeValues(controller.getDocument().getRacine());
+                //refresh pour la remise du TP2
+                jTextArea.setText(controller.getDocument().getRacine().getText());
+                hasBeenSaved = true;      		
+        	}        	            	
     	}
     }
     
