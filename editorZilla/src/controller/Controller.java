@@ -50,6 +50,10 @@ public class Controller {
 		documentBuilder.save(document);
 	}
 	
+	public void export(String filePath){
+		
+	}
+	
 	public void quickSave(){
 		documentBuilder.save(document);
 	}
@@ -70,13 +74,13 @@ public class Controller {
 	
 	public String pasteText(){
 		PressePapier pressePapier = document.getPressePapier();
-		String textToPaste = pressePapier.getTextSelected();
+		String textToPaste = pressePapier.pasteText();
 		return textToPaste;
 	}
 	
 	public int moveText(){
 		PressePapier pressePapier = document.getPressePapier();
-		int startPosition = pressePapier.getStartPosition();
+		int startPosition = pressePapier.moveText();
 		return startPosition;
 	}
 	

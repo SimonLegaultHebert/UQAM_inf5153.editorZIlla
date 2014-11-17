@@ -325,8 +325,11 @@ public class View extends javax.swing.JFrame {
 
     private void copyButtonActionPerformed(java.awt.event.ActionEvent evt) {                                           
         String textSelected = jTextArea.getSelectedText();
-        int startPosition = jTextArea.getSelectionStart();
-        controller.copyText(textSelected, startPosition);
+        if(textSelected != null){
+        	int startPosition = jTextArea.getSelectionStart();
+            controller.copyText(textSelected, startPosition);
+        }
+        
     }                                          
 
     private void pasteButtonActionPerformed(java.awt.event.ActionEvent evt) {                                            

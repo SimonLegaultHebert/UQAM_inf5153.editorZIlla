@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map>
+	<bundle bundleID="411" localization="plugin" name="%pluginName" project="editorZilla" provider="%providerName">
+		<library name="."/>
+	</bundle>
+	<bundle bundleID="414" localization="plugin" name="%pluginName" project="editorZilla.tests" provider="%providerName">
+		<library name="."/>
+	</bundle>
+	<bundle bundleID="413" class="defaultname.presentation.EditorZillaEditorPlugin$Implementation" localization="plugin" name="%pluginName" project="editorZilla.editor" provider="%providerName">
+		<library name="."/>
+	</bundle>
+	<bundle bundleID="412" class="defaultname.provider.EditorZillaEditPlugin$Implementation" localization="plugin" name="%pluginName" project="editorZilla.edit" provider="%providerName">
+		<library name="."/>
+	</bundle>
+</map>
