@@ -392,7 +392,6 @@ public class View extends javax.swing.JFrame {
        	
         }      
         model.reload(root);
-        //jTextArea.setText("");
     }
 
     private void addSectionMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                                   
@@ -430,11 +429,17 @@ public class View extends javax.swing.JFrame {
             TreePath selectionPath = selectionModel.getSelectionPath();
             DefaultMutableTreeNode node = (DefaultMutableTreeNode)selectionPath.getLastPathComponent();
             DefaultTreeModel model = (DefaultTreeModel) jTree.getModel();
-            SectionComponent sectionToRemove = (SectionComponent)node.getUserObject();
-            controller.deleteSection(sectionToRemove.getId());
-            model.reload(node);
-            reloadJTreeValues(controller.getDocument().getRacine());
-            hasBeenSaved = false;
+            
+            //on ne peut pas deleter le root
+            if(node == model.getRoot()){
+            	JOptionPane.showMessageDialog(new JFrame("Error!"), "You can't delete de root element!");
+            }else{
+            	SectionComponent sectionToRemove = (SectionComponent)node.getUserObject();
+                controller.deleteSection(sectionToRemove.getId());
+                model.reload(node);
+                reloadJTreeValues(controller.getDocument().getRacine());
+                hasBeenSaved = false;
+            }           
     	}
     }    
     
