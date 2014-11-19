@@ -35,8 +35,8 @@ public class View extends javax.swing.JFrame {
     DefaultMutableTreeNode lastNodeUsed;
     
     public View(Controller controller) {
-        initComponents();
-        this.controller = controller;       
+    	this.controller = controller;
+    	initComponents();      
     }
 
     /**
@@ -68,7 +68,7 @@ public class View extends javax.swing.JFrame {
         fileMenu = new javax.swing.JMenu();
         openMenuItem = new javax.swing.JMenuItem();
         saveMenuItem = new javax.swing.JMenuItem();
-        exportMenuItem = new javax.swing.JMenuItem();
+        exportMenuItem = new javax.swing.JMenuItem();       
 
         addSectionMenuItem.setText("add Section");
         addSectionMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -141,51 +141,30 @@ public class View extends javax.swing.JFrame {
                 .addContainerGap())
         );
         
-//        jTextArea.getDocument().addDocumentListener(new DocumentListener() {
-//			    	
-//			@Override
-//			public void removeUpdate(DocumentEvent arg0) {
-//				SectionComponent sectionComponent = (SectionComponent)lastNodeUsed.getUserObject();
-//				controller.saveText(sectionComponent.getId(), jTextArea.getText());
-//				hasBeenSaved = false;	
-//
-//			}
-//			
-//			@Override
-//			public void insertUpdate(DocumentEvent arg0) {
-//	        	SectionComponent sectionComponent = (SectionComponent)lastNodeUsed.getUserObject();
-//				controller.saveText(sectionComponent.getId(), jTextArea.getText());
-//				hasBeenSaved = false;			
-//
-//			}
-//			
-//			@Override
-//			public void changedUpdate(DocumentEvent arg0) {
-//				SectionComponent sectionComponent = (SectionComponent)lastNodeUsed.getUserObject();
-//				controller.saveText(sectionComponent.getId(), jTextArea.getText());
-//				hasBeenSaved = false;	
-//
-//			}
-//		});
-        
-      jTextArea.getDocument().addDocumentListener(new DocumentListener() {
+        jTextArea.getDocument().addDocumentListener(new DocumentListener() {
 			    	
 			@Override
 			public void removeUpdate(DocumentEvent arg0) {
-				controller.saveRacine(jTextArea.getText());
+				SectionComponent sectionComponent = (SectionComponent)lastNodeUsed.getUserObject();
+				controller.saveText(sectionComponent.getId(), jTextArea.getText());
 				hasBeenSaved = false;	
+
 			}
 			
 			@Override
 			public void insertUpdate(DocumentEvent arg0) {
-				controller.saveRacine(jTextArea.getText());
+	        	SectionComponent sectionComponent = (SectionComponent)lastNodeUsed.getUserObject();
+	        	controller.saveText(sectionComponent.getId(), jTextArea.getText());
 				hasBeenSaved = false;			
+
 			}
 			
 			@Override
 			public void changedUpdate(DocumentEvent arg0) {
-				controller.saveRacine(jTextArea.getText());
+				SectionComponent sectionComponent = (SectionComponent)lastNodeUsed.getUserObject();
+				controller.saveText(sectionComponent.getId(), jTextArea.getText());
 				hasBeenSaved = false;	
+
 			}
 		});
 
@@ -315,7 +294,16 @@ public class View extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>                        
+        
+      //initialisation de la racine
+        DefaultTreeModel model = (DefaultTreeModel) jTree.getModel();
+        DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
+        root.setUserObject(new DefaultMutableTreeNode(controller.createRoot()));
+        model.reload(root);
+        
+    }// </editor-fold>           
+    
+    
 
     private void cutButtonActionPerformed(java.awt.event.ActionEvent evt) {                                          
     	jTextArea.replaceRange("", controller.moveText(), controller.moveText() + controller.pasteText().length());
@@ -351,33 +339,34 @@ public class View extends javax.swing.JFrame {
     }
 
     private void jTreeMouseClicked(java.awt.event.MouseEvent evt) {                                   
-//    	TreeSelectionModel selectionModel = jTree.getSelectionModel();
-//    	TreePath selectionPath = selectionModel.getSelectionPath();
-//    	DefaultMutableTreeNode node = (DefaultMutableTreeNode)selectionPath.getLastPathComponent();
-//    	lastNodeUsed = node;
-//    	
-//        if(evt.getButton() == LEFT_CLICK){
-//             
-//            try{
-//            	SectionComponent sectionComponent = (SectionComponent)node.getUserObject();
-//            	String currentText = controller.getContent(sectionComponent.getId());
-//            	jTextArea.setText(currentText);
-//            	
-//            }catch(Exception e){
-//            	System.out.println("Petit bug à fix, le root va devoir être un SectionComposite et non une String");
-//            }        
-//        	
-//        }else if(evt.getButton() == RIGHT_CLICK){
-//        
-//        	jTreePopupMenu.show(this, evt.getX(), evt.getY());
-//        	
-//        }
+    	TreeSelectionModel selectionModel = jTree.getSelectionModel();
+    	TreePath selectionPath = selectionModel.getSelectionPath();
+    	DefaultMutableTreeNode node = (DefaultMutableTreeNode)selectionPath.getLastPathComponent();
+    	lastNodeUsed = node;
+    	
+        if(evt.getButton() == LEFT_CLICK){
+             
+            try{
+            	SectionComponent sectionComponent = (SectionComponent)node.getUserObject();
+            	String currentText = controller.getContent(sectionComponent.getId());
+            	jTextArea.setText(currentText);
+            	
+            }catch(Exception e){
+            	System.out.println("Petit bug à fix, le root va devoir être un SectionComposite et non une String");
+            }        
+        	
+        }else if(evt.getButton() == RIGHT_CLICK){
+        
+        	jTreePopupMenu.show(this, evt.getX(), evt.getY());
+        	
+        }
     }    
     
     private void reloadJTreeValues(SectionComponent racine){
     	DefaultTreeModel model = (DefaultTreeModel)jTree.getModel();
         DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
         root.removeAllChildren();
+        root.setUserObject(new DefaultMutableTreeNode(controller.createRoot()));
     	
         SectionComposite racineComposite = (SectionComposite)racine;
         EList<SectionComponent> sectionComponentList = racineComposite.getSectionComponentList();
@@ -399,10 +388,14 @@ public class View extends javax.swing.JFrame {
 
     private void addSectionMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                                   
     	DefaultTreeModel model = (DefaultTreeModel) jTree.getModel();
-        DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
-        root.add(new DefaultMutableTreeNode(controller.addSection("Defaut Section", "")));
-        model.reload(root); 
-        hasBeenSaved = false;
+        DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();      
+        //maximum de 4 sections par document
+        if(root.getChildCount() < 4){
+        	String inputTitle = takeInputTitle();
+        	root.add(new DefaultMutableTreeNode(controller.addSection(inputTitle, "")));
+            model.reload(root); 
+            hasBeenSaved = false;
+        }
     }                                                  
 
     private void addSubsectionMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                                      
@@ -410,11 +403,15 @@ public class View extends javax.swing.JFrame {
         TreePath selectionPath = selectionModel.getSelectionPath();
         DefaultMutableTreeNode node = (DefaultMutableTreeNode)selectionPath.getLastPathComponent();
         DefaultTreeModel model = (DefaultTreeModel) jTree.getModel();
-        SectionComposite section = (SectionComposite)node.getUserObject();
-
-        node.add(new DefaultMutableTreeNode(controller.addSubSection(section.getId(), "Defaut Subsection", "")));
-        model.reload(node);
-        hasBeenSaved = false;
+        //on ne peut ajouter une sous-section à une autre sous-section
+        if(node.getUserObject().getClass().toString().contains("SectionComposite")){
+        	SectionComposite section = (SectionComposite)node.getUserObject();
+            String inputTitle = takeInputTitle();
+            node.add(new DefaultMutableTreeNode(controller.addSubSection(section.getId(), inputTitle, "")));
+            model.reload(node);
+            hasBeenSaved = false;
+        }
+        
     }                                                     
 
     private void deleteSectionMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                                         	
@@ -437,9 +434,7 @@ public class View extends javax.swing.JFrame {
         		JOptionPane.showMessageDialog(new JFrame(), "Select a .eZilla file!");   
         	}else{
         		controller.load(file.getAbsolutePath());
-                //reloadJTreeValues(controller.getDocument().getRacine());
-                //refresh pour la remise du TP2
-                jTextArea.setText(controller.getDocument().getRacine().getText());
+                reloadJTreeValues(controller.getDocument().getRacine());
                 hasBeenSaved = true;      		
         	} 
     	}
@@ -505,12 +500,18 @@ public class View extends javax.swing.JFrame {
         		JOptionPane.showMessageDialog(new JFrame("Error!"), "Select a .eZilla file!"); 
         	}else{
         		controller.load(file.getAbsolutePath());
-                //reloadJTreeValues(controller.getDocument().getRacine());
-                //refresh pour la remise du TP2
-                jTextArea.setText(controller.getDocument().getRacine().getText());
+                reloadJTreeValues(controller.getDocument().getRacine());
                 hasBeenSaved = true;      		
         	}        	            	
     	}
+    }
+    
+    private String takeInputTitle(){
+    	String inputTitle = JOptionPane.showInputDialog(null, "Choose a title for the section");
+    	while(inputTitle.isEmpty()){
+    		inputTitle = JOptionPane.showInputDialog(null, "The title can't be empty");
+    	}
+    	return inputTitle;
     }
     
      

@@ -126,12 +126,4 @@ public interface PressePapier extends EObject {
 	 */
 	String pasteText();
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	String applyMarkdownToText(String currentText);
-
 } // PressePapier

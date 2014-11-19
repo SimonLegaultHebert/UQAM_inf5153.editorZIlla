@@ -21,6 +21,7 @@ import junit.textui.TestRunner;
  *   <li>{@link defaultname.Document#addSubsection(java.lang.String, java.lang.String, java.lang.String) <em>Add Subsection</em>}</li>
  *   <li>{@link defaultname.Document#getContent(java.lang.String) <em>Get Content</em>}</li>
  *   <li>{@link defaultname.Document#saveText(java.lang.String, java.lang.String) <em>Save Text</em>}</li>
+ *   <li>{@link defaultname.Document#deleteSection(java.lang.String) <em>Delete Section</em>}</li>
  *   <li>{@link defaultname.DocumentStrategy#save(defaultname.Document, java.lang.String) <em>Save</em>}</li>
  * </ul>
  * </p>
@@ -140,6 +141,19 @@ public class DocumentTest extends DocumentBuilderTest {
 	 * @generated
 	 */
 	public void testSaveText__String_String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link defaultname.Document#deleteSection(java.lang.String) <em>Delete Section</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see defaultname.Document#deleteSection(java.lang.String)
+	 * @generated
+	 */
+	public void testDeleteSection__String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

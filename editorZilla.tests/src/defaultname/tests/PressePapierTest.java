@@ -21,7 +21,6 @@ import junit.textui.TestRunner;
  *   <li>{@link defaultname.PressePapier#copyText(java.lang.String) <em>Copy Text</em>}</li>
  *   <li>{@link defaultname.PressePapier#moveText() <em>Move Text</em>}</li>
  *   <li>{@link defaultname.PressePapier#pasteText() <em>Paste Text</em>}</li>
- *   <li>{@link defaultname.PressePapier#applyMarkdownToText(java.lang.String) <em>Apply Markdown To Text</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -131,19 +130,6 @@ public class PressePapierTest extends TestCase {
 	 * @generated
 	 */
 	public void testPasteText() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link defaultname.PressePapier#applyMarkdownToText(java.lang.String) <em>Apply Markdown To Text</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see defaultname.PressePapier#applyMarkdownToText(java.lang.String)
-	 * @generated
-	 */
-	public void testApplyMarkdownToText__String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

@@ -141,4 +141,12 @@ public interface Document extends DocumentBuilder, DocumentStrategy {
 	 */
 	void saveText(String id, String currentText);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void deleteSection(String id);
+
 } // Document

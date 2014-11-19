@@ -15,6 +15,13 @@ public class Controller {
 		this.documentBuilder.setDocument(document);
 	}
 	
+	public SectionComposite createRoot(){
+		SectionComposite racineComposite = (SectionComposite)document.getRacine();
+		racineComposite.setTitle(document.getName());
+		document.setRacine(racineComposite);
+		return racineComposite;
+	}
+	
 	public SectionComposite addSection(String title, String text){
 		return document.addSection(title, text);
 	}

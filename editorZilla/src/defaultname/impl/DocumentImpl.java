@@ -274,31 +274,36 @@ public class DocumentImpl extends DocumentBuilderImpl implements Document {
 	 */
 	public void saveText(String id, String currentText) {
 		SectionComposite racineComposite = (SectionComposite)getRacine();
-		racineComposite.setText(currentText);
+		EList<SectionComponent> sectionComponentList = racineComposite.getSectionComponentList();
+		for(SectionComponent rootChild : sectionComponentList){
+			SectionComposite section = (SectionComposite)rootChild;
+			if(section.getId().equals(id)){
+				section.setText(currentText);
+			}else{
+				EList<SectionComponent> subSectionList = section.getSectionComponentList();
+				for(SectionComponent subSectionComponent : subSectionList){
+					if(subSectionComponent.getId().equals(id)){
+						Section subSection = (Section)subSectionComponent;
+						subSection.setText(currentText);
+						break;
+					}
+				}
+			}
+		}
 		setRacine(racineComposite);
 	}
-	
-//	public void saveText(String id, String currentText) {
-//		SectionComposite racineComposite = (SectionComposite)getRacine();
-//		EList<SectionComponent> sectionComponentList = racineComposite.getSectionComponentList();
-//		for(SectionComponent rootChild : sectionComponentList){
-//			SectionComposite section = (SectionComposite)rootChild;
-//			if(section.getId().equals(id)){
-//				section.setText(currentText);
-//			}else{
-//				EList<SectionComponent> subSectionList = section.getSectionComponentList();
-//				for(SectionComponent subSectionComponent : subSectionList){
-//					if(subSectionComponent.getId().equals(id)){
-//						Section subSection = (Section)subSectionComponent;
-//						subSection.setText(currentText);
-//						break;
-//					}
-//				}
-//			}
-//		}
-//		setRacine(racineComposite);
-//	}
 
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void deleteSection(String id) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

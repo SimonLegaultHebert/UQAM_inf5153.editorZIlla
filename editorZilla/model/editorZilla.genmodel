@@ -50,6 +50,9 @@
         <genParameters ecoreParameter="editorZilla.ecore#//Document/saveText/id"/>
         <genParameters ecoreParameter="editorZilla.ecore#//Document/saveText/currentText"/>
       </genOperations>
+      <genOperations ecoreOperation="editorZilla.ecore#//Document/deleteSection">
+        <genParameters ecoreParameter="editorZilla.ecore#//Document/deleteSection/id"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="editorZilla.ecore#//DocumentBuilder">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference editorZilla.ecore#//DocumentBuilder/document"/>
