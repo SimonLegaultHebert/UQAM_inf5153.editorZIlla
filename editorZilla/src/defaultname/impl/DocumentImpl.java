@@ -297,12 +297,36 @@ public class DocumentImpl extends DocumentBuilderImpl implements Document {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void deleteSection(String id) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		SectionComposite racineComposite = (SectionComposite)getRacine();
+		EList<SectionComponent> sectionComponentList = racineComposite.getSectionComponentList();
+		SectionComponent sectionToRemove = null;
+		Section subsectionToRemove = null;
+		for(SectionComponent rootChild : sectionComponentList){
+			SectionComposite section = (SectionComposite)rootChild;
+			if(section.getId().equals(id)){
+				sectionToRemove = section;
+			}else{
+				EList<SectionComponent> subSectionList = section.getSectionComponentList();
+				for(SectionComponent subSectionComponent : subSectionList){
+					if(subSectionComponent.getId().equals(id)){
+						subsectionToRemove = (Section)subSectionComponent;
+						break;
+					}
+				}	
+				if(subsectionToRemove != null){
+					subSectionList.remove(subsectionToRemove);
+					section.setSectionComponentList(subSectionList);
+				}
+			}
+		}	
+		
+		if(sectionToRemove != null){
+			sectionComponentList.remove(sectionToRemove);
+		}		
+		setRacine(racineComposite);
 	}
 
 	/**

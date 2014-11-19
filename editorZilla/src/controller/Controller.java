@@ -31,6 +31,10 @@ public class Controller {
 		return document.addSubsection(id, title, text);
 	}
 	
+	public void deleteSection(String id){
+		document.deleteSection(id);
+	}
+	
 	//id du SectionComponent
 	public String getContent(String id){
 		return document.getContent(id);

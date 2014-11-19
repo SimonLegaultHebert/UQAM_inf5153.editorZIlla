@@ -415,7 +415,18 @@ public class View extends javax.swing.JFrame {
     }                                                     
 
     private void deleteSectionMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                                         	
-    	System.out.println("IMPLÉMENTER LE DELETE");
+    	String reponse = deleteOption();
+    	if(reponse.equals("0")){
+        	TreeSelectionModel selectionModel = jTree.getSelectionModel();
+            TreePath selectionPath = selectionModel.getSelectionPath();
+            DefaultMutableTreeNode node = (DefaultMutableTreeNode)selectionPath.getLastPathComponent();
+            DefaultTreeModel model = (DefaultTreeModel) jTree.getModel();
+            SectionComponent sectionToRemove = (SectionComponent)node.getUserObject();
+            controller.deleteSection(sectionToRemove.getId());
+            model.reload(node);
+            reloadJTreeValues(controller.getDocument().getRacine());
+            hasBeenSaved = false;
+    	}
     }                                                     
 
     private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                                	
@@ -512,6 +523,16 @@ public class View extends javax.swing.JFrame {
     		inputTitle = JOptionPane.showInputDialog(null, "The title can't be empty");
     	}
     	return inputTitle;
+    }
+    
+    private String deleteOption(){
+    	JFrame frame = new JFrame();
+        String iconArray[] = { "Yes", "Cancel" };
+
+        Object jOptionPaneSelection = JOptionPane.showOptionDialog(frame, "Do you really want to delete this element?", "Select an Option",
+            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, iconArray, iconArray[1]);
+        String reponse = jOptionPaneSelection.toString();
+        return reponse;
     }
     
      
