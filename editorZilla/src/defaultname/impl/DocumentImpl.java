@@ -332,6 +332,56 @@ public class DocumentImpl extends DocumentBuilderImpl implements Document {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	
+	public void changeSectionTitle(String id, String newTitle) {
+		SectionComposite racineComposite = (SectionComposite)getRacine();
+		EList<SectionComponent> sectionComponentList = racineComposite.getSectionComponentList();
+		for(SectionComponent rootChild : sectionComponentList){
+			SectionComposite section = (SectionComposite)rootChild;
+			if(section.getId().equals(id)){
+				section.setTitle(newTitle);
+			}else{
+				EList<SectionComponent> subSectionList = section.getSectionComponentList();
+				for(SectionComponent subSectionComponent : subSectionList){
+					if(subSectionComponent.getId().equals(id)){
+						Section subSection = (Section)subSectionComponent;
+						subSection.setTitle(newTitle);
+						break;
+					}
+				}
+			}
+		}
+		setRacine(racineComposite);
+	}
+//	public void changeSectionTitle(String id, String newTitle) {
+//		SectionComposite racineComposite = (SectionComposite)getRacine();
+//		EList<SectionComponent> sectionComponentList = racineComposite.getSectionComponentList();
+//		for(int x = 0; x < sectionComponentList.size(); ++x){
+//			SectionComposite section = (SectionComposite)sectionComponentList.get(x);
+//			if(section.getId().equals(id)){
+//				section.setTitle(newTitle);
+//				sectionComponentList.set(x, section);
+//			}else{
+//				EList<SectionComponent> subSectionList = section.getSectionComponentList();
+//				for(int i = 0; i < subSectionList.size(); ++i){
+//					if(subSectionList.get(i).getId().equals(id)){
+//						Section subSection = (Section)subSectionList.get(i);
+//						subSection.setTitle(newTitle);
+//						subSectionList.set(i, subSection);
+//						break;
+//					}
+//				}			
+//			}
+//		}
+//		racineComposite.setSectionComponentList(sectionComponentList);
+//		setRacine(racineComposite);
+//	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void save(Document document, String filePath) {

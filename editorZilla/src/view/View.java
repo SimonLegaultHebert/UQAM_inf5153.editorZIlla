@@ -52,6 +52,7 @@ public class View extends javax.swing.JFrame {
         addSectionMenuItem = new javax.swing.JMenuItem();
         addSubsectionMenuItem = new javax.swing.JMenuItem();
         deleteSectionMenuItem = new javax.swing.JMenuItem();
+        changeSectionTitle = new javax.swing.JMenuItem();
         jTreePanel = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTree = new javax.swing.JTree();
@@ -93,6 +94,14 @@ public class View extends javax.swing.JFrame {
             }
         });
         jTreePopupMenu.add(deleteSectionMenuItem);
+        
+        changeSectionTitle.setText("change title");
+        changeSectionTitle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	changeSectionTitleMenuItemActionPerformed(evt);
+            }
+        });
+        jTreePopupMenu.add(changeSectionTitle);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -366,9 +375,9 @@ public class View extends javax.swing.JFrame {
     	DefaultTreeModel model = (DefaultTreeModel)jTree.getModel();
         DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
         root.removeAllChildren();
-        root.setUserObject(new DefaultMutableTreeNode(controller.createRoot()));
-    	
-        SectionComposite racineComposite = (SectionComposite)racine;
+        SectionComposite racineComposite = controller.createRoot();
+        root.setUserObject(new DefaultMutableTreeNode(racineComposite));
+
         EList<SectionComponent> sectionComponentList = racineComposite.getSectionComponentList();
         for(int i = 0; i < sectionComponentList.size(); ++i){
         	SectionComposite section = (SectionComposite)sectionComponentList.get(i);
@@ -383,7 +392,7 @@ public class View extends javax.swing.JFrame {
        	
         }      
         model.reload(root);
-        jTextArea.setText("");
+        //jTextArea.setText("");
     }
 
     private void addSectionMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                                   
@@ -427,7 +436,20 @@ public class View extends javax.swing.JFrame {
             reloadJTreeValues(controller.getDocument().getRacine());
             hasBeenSaved = false;
     	}
-    }                                                     
+    }    
+    
+    private void changeSectionTitleMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                                         	
+    	String newTitle = takeInputTitle();
+    	TreeSelectionModel selectionModel = jTree.getSelectionModel();
+        TreePath selectionPath = selectionModel.getSelectionPath();
+        DefaultMutableTreeNode node = (DefaultMutableTreeNode)selectionPath.getLastPathComponent();
+        DefaultTreeModel model = (DefaultTreeModel) jTree.getModel();
+        lastNodeUsed = node;
+        SectionComponent sectionToChange = (SectionComponent)node.getUserObject();
+        controller.changeSectionTitle(sectionToChange.getId(), newTitle);
+        reloadJTreeValues(controller.getDocument().getRacine());
+        hasBeenSaved = false;   	
+    }
 
     private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                                	
     	if(!hasBeenSaved){
@@ -578,6 +600,7 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JButton copyButton;
     private javax.swing.JButton cutButton;
     private javax.swing.JMenuItem deleteSectionMenuItem;
+    private javax.swing.JMenuItem changeSectionTitle;
     private javax.swing.JMenuItem exportMenuItem;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JPanel jButtonPanel;

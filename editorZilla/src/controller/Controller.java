@@ -35,6 +35,10 @@ public class Controller {
 		document.deleteSection(id);
 	}
 	
+	public void changeSectionTitle(String id, String newTitle){
+		document.changeSectionTitle(id, newTitle);
+	}
+	
 	//id du SectionComponent
 	public String getContent(String id){
 		return document.getContent(id);

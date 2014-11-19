@@ -132,6 +132,10 @@
         <element xmi:type="ecore:EOperation" href="editorZilla.ecore#//Document/deleteSection"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_9-jJ0XAVEeSLabb4u9Zhjw"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_c2xo8HAbEeSLabb4u9Zhjw" type="2002">
+        <element xmi:type="ecore:EOperation" href="editorZilla.ecore#//Document/changeSectionTitle"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_c2xo8XAbEeSLabb4u9Zhjw"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_pHt-WWOzEeSFRviR_rCwEQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_pHt-WmOzEeSFRviR_rCwEQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_pHt-W2OzEeSFRviR_rCwEQ"/>
