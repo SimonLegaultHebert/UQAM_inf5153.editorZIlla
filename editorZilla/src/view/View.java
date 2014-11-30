@@ -60,7 +60,9 @@ public class View extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea = new javax.swing.JTextArea();
         jButtonPanel = new javax.swing.JPanel();
-        cutButton = new javax.swing.JButton();
+        undoButton = new javax.swing.JButton();
+        doButton = new javax.swing.JButton();
+        cutButton = new javax.swing.JButton(); 
         pasteButton = new javax.swing.JButton();
         copyButton = new javax.swing.JButton();
         newFileButton = new javax.swing.JButton();
@@ -176,7 +178,23 @@ public class View extends javax.swing.JFrame {
 
 			}
 		});
-
+        
+        undoButton.setIcon(new javax.swing.ImageIcon("icon\\Editing-Cut-Filled-icon.png")); // NOI18N
+        undoButton.setText("undo");
+        undoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	doButtonActionPerformed(evt);
+            }
+        });
+        
+        doButton.setIcon(new javax.swing.ImageIcon("icon\\Editing-Cut-Filled-icon.png")); // NOI18N
+        doButton.setText("Do");
+        doButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	doButtonActionPerformed(evt);
+            }
+        });
+        
         cutButton.setIcon(new javax.swing.ImageIcon("icon\\Editing-Cut-Filled-icon.png")); // NOI18N
         cutButton.setText("Cut");
         cutButton.addActionListener(new java.awt.event.ActionListener() {
@@ -232,6 +250,10 @@ public class View extends javax.swing.JFrame {
                 .addComponent(pasteButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cutButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(doButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(undoButton)
                 .addContainerGap())
         );
         jButtonPanelLayout.setVerticalGroup(
@@ -241,6 +263,8 @@ public class View extends javax.swing.JFrame {
                 .addGroup(jButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 	.addComponent(quickSaveButton)
                 	.addComponent(newFileButton)
+                	.addComponent(doButton)
+                	.addComponent(undoButton)
                 	.addComponent(cutButton)
                     .addComponent(pasteButton)
                     .addComponent(copyButton))                  
@@ -312,7 +336,13 @@ public class View extends javax.swing.JFrame {
         
     }// </editor-fold>           
     
+    private void undoButtonActionPerformed(java.awt.event.ActionEvent evt) {                                          
+
+    }
     
+    private void doButtonActionPerformed(java.awt.event.ActionEvent evt) {                                          
+
+    }
 
     private void cutButtonActionPerformed(java.awt.event.ActionEvent evt) {                                          
     	jTextArea.replaceRange("", controller.moveText(), controller.moveText() + controller.pasteText().length());
@@ -621,6 +651,8 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JButton pasteButton;
     private javax.swing.JButton newFileButton;
     private javax.swing.JButton quickSaveButton;
+    private javax.swing.JButton undoButton;
+    private javax.swing.JButton doButton;
     private javax.swing.JMenuItem saveMenuItem;
     // End of variables declaration                   
 }
