@@ -56,12 +56,23 @@
       <eParameters name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="newTitle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
+    <eOperations name="setMomento">
+      <eParameters name="m" eType="#//Momento"/>
+    </eOperations>
+    <eOperations name="createMomento"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="document"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="racine" lowerBound="1"
         eType="#//SectionComponent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pressePapier" lowerBound="1"
         eType="#//PressePapier"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="state" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference0" upperBound="-1"
+        eType="#//Momento"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DocumentBuilder">
     <eOperations name="load" eType="#//Document">
@@ -110,4 +121,14 @@
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HTMLStrategy" eSuperTypes="#//ExportStrategy"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Momento">
+    <eOperations name="getMomento" eType="#//Momento"/>
+    <eOperations name="setMomento">
+      <eParameters name="m" eType="#//Momento"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="state" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Caretaker">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference0" eType="#//Momento"/>
+  </eClassifiers>
 </ecore:EPackage>

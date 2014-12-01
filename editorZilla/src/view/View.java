@@ -337,11 +337,11 @@ public class View extends javax.swing.JFrame {
     }// </editor-fold>           
     
     private void undoButtonActionPerformed(java.awt.event.ActionEvent evt) {                                          
-
+    	controller.faire();
     }
     
     private void doButtonActionPerformed(java.awt.event.ActionEvent evt) {                                          
-
+    	controller.defaire();
     }
 
     private void cutButtonActionPerformed(java.awt.event.ActionEvent evt) {                                          

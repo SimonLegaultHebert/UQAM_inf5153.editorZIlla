@@ -109,7 +109,13 @@ public class Controller {
 		return document;
 	}
 	
+	public void faire() {
+		
+	}
 	
+	public void defaire(){
+		
+	}
 
 	
 
