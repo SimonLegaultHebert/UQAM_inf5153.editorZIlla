@@ -31,7 +31,7 @@
         defaultValueLiteral=""/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Document" eSuperTypes="#//DocumentBuilder #//DocumentStrategy">
+  <eClassifiers xsi:type="ecore:EClass" name="Document" eSuperTypes="#//DocumentBuilder #//DocumentStrategy #//RemoveSection">
     <eOperations name="getSectionComponent" eType="#//SectionComponent"/>
     <eOperations name="addSection" eType="#//SectionComposite">
       <eParameters name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -73,6 +73,10 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="EReference0" upperBound="-1"
         eType="#//Momento"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference1" eType="#//Document"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference2" eType="#//Receiver"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference3" eType="#//addSection"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference4" eType="#//RemoveSection"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DocumentBuilder">
     <eOperations name="load" eType="#//Document">
@@ -130,5 +134,21 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Caretaker">
     <eStructuralFeatures xsi:type="ecore:EReference" name="EReference0" eType="#//Momento"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Receiver"/>
+  <eClassifiers xsi:type="ecore:EClass" name="addSection" eSuperTypes="#//Receiver #//Command">
+    <eOperations name="execute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference0" eType="#//Document"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference1" eType="#//Receiver"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="state" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RemoveSection" eSuperTypes="#//Receiver #//Command">
+    <eOperations name="execute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference0" eType="#//Receiver"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="state" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompositeCommand" eSuperTypes="#//Receiver #//Command"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Command">
+    <eOperations name="execute"/>
   </eClassifiers>
 </ecore:EPackage>

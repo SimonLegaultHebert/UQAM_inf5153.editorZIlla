@@ -2,8 +2,7 @@
  */
 package defaultname.tests;
 
-import defaultname.DocumentStrategy;
-import model.DocumentStrategy;
+import defaultname.DocumentStrategy; 
 
 import junit.framework.TestCase;
 

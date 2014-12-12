@@ -3,9 +3,7 @@
 package defaultname.tests;
 
 import defaultname.DefaultnameFactory;
-import defaultname.PressePapier;
-import model.DefaultnameFactory;
-import model.PressePapier;
+import defaultname.PressePapier; 
 
 import junit.framework.TestCase;
 

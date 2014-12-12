@@ -3,9 +3,7 @@
 package defaultname.tests;
 
 import defaultname.DefaultnameFactory;
-import defaultname.Section;
-import model.DefaultnameFactory;
-import model.Section;
+import defaultname.Section; 
 
 import junit.textui.TestRunner;
 

@@ -3,9 +3,7 @@
 package defaultname.tests;
 
 import defaultname.DefaultnameFactory;
-import defaultname.HTMLStrategy;
-import model.DefaultnameFactory;
-import model.HTMLStrategy;
+import defaultname.HTMLStrategy; 
 
 import junit.framework.TestCase;
 

@@ -2,6 +2,9 @@
  */
 package defaultname.impl;
 
+import defaultname.Caretaker;
+import defaultname.Command;
+import defaultname.CompositeCommand;
 import defaultname.DefaultnameFactory;
 import defaultname.DefaultnamePackage;
 import defaultname.Document;
@@ -9,12 +12,16 @@ import defaultname.DocumentBuilder;
 import defaultname.DocumentStrategy;
 import defaultname.ExportStrategy;
 import defaultname.HTMLStrategy;
+import defaultname.Momento;
 import defaultname.PressePapier;
+import defaultname.Receiver;
+import defaultname.RemoveSection;
 import defaultname.Section;
 import defaultname.SectionComponent;
 import defaultname.SectionComposite;
 import defaultname.XMIStrategy;
 
+import defaultname.addSection;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
@@ -99,6 +106,55 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 	 * @generated
 	 */
 	private EClass htmlStrategyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass momentoEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass caretakerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass receiverEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass addSectionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass removeSectionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass compositeCommandEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass commandEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -292,6 +348,42 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getDocument_State() {
+		return (EAttribute)documentEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDocument_EReference0() {
+		return (EReference)documentEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDocument_EReference1() {
+		return (EReference)documentEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDocument_EReference2() {
+		return (EReference)documentEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDocumentBuilder() {
 		return documentBuilderEClass;
 	}
@@ -409,6 +501,132 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getMomento() {
+		return momentoEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMomento_State() {
+		return (EAttribute)momentoEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCaretaker() {
+		return caretakerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCaretaker_EReference0() {
+		return (EReference)caretakerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getReceiver() {
+		return receiverEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getaddSection() {
+		return addSectionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getaddSection_EReference0() {
+		return (EReference)addSectionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getaddSection_EReference1() {
+		return (EReference)addSectionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getaddSection_State() {
+		return (EAttribute)addSectionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRemoveSection() {
+		return removeSectionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRemoveSection_EReference0() {
+		return (EReference)removeSectionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRemoveSection_State() {
+		return (EAttribute)removeSectionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCompositeCommand() {
+		return compositeCommandEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCommand() {
+		return commandEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DefaultnameFactory getDefaultnameFactory() {
 		return (DefaultnameFactory)getEFactoryInstance();
 	}
@@ -449,6 +667,10 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 		createEAttribute(documentEClass, DOCUMENT__NAME);
 		createEReference(documentEClass, DOCUMENT__RACINE);
 		createEReference(documentEClass, DOCUMENT__PRESSE_PAPIER);
+		createEAttribute(documentEClass, DOCUMENT__STATE);
+		createEReference(documentEClass, DOCUMENT__EREFERENCE0);
+		createEReference(documentEClass, DOCUMENT__EREFERENCE1);
+		createEReference(documentEClass, DOCUMENT__EREFERENCE2);
 
 		documentBuilderEClass = createEClass(DOCUMENT_BUILDER);
 		createEReference(documentBuilderEClass, DOCUMENT_BUILDER__DOCUMENT);
@@ -468,6 +690,27 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 		exportStrategyEClass = createEClass(EXPORT_STRATEGY);
 
 		htmlStrategyEClass = createEClass(HTML_STRATEGY);
+
+		momentoEClass = createEClass(MOMENTO);
+		createEAttribute(momentoEClass, MOMENTO__STATE);
+
+		caretakerEClass = createEClass(CARETAKER);
+		createEReference(caretakerEClass, CARETAKER__EREFERENCE0);
+
+		receiverEClass = createEClass(RECEIVER);
+
+		addSectionEClass = createEClass(ADD_SECTION);
+		createEReference(addSectionEClass, ADD_SECTION__EREFERENCE0);
+		createEReference(addSectionEClass, ADD_SECTION__EREFERENCE1);
+		createEAttribute(addSectionEClass, ADD_SECTION__STATE);
+
+		removeSectionEClass = createEClass(REMOVE_SECTION);
+		createEReference(removeSectionEClass, REMOVE_SECTION__EREFERENCE0);
+		createEAttribute(removeSectionEClass, REMOVE_SECTION__STATE);
+
+		compositeCommandEClass = createEClass(COMPOSITE_COMMAND);
+
+		commandEClass = createEClass(COMMAND);
 	}
 
 	/**
@@ -504,6 +747,12 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 		documentEClass.getESuperTypes().add(this.getDocumentStrategy());
 		xmiStrategyEClass.getESuperTypes().add(this.getDocumentStrategy());
 		htmlStrategyEClass.getESuperTypes().add(this.getExportStrategy());
+		addSectionEClass.getESuperTypes().add(this.getReceiver());
+		addSectionEClass.getESuperTypes().add(this.getCommand());
+		removeSectionEClass.getESuperTypes().add(this.getReceiver());
+		removeSectionEClass.getESuperTypes().add(this.getCommand());
+		compositeCommandEClass.getESuperTypes().add(this.getReceiver());
+		compositeCommandEClass.getESuperTypes().add(this.getCommand());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(sectionComponentEClass, SectionComponent.class, "SectionComponent", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -538,6 +787,10 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 		initEAttribute(getDocument_Name(), ecorePackage.getEString(), "name", "document", 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDocument_Racine(), this.getSectionComponent(), null, "racine", null, 1, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDocument_PressePapier(), this.getPressePapier(), null, "pressePapier", null, 1, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDocument_State(), ecorePackage.getEJavaObject(), "state", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDocument_EReference0(), this.getMomento(), null, "EReference0", null, 0, -1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDocument_EReference1(), this.getDocument(), null, "EReference1", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDocument_EReference2(), this.getReceiver(), null, "EReference2", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(documentEClass, this.getSectionComponent(), "getSectionComponent", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -563,6 +816,11 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 		op = addEOperation(documentEClass, null, "changeSectionTitle", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "id", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "newTitle", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(documentEClass, null, "setMomento", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getMomento(), "m", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(documentEClass, null, "createMomento", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(documentBuilderEClass, DocumentBuilder.class, "DocumentBuilder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDocumentBuilder_Document(), this.getDocument(), null, "document", null, 1, 1, DocumentBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -610,8 +868,60 @@ public class DefaultnamePackageImpl extends EPackageImpl implements DefaultnameP
 
 		initEClass(htmlStrategyEClass, HTMLStrategy.class, "HTMLStrategy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(momentoEClass, Momento.class, "Momento", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMomento_State(), ecorePackage.getEJavaObject(), "state", null, 0, 1, Momento.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(momentoEClass, this.getMomento(), "getMomento", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(momentoEClass, null, "setMomento", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getMomento(), "m", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(caretakerEClass, Caretaker.class, "Caretaker", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCaretaker_EReference0(), this.getMomento(), null, "EReference0", null, 0, 1, Caretaker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(receiverEClass, Receiver.class, "Receiver", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(addSectionEClass, addSection.class, "addSection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getaddSection_EReference0(), this.getDocument(), null, "EReference0", null, 0, 1, addSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getaddSection_EReference1(), this.getReceiver(), null, "EReference1", null, 0, 1, addSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getaddSection_State(), ecorePackage.getEJavaObject(), "state", null, 0, 1, addSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(addSectionEClass, null, "execute", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(removeSectionEClass, RemoveSection.class, "RemoveSection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRemoveSection_EReference0(), this.getReceiver(), null, "EReference0", null, 0, 1, RemoveSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRemoveSection_State(), ecorePackage.getEJavaObject(), "state", null, 0, 1, RemoveSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(removeSectionEClass, null, "execute", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(compositeCommandEClass, CompositeCommand.class, "CompositeCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(commandEClass, Command.class, "Command", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		addEOperation(commandEClass, null, "execute", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// http:///org/eclipse/emf/ecore/util/ExtendedMetaData
+		createExtendedMetaDataAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http:///org/eclipse/emf/ecore/util/ExtendedMetaData</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createExtendedMetaDataAnnotations() {
+		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";		
+		addAnnotation
+		  (getDocument_State(), 
+		   source, 
+		   new String[] {
+			 "kind", "attribute"
+		   });
 	}
 
 } //DefaultnamePackageImpl

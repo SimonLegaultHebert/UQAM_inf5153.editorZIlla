@@ -12,9 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.StringTokenizer;
-
-import model.DefaultnameFactory;
-import model.DefaultnamePackage;
+ 
 
 import org.eclipse.emf.common.CommonPlugin;
 

@@ -10,9 +10,9 @@ import defaultname.DocumentBuilder;
 import java.util.Collection;
 import java.util.List;
 
-import model.DefaultnameFactory;
-import model.DefaultnamePackage;
-import model.DocumentBuilder;
+import defaultname.DefaultnameFactory;
+import defaultname.DefaultnamePackage;
+import defaultname.DocumentBuilder;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;

@@ -3,9 +3,7 @@
 package defaultname.tests;
 
 import defaultname.DefaultnameFactory;
-import defaultname.DocumentBuilder;
-import model.DefaultnameFactory;
-import model.DocumentBuilder;
+import defaultname.DocumentBuilder; 
 
 import junit.framework.TestCase;
 

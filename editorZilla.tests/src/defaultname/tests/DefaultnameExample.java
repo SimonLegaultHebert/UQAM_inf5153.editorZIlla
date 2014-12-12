@@ -8,10 +8,7 @@ import defaultname.DefaultnamePackage;
 import defaultname.SectionComposite;
 import java.io.File;
 import java.io.IOException;
-
-import model.DefaultnameFactory;
-import model.DefaultnamePackage;
-import model.SectionComposite;
+ 
 
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;

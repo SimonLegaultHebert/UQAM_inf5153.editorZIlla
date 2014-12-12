@@ -3,9 +3,7 @@
 package defaultname.tests;
 
 import defaultname.DefaultnameFactory;
-import defaultname.Document;
-import model.DefaultnameFactory;
-import model.Document;
+import defaultname.Document; 
 
 import junit.textui.TestRunner;
 
@@ -23,6 +21,8 @@ import junit.textui.TestRunner;
  *   <li>{@link defaultname.Document#saveText(java.lang.String, java.lang.String) <em>Save Text</em>}</li>
  *   <li>{@link defaultname.Document#deleteSection(java.lang.String) <em>Delete Section</em>}</li>
  *   <li>{@link defaultname.Document#changeSectionTitle(java.lang.String, java.lang.String) <em>Change Section Title</em>}</li>
+ *   <li>{@link defaultname.Document#setMomento(defaultname.Momento) <em>Set Momento</em>}</li>
+ *   <li>{@link defaultname.Document#createMomento() <em>Create Momento</em>}</li>
  *   <li>{@link defaultname.DocumentStrategy#save(defaultname.Document, java.lang.String) <em>Save</em>}</li>
  * </ul>
  * </p>
@@ -168,6 +168,32 @@ public class DocumentTest extends DocumentBuilderTest {
 	 * @generated
 	 */
 	public void testChangeSectionTitle__String_String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link defaultname.Document#setMomento(defaultname.Momento) <em>Set Momento</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see defaultname.Document#setMomento(defaultname.Momento)
+	 * @generated
+	 */
+	public void testSetMomento__Momento() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link defaultname.Document#createMomento() <em>Create Momento</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see defaultname.Document#createMomento()
+	 * @generated
+	 */
+	public void testCreateMomento() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

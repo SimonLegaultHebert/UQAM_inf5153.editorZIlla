@@ -2,8 +2,7 @@
  */
 package defaultname.tests;
 
-import defaultname.ExportStrategy;
-import model.ExportStrategy;
+import defaultname.ExportStrategy; 
 
 import junit.framework.TestCase;
 

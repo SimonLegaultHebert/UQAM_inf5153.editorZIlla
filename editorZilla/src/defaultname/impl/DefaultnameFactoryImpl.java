@@ -63,6 +63,13 @@ public class DefaultnameFactoryImpl extends EFactoryImpl implements DefaultnameF
 			case DefaultnamePackage.XMI_STRATEGY: return createXMIStrategy();
 			case DefaultnamePackage.PRESSE_PAPIER: return createPressePapier();
 			case DefaultnamePackage.HTML_STRATEGY: return createHTMLStrategy();
+			case DefaultnamePackage.MOMENTO: return createMomento();
+			case DefaultnamePackage.CARETAKER: return createCaretaker();
+			case DefaultnamePackage.RECEIVER: return createReceiver();
+			case DefaultnamePackage.ADD_SECTION: return createaddSection();
+			case DefaultnamePackage.REMOVE_SECTION: return createRemoveSection();
+			case DefaultnamePackage.COMPOSITE_COMMAND: return createCompositeCommand();
+			case DefaultnamePackage.COMMAND: return createCommand();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -136,6 +143,76 @@ public class DefaultnameFactoryImpl extends EFactoryImpl implements DefaultnameF
 	public HTMLStrategy createHTMLStrategy() {
 		HTMLStrategyImpl htmlStrategy = new HTMLStrategyImpl();
 		return htmlStrategy;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Momento createMomento() {
+		MomentoImpl momento = new MomentoImpl();
+		return momento;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Caretaker createCaretaker() {
+		CaretakerImpl caretaker = new CaretakerImpl();
+		return caretaker;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Receiver createReceiver() {
+		ReceiverImpl receiver = new ReceiverImpl();
+		return receiver;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public addSection createaddSection() {
+		addSectionImpl addSection = new addSectionImpl();
+		return addSection;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RemoveSection createRemoveSection() {
+		RemoveSectionImpl removeSection = new RemoveSectionImpl();
+		return removeSection;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CompositeCommand createCompositeCommand() {
+		CompositeCommandImpl compositeCommand = new CompositeCommandImpl();
+		return compositeCommand;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Command createCommand() {
+		CommandImpl command = new CommandImpl();
+		return command;
 	}
 
 	/**

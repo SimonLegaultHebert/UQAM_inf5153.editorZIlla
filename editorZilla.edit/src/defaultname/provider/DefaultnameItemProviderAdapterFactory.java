@@ -6,9 +6,7 @@ package defaultname.provider;
 import defaultname.util.DefaultnameAdapterFactory;
 import java.util.ArrayList;
 import java.util.Collection;
-
-import model.util.DefaultnameAdapterFactory;
-
+ 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
@@ -235,6 +233,167 @@ public class DefaultnameItemProviderAdapterFactory extends DefaultnameAdapterFac
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link defaultname.Momento} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MomentoItemProvider momentoItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link defaultname.Momento}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMomentoAdapter() {
+		if (momentoItemProvider == null) {
+			momentoItemProvider = new MomentoItemProvider(this);
+		}
+
+		return momentoItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link defaultname.Caretaker} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CaretakerItemProvider caretakerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link defaultname.Caretaker}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCaretakerAdapter() {
+		if (caretakerItemProvider == null) {
+			caretakerItemProvider = new CaretakerItemProvider(this);
+		}
+
+		return caretakerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link defaultname.Receiver} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ReceiverItemProvider receiverItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link defaultname.Receiver}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createReceiverAdapter() {
+		if (receiverItemProvider == null) {
+			receiverItemProvider = new ReceiverItemProvider(this);
+		}
+
+		return receiverItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link defaultname.addSection} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected addSectionItemProvider addSectionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link defaultname.addSection}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createaddSectionAdapter() {
+		if (addSectionItemProvider == null) {
+			addSectionItemProvider = new addSectionItemProvider(this);
+		}
+
+		return addSectionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link defaultname.RemoveSection} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RemoveSectionItemProvider removeSectionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link defaultname.RemoveSection}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRemoveSectionAdapter() {
+		if (removeSectionItemProvider == null) {
+			removeSectionItemProvider = new RemoveSectionItemProvider(this);
+		}
+
+		return removeSectionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link defaultname.CompositeCommand} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CompositeCommandItemProvider compositeCommandItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link defaultname.CompositeCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCompositeCommandAdapter() {
+		if (compositeCommandItemProvider == null) {
+			compositeCommandItemProvider = new CompositeCommandItemProvider(this);
+		}
+
+		return compositeCommandItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link defaultname.Command} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CommandItemProvider commandItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link defaultname.Command}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCommandAdapter() {
+		if (commandItemProvider == null) {
+			commandItemProvider = new CommandItemProvider(this);
+		}
+
+		return commandItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -340,6 +499,13 @@ public class DefaultnameItemProviderAdapterFactory extends DefaultnameAdapterFac
 		if (xmiStrategyItemProvider != null) xmiStrategyItemProvider.dispose();
 		if (pressePapierItemProvider != null) pressePapierItemProvider.dispose();
 		if (htmlStrategyItemProvider != null) htmlStrategyItemProvider.dispose();
+		if (momentoItemProvider != null) momentoItemProvider.dispose();
+		if (caretakerItemProvider != null) caretakerItemProvider.dispose();
+		if (receiverItemProvider != null) receiverItemProvider.dispose();
+		if (addSectionItemProvider != null) addSectionItemProvider.dispose();
+		if (removeSectionItemProvider != null) removeSectionItemProvider.dispose();
+		if (compositeCommandItemProvider != null) compositeCommandItemProvider.dispose();
+		if (commandItemProvider != null) commandItemProvider.dispose();
 	}
 
 }

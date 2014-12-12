@@ -304,13 +304,49 @@ public interface DefaultnamePackage extends EPackage {
 	int DOCUMENT__PRESSE_PAPIER = DOCUMENT_BUILDER_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENT__STATE = DOCUMENT_BUILDER_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>EReference0</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENT__EREFERENCE0 = DOCUMENT_BUILDER_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>EReference1</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENT__EREFERENCE1 = DOCUMENT_BUILDER_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>EReference2</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENT__EREFERENCE2 = DOCUMENT_BUILDER_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Document</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_FEATURE_COUNT = DOCUMENT_BUILDER_FEATURE_COUNT + 3;
+	int DOCUMENT_FEATURE_COUNT = DOCUMENT_BUILDER_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link defaultname.DocumentStrategy <em>Document Strategy</em>}' class.
@@ -433,6 +469,202 @@ public interface DefaultnamePackage extends EPackage {
 	 * @ordered
 	 */
 	int HTML_STRATEGY_FEATURE_COUNT = EXPORT_STRATEGY_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link defaultname.impl.MomentoImpl <em>Momento</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see defaultname.impl.MomentoImpl
+	 * @see defaultname.impl.DefaultnamePackageImpl#getMomento()
+	 * @generated
+	 */
+	int MOMENTO = 10;
+
+	/**
+	 * The feature id for the '<em><b>State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOMENTO__STATE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Momento</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOMENTO_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link defaultname.impl.CaretakerImpl <em>Caretaker</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see defaultname.impl.CaretakerImpl
+	 * @see defaultname.impl.DefaultnamePackageImpl#getCaretaker()
+	 * @generated
+	 */
+	int CARETAKER = 11;
+
+	/**
+	 * The feature id for the '<em><b>EReference0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CARETAKER__EREFERENCE0 = 0;
+
+	/**
+	 * The number of structural features of the '<em>Caretaker</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CARETAKER_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link defaultname.impl.ReceiverImpl <em>Receiver</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see defaultname.impl.ReceiverImpl
+	 * @see defaultname.impl.DefaultnamePackageImpl#getReceiver()
+	 * @generated
+	 */
+	int RECEIVER = 12;
+
+	/**
+	 * The number of structural features of the '<em>Receiver</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECEIVER_FEATURE_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link defaultname.impl.addSectionImpl <em>add Section</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see defaultname.impl.addSectionImpl
+	 * @see defaultname.impl.DefaultnamePackageImpl#getaddSection()
+	 * @generated
+	 */
+	int ADD_SECTION = 13;
+
+	/**
+	 * The feature id for the '<em><b>EReference0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_SECTION__EREFERENCE0 = RECEIVER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>EReference1</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_SECTION__EREFERENCE1 = RECEIVER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_SECTION__STATE = RECEIVER_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>add Section</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADD_SECTION_FEATURE_COUNT = RECEIVER_FEATURE_COUNT + 3;
+
+	/**
+	 * The meta object id for the '{@link defaultname.impl.RemoveSectionImpl <em>Remove Section</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see defaultname.impl.RemoveSectionImpl
+	 * @see defaultname.impl.DefaultnamePackageImpl#getRemoveSection()
+	 * @generated
+	 */
+	int REMOVE_SECTION = 14;
+
+	/**
+	 * The feature id for the '<em><b>EReference0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_SECTION__EREFERENCE0 = RECEIVER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_SECTION__STATE = RECEIVER_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Remove Section</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMOVE_SECTION_FEATURE_COUNT = RECEIVER_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link defaultname.impl.CompositeCommandImpl <em>Composite Command</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see defaultname.impl.CompositeCommandImpl
+	 * @see defaultname.impl.DefaultnamePackageImpl#getCompositeCommand()
+	 * @generated
+	 */
+	int COMPOSITE_COMMAND = 15;
+
+	/**
+	 * The number of structural features of the '<em>Composite Command</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_COMMAND_FEATURE_COUNT = RECEIVER_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link defaultname.impl.CommandImpl <em>Command</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see defaultname.impl.CommandImpl
+	 * @see defaultname.impl.DefaultnamePackageImpl#getCommand()
+	 * @generated
+	 */
+	int COMMAND = 16;
+
+	/**
+	 * The number of structural features of the '<em>Command</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMAND_FEATURE_COUNT = 0;
 
 	/**
 	 * Returns the meta object for class '{@link defaultname.SectionComponent <em>Section Component</em>}'.
@@ -585,6 +817,50 @@ public interface DefaultnamePackage extends EPackage {
 	EReference getDocument_PressePapier();
 
 	/**
+	 * Returns the meta object for the attribute '{@link defaultname.Document#getState <em>State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>State</em>'.
+	 * @see defaultname.Document#getState()
+	 * @see #getDocument()
+	 * @generated
+	 */
+	EAttribute getDocument_State();
+
+	/**
+	 * Returns the meta object for the reference list '{@link defaultname.Document#getEReference0 <em>EReference0</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>EReference0</em>'.
+	 * @see defaultname.Document#getEReference0()
+	 * @see #getDocument()
+	 * @generated
+	 */
+	EReference getDocument_EReference0();
+
+	/**
+	 * Returns the meta object for the reference '{@link defaultname.Document#getEReference1 <em>EReference1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>EReference1</em>'.
+	 * @see defaultname.Document#getEReference1()
+	 * @see #getDocument()
+	 * @generated
+	 */
+	EReference getDocument_EReference1();
+
+	/**
+	 * Returns the meta object for the reference '{@link defaultname.Document#getEReference2 <em>EReference2</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>EReference2</em>'.
+	 * @see defaultname.Document#getEReference2()
+	 * @see #getDocument()
+	 * @generated
+	 */
+	EReference getDocument_EReference2();
+
+	/**
 	 * Returns the meta object for class '{@link defaultname.DocumentBuilder <em>Document Builder</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -720,6 +996,153 @@ public interface DefaultnamePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getHTMLStrategy();
+
+	/**
+	 * Returns the meta object for class '{@link defaultname.Momento <em>Momento</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Momento</em>'.
+	 * @see defaultname.Momento
+	 * @generated
+	 */
+	EClass getMomento();
+
+	/**
+	 * Returns the meta object for the attribute '{@link defaultname.Momento#getState <em>State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>State</em>'.
+	 * @see defaultname.Momento#getState()
+	 * @see #getMomento()
+	 * @generated
+	 */
+	EAttribute getMomento_State();
+
+	/**
+	 * Returns the meta object for class '{@link defaultname.Caretaker <em>Caretaker</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Caretaker</em>'.
+	 * @see defaultname.Caretaker
+	 * @generated
+	 */
+	EClass getCaretaker();
+
+	/**
+	 * Returns the meta object for the reference '{@link defaultname.Caretaker#getEReference0 <em>EReference0</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>EReference0</em>'.
+	 * @see defaultname.Caretaker#getEReference0()
+	 * @see #getCaretaker()
+	 * @generated
+	 */
+	EReference getCaretaker_EReference0();
+
+	/**
+	 * Returns the meta object for class '{@link defaultname.Receiver <em>Receiver</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Receiver</em>'.
+	 * @see defaultname.Receiver
+	 * @generated
+	 */
+	EClass getReceiver();
+
+	/**
+	 * Returns the meta object for class '{@link defaultname.addSection <em>add Section</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>add Section</em>'.
+	 * @see defaultname.addSection
+	 * @generated
+	 */
+	EClass getaddSection();
+
+	/**
+	 * Returns the meta object for the reference '{@link defaultname.addSection#getEReference0 <em>EReference0</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>EReference0</em>'.
+	 * @see defaultname.addSection#getEReference0()
+	 * @see #getaddSection()
+	 * @generated
+	 */
+	EReference getaddSection_EReference0();
+
+	/**
+	 * Returns the meta object for the reference '{@link defaultname.addSection#getEReference1 <em>EReference1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>EReference1</em>'.
+	 * @see defaultname.addSection#getEReference1()
+	 * @see #getaddSection()
+	 * @generated
+	 */
+	EReference getaddSection_EReference1();
+
+	/**
+	 * Returns the meta object for the attribute '{@link defaultname.addSection#getState <em>State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>State</em>'.
+	 * @see defaultname.addSection#getState()
+	 * @see #getaddSection()
+	 * @generated
+	 */
+	EAttribute getaddSection_State();
+
+	/**
+	 * Returns the meta object for class '{@link defaultname.RemoveSection <em>Remove Section</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Remove Section</em>'.
+	 * @see defaultname.RemoveSection
+	 * @generated
+	 */
+	EClass getRemoveSection();
+
+	/**
+	 * Returns the meta object for the reference '{@link defaultname.RemoveSection#getEReference0 <em>EReference0</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>EReference0</em>'.
+	 * @see defaultname.RemoveSection#getEReference0()
+	 * @see #getRemoveSection()
+	 * @generated
+	 */
+	EReference getRemoveSection_EReference0();
+
+	/**
+	 * Returns the meta object for the attribute '{@link defaultname.RemoveSection#getState <em>State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>State</em>'.
+	 * @see defaultname.RemoveSection#getState()
+	 * @see #getRemoveSection()
+	 * @generated
+	 */
+	EAttribute getRemoveSection_State();
+
+	/**
+	 * Returns the meta object for class '{@link defaultname.CompositeCommand <em>Composite Command</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Composite Command</em>'.
+	 * @see defaultname.CompositeCommand
+	 * @generated
+	 */
+	EClass getCompositeCommand();
+
+	/**
+	 * Returns the meta object for class '{@link defaultname.Command <em>Command</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Command</em>'.
+	 * @see defaultname.Command
+	 * @generated
+	 */
+	EClass getCommand();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -864,6 +1287,38 @@ public interface DefaultnamePackage extends EPackage {
 		EReference DOCUMENT__PRESSE_PAPIER = eINSTANCE.getDocument_PressePapier();
 
 		/**
+		 * The meta object literal for the '<em><b>State</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOCUMENT__STATE = eINSTANCE.getDocument_State();
+
+		/**
+		 * The meta object literal for the '<em><b>EReference0</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOCUMENT__EREFERENCE0 = eINSTANCE.getDocument_EReference0();
+
+		/**
+		 * The meta object literal for the '<em><b>EReference1</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOCUMENT__EREFERENCE1 = eINSTANCE.getDocument_EReference1();
+
+		/**
+		 * The meta object literal for the '<em><b>EReference2</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOCUMENT__EREFERENCE2 = eINSTANCE.getDocument_EReference2();
+
+		/**
 		 * The meta object literal for the '{@link defaultname.impl.DocumentBuilderImpl <em>Document Builder</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -978,6 +1433,132 @@ public interface DefaultnamePackage extends EPackage {
 		 * @generated
 		 */
 		EClass HTML_STRATEGY = eINSTANCE.getHTMLStrategy();
+
+		/**
+		 * The meta object literal for the '{@link defaultname.impl.MomentoImpl <em>Momento</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see defaultname.impl.MomentoImpl
+		 * @see defaultname.impl.DefaultnamePackageImpl#getMomento()
+		 * @generated
+		 */
+		EClass MOMENTO = eINSTANCE.getMomento();
+
+		/**
+		 * The meta object literal for the '<em><b>State</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MOMENTO__STATE = eINSTANCE.getMomento_State();
+
+		/**
+		 * The meta object literal for the '{@link defaultname.impl.CaretakerImpl <em>Caretaker</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see defaultname.impl.CaretakerImpl
+		 * @see defaultname.impl.DefaultnamePackageImpl#getCaretaker()
+		 * @generated
+		 */
+		EClass CARETAKER = eINSTANCE.getCaretaker();
+
+		/**
+		 * The meta object literal for the '<em><b>EReference0</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CARETAKER__EREFERENCE0 = eINSTANCE.getCaretaker_EReference0();
+
+		/**
+		 * The meta object literal for the '{@link defaultname.impl.ReceiverImpl <em>Receiver</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see defaultname.impl.ReceiverImpl
+		 * @see defaultname.impl.DefaultnamePackageImpl#getReceiver()
+		 * @generated
+		 */
+		EClass RECEIVER = eINSTANCE.getReceiver();
+
+		/**
+		 * The meta object literal for the '{@link defaultname.impl.addSectionImpl <em>add Section</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see defaultname.impl.addSectionImpl
+		 * @see defaultname.impl.DefaultnamePackageImpl#getaddSection()
+		 * @generated
+		 */
+		EClass ADD_SECTION = eINSTANCE.getaddSection();
+
+		/**
+		 * The meta object literal for the '<em><b>EReference0</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ADD_SECTION__EREFERENCE0 = eINSTANCE.getaddSection_EReference0();
+
+		/**
+		 * The meta object literal for the '<em><b>EReference1</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ADD_SECTION__EREFERENCE1 = eINSTANCE.getaddSection_EReference1();
+
+		/**
+		 * The meta object literal for the '<em><b>State</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ADD_SECTION__STATE = eINSTANCE.getaddSection_State();
+
+		/**
+		 * The meta object literal for the '{@link defaultname.impl.RemoveSectionImpl <em>Remove Section</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see defaultname.impl.RemoveSectionImpl
+		 * @see defaultname.impl.DefaultnamePackageImpl#getRemoveSection()
+		 * @generated
+		 */
+		EClass REMOVE_SECTION = eINSTANCE.getRemoveSection();
+
+		/**
+		 * The meta object literal for the '<em><b>EReference0</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference REMOVE_SECTION__EREFERENCE0 = eINSTANCE.getRemoveSection_EReference0();
+
+		/**
+		 * The meta object literal for the '<em><b>State</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REMOVE_SECTION__STATE = eINSTANCE.getRemoveSection_State();
+
+		/**
+		 * The meta object literal for the '{@link defaultname.impl.CompositeCommandImpl <em>Composite Command</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see defaultname.impl.CompositeCommandImpl
+		 * @see defaultname.impl.DefaultnamePackageImpl#getCompositeCommand()
+		 * @generated
+		 */
+		EClass COMPOSITE_COMMAND = eINSTANCE.getCompositeCommand();
+
+		/**
+		 * The meta object literal for the '{@link defaultname.impl.CommandImpl <em>Command</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see defaultname.impl.CommandImpl
+		 * @see defaultname.impl.DefaultnamePackageImpl#getCommand()
+		 * @generated
+		 */
+		EClass COMMAND = eINSTANCE.getCommand();
 
 	}
 

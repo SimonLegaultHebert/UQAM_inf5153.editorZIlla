@@ -85,6 +85,69 @@ public interface DefaultnameFactory extends EFactory {
 	HTMLStrategy createHTMLStrategy();
 
 	/**
+	 * Returns a new object of class '<em>Momento</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Momento</em>'.
+	 * @generated
+	 */
+	Momento createMomento();
+
+	/**
+	 * Returns a new object of class '<em>Caretaker</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Caretaker</em>'.
+	 * @generated
+	 */
+	Caretaker createCaretaker();
+
+	/**
+	 * Returns a new object of class '<em>Receiver</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Receiver</em>'.
+	 * @generated
+	 */
+	Receiver createReceiver();
+
+	/**
+	 * Returns a new object of class '<em>add Section</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>add Section</em>'.
+	 * @generated
+	 */
+	addSection createaddSection();
+
+	/**
+	 * Returns a new object of class '<em>Remove Section</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Remove Section</em>'.
+	 * @generated
+	 */
+	RemoveSection createRemoveSection();
+
+	/**
+	 * Returns a new object of class '<em>Composite Command</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Composite Command</em>'.
+	 * @generated
+	 */
+	CompositeCommand createCompositeCommand();
+
+	/**
+	 * Returns a new object of class '<em>Command</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Command</em>'.
+	 * @generated
+	 */
+	Command createCommand();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

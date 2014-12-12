@@ -5,11 +5,14 @@ package defaultname.impl;
 import defaultname.DefaultnamePackage;
 import defaultname.Document;
 
+import defaultname.Momento;
 import defaultname.PressePapier;
+import defaultname.Receiver;
 import defaultname.DefaultnameFactory;
 import defaultname.Section;
 import defaultname.SectionComponent;
 import defaultname.SectionComposite;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 
@@ -17,6 +20,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,6 +32,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link defaultname.impl.DocumentImpl#getName <em>Name</em>}</li>
  *   <li>{@link defaultname.impl.DocumentImpl#getRacine <em>Racine</em>}</li>
  *   <li>{@link defaultname.impl.DocumentImpl#getPressePapier <em>Presse Papier</em>}</li>
+ *   <li>{@link defaultname.impl.DocumentImpl#getState <em>State</em>}</li>
+ *   <li>{@link defaultname.impl.DocumentImpl#getEReference0 <em>EReference0</em>}</li>
+ *   <li>{@link defaultname.impl.DocumentImpl#getEReference1 <em>EReference1</em>}</li>
+ *   <li>{@link defaultname.impl.DocumentImpl#getEReference2 <em>EReference2</em>}</li>
  * </ul>
  * </p>
  *
@@ -74,6 +82,57 @@ public class DocumentImpl extends DocumentBuilderImpl implements Document {
 	 * @ordered
 	 */
 	protected PressePapier pressePapier = DefaultnameFactory.eINSTANCE.createPressePapier();
+
+
+	/**
+	 * The default value of the '{@link #getState() <em>State</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getState()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Object STATE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getState() <em>State</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getState()
+	 * @generated
+	 * @ordered
+	 */
+	protected Object state = STATE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getEReference0() <em>EReference0</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEReference0()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Momento> eReference0;
+
+	/**
+	 * The cached value of the '{@link #getEReference1() <em>EReference1</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEReference1()
+	 * @generated
+	 * @ordered
+	 */
+	protected Document eReference1;
+
+	/**
+	 * The cached value of the '{@link #getEReference2() <em>EReference2</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEReference2()
+	 * @generated
+	 * @ordered
+	 */
+	protected Receiver eReference2;
 
 
 	/**
@@ -190,6 +249,115 @@ public class DocumentImpl extends DocumentBuilderImpl implements Document {
 		pressePapier = newPressePapier;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DefaultnamePackage.DOCUMENT__PRESSE_PAPIER, oldPressePapier, pressePapier));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Object getState() {
+		return state;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setState(Object newState) {
+		Object oldState = state;
+		state = newState;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DefaultnamePackage.DOCUMENT__STATE, oldState, state));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Momento> getEReference0() {
+		if (eReference0 == null) {
+			eReference0 = new EObjectResolvingEList<Momento>(Momento.class, this, DefaultnamePackage.DOCUMENT__EREFERENCE0);
+		}
+		return eReference0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Document getEReference1() {
+		if (eReference1 != null && eReference1.eIsProxy()) {
+			InternalEObject oldEReference1 = (InternalEObject)eReference1;
+			eReference1 = (Document)eResolveProxy(oldEReference1);
+			if (eReference1 != oldEReference1) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DefaultnamePackage.DOCUMENT__EREFERENCE1, oldEReference1, eReference1));
+			}
+		}
+		return eReference1;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Document basicGetEReference1() {
+		return eReference1;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEReference1(Document newEReference1) {
+		Document oldEReference1 = eReference1;
+		eReference1 = newEReference1;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DefaultnamePackage.DOCUMENT__EREFERENCE1, oldEReference1, eReference1));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Receiver getEReference2() {
+		if (eReference2 != null && eReference2.eIsProxy()) {
+			InternalEObject oldEReference2 = (InternalEObject)eReference2;
+			eReference2 = (Receiver)eResolveProxy(oldEReference2);
+			if (eReference2 != oldEReference2) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DefaultnamePackage.DOCUMENT__EREFERENCE2, oldEReference2, eReference2));
+			}
+		}
+		return eReference2;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Receiver basicGetEReference2() {
+		return eReference2;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEReference2(Receiver newEReference2) {
+		Receiver oldEReference2 = eReference2;
+		eReference2 = newEReference2;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DefaultnamePackage.DOCUMENT__EREFERENCE2, oldEReference2, eReference2));
 	}
 
 	/**
@@ -355,7 +523,29 @@ public class DocumentImpl extends DocumentBuilderImpl implements Document {
 		}
 		setRacine(racineComposite);
 	}
-//	public void changeSectionTitle(String id, String newTitle) {
+/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMomento(Momento m) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void createMomento() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	//	public void changeSectionTitle(String id, String newTitle) {
 //		SectionComposite racineComposite = (SectionComposite)getRacine();
 //		EList<SectionComponent> sectionComponentList = racineComposite.getSectionComponentList();
 //		for(int x = 0; x < sectionComponentList.size(); ++x){
@@ -406,6 +596,16 @@ public class DocumentImpl extends DocumentBuilderImpl implements Document {
 			case DefaultnamePackage.DOCUMENT__PRESSE_PAPIER:
 				if (resolve) return getPressePapier();
 				return basicGetPressePapier();
+			case DefaultnamePackage.DOCUMENT__STATE:
+				return getState();
+			case DefaultnamePackage.DOCUMENT__EREFERENCE0:
+				return getEReference0();
+			case DefaultnamePackage.DOCUMENT__EREFERENCE1:
+				if (resolve) return getEReference1();
+				return basicGetEReference1();
+			case DefaultnamePackage.DOCUMENT__EREFERENCE2:
+				if (resolve) return getEReference2();
+				return basicGetEReference2();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -415,6 +615,7 @@ public class DocumentImpl extends DocumentBuilderImpl implements Document {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -426,6 +627,19 @@ public class DocumentImpl extends DocumentBuilderImpl implements Document {
 				return;
 			case DefaultnamePackage.DOCUMENT__PRESSE_PAPIER:
 				setPressePapier((PressePapier)newValue);
+				return;
+			case DefaultnamePackage.DOCUMENT__STATE:
+				setState(newValue);
+				return;
+			case DefaultnamePackage.DOCUMENT__EREFERENCE0:
+				getEReference0().clear();
+				getEReference0().addAll((Collection<? extends Momento>)newValue);
+				return;
+			case DefaultnamePackage.DOCUMENT__EREFERENCE1:
+				setEReference1((Document)newValue);
+				return;
+			case DefaultnamePackage.DOCUMENT__EREFERENCE2:
+				setEReference2((Receiver)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -448,6 +662,18 @@ public class DocumentImpl extends DocumentBuilderImpl implements Document {
 			case DefaultnamePackage.DOCUMENT__PRESSE_PAPIER:
 				setPressePapier((PressePapier)null);
 				return;
+			case DefaultnamePackage.DOCUMENT__STATE:
+				setState(STATE_EDEFAULT);
+				return;
+			case DefaultnamePackage.DOCUMENT__EREFERENCE0:
+				getEReference0().clear();
+				return;
+			case DefaultnamePackage.DOCUMENT__EREFERENCE1:
+				setEReference1((Document)null);
+				return;
+			case DefaultnamePackage.DOCUMENT__EREFERENCE2:
+				setEReference2((Receiver)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -466,6 +692,14 @@ public class DocumentImpl extends DocumentBuilderImpl implements Document {
 				return racine != null;
 			case DefaultnamePackage.DOCUMENT__PRESSE_PAPIER:
 				return pressePapier != null;
+			case DefaultnamePackage.DOCUMENT__STATE:
+				return STATE_EDEFAULT == null ? state != null : !STATE_EDEFAULT.equals(state);
+			case DefaultnamePackage.DOCUMENT__EREFERENCE0:
+				return eReference0 != null && !eReference0.isEmpty();
+			case DefaultnamePackage.DOCUMENT__EREFERENCE1:
+				return eReference1 != null;
+			case DefaultnamePackage.DOCUMENT__EREFERENCE2:
+				return eReference2 != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -482,6 +716,8 @@ public class DocumentImpl extends DocumentBuilderImpl implements Document {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", state: ");
+		result.append(state);
 		result.append(')');
 		return result.toString();
 	}

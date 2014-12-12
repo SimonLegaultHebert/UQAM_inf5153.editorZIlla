@@ -108,6 +108,34 @@ public class DefaultnameAdapterFactory extends AdapterFactoryImpl {
 				return createHTMLStrategyAdapter();
 			}
 			@Override
+			public Adapter caseMomento(Momento object) {
+				return createMomentoAdapter();
+			}
+			@Override
+			public Adapter caseCaretaker(Caretaker object) {
+				return createCaretakerAdapter();
+			}
+			@Override
+			public Adapter caseReceiver(Receiver object) {
+				return createReceiverAdapter();
+			}
+			@Override
+			public Adapter caseaddSection(addSection object) {
+				return createaddSectionAdapter();
+			}
+			@Override
+			public Adapter caseRemoveSection(RemoveSection object) {
+				return createRemoveSectionAdapter();
+			}
+			@Override
+			public Adapter caseCompositeCommand(CompositeCommand object) {
+				return createCompositeCommandAdapter();
+			}
+			@Override
+			public Adapter caseCommand(Command object) {
+				return createCommandAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -264,6 +292,104 @@ public class DefaultnameAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createHTMLStrategyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link defaultname.Momento <em>Momento</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see defaultname.Momento
+	 * @generated
+	 */
+	public Adapter createMomentoAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link defaultname.Caretaker <em>Caretaker</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see defaultname.Caretaker
+	 * @generated
+	 */
+	public Adapter createCaretakerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link defaultname.Receiver <em>Receiver</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see defaultname.Receiver
+	 * @generated
+	 */
+	public Adapter createReceiverAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link defaultname.addSection <em>add Section</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see defaultname.addSection
+	 * @generated
+	 */
+	public Adapter createaddSectionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link defaultname.RemoveSection <em>Remove Section</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see defaultname.RemoveSection
+	 * @generated
+	 */
+	public Adapter createRemoveSectionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link defaultname.CompositeCommand <em>Composite Command</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see defaultname.CompositeCommand
+	 * @generated
+	 */
+	public Adapter createCompositeCommandAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link defaultname.Command <em>Command</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see defaultname.Command
+	 * @generated
+	 */
+	public Adapter createCommandAdapter() {
 		return null;
 	}
 

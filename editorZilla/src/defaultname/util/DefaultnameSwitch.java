@@ -132,6 +132,54 @@ public class DefaultnameSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DefaultnamePackage.MOMENTO: {
+				Momento momento = (Momento)theEObject;
+				T result = caseMomento(momento);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DefaultnamePackage.CARETAKER: {
+				Caretaker caretaker = (Caretaker)theEObject;
+				T result = caseCaretaker(caretaker);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DefaultnamePackage.RECEIVER: {
+				Receiver receiver = (Receiver)theEObject;
+				T result = caseReceiver(receiver);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DefaultnamePackage.ADD_SECTION: {
+				addSection addSection = (addSection)theEObject;
+				T result = caseaddSection(addSection);
+				if (result == null) result = caseReceiver(addSection);
+				if (result == null) result = caseCommand(addSection);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DefaultnamePackage.REMOVE_SECTION: {
+				RemoveSection removeSection = (RemoveSection)theEObject;
+				T result = caseRemoveSection(removeSection);
+				if (result == null) result = caseReceiver(removeSection);
+				if (result == null) result = caseCommand(removeSection);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DefaultnamePackage.COMPOSITE_COMMAND: {
+				CompositeCommand compositeCommand = (CompositeCommand)theEObject;
+				T result = caseCompositeCommand(compositeCommand);
+				if (result == null) result = caseReceiver(compositeCommand);
+				if (result == null) result = caseCommand(compositeCommand);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DefaultnamePackage.COMMAND: {
+				Command command = (Command)theEObject;
+				T result = caseCommand(command);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -283,6 +331,111 @@ public class DefaultnameSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseHTMLStrategy(HTMLStrategy object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Momento</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Momento</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMomento(Momento object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Caretaker</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Caretaker</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCaretaker(Caretaker object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Receiver</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Receiver</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseReceiver(Receiver object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>add Section</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>add Section</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseaddSection(addSection object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Remove Section</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Remove Section</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRemoveSection(RemoveSection object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Composite Command</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Composite Command</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCompositeCommand(CompositeCommand object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Command</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Command</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCommand(Command object) {
 		return null;
 	}
 

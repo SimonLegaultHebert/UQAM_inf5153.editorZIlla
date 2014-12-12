@@ -3,9 +3,7 @@
 package defaultname.tests;
 
 import defaultname.DefaultnameFactory;
-import defaultname.SectionComposite;
-import model.DefaultnameFactory;
-import model.SectionComposite;
+import defaultname.SectionComposite; 
 
 import junit.textui.TestRunner;
 

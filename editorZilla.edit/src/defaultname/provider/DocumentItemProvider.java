@@ -8,9 +8,7 @@ import defaultname.DefaultnamePackage;
 import defaultname.Document;
 import java.util.Collection;
 import java.util.List;
-
-import model.DefaultnamePackage;
-import model.Document;
+ 
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -63,6 +61,10 @@ public class DocumentItemProvider
 			addNamePropertyDescriptor(object);
 			addRacinePropertyDescriptor(object);
 			addPressePapierPropertyDescriptor(object);
+			addStatePropertyDescriptor(object);
+			addEReference0PropertyDescriptor(object);
+			addEReference1PropertyDescriptor(object);
+			addEReference2PropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -134,6 +136,94 @@ public class DocumentItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the State feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addStatePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Document_state_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Document_state_feature", "_UI_Document_type"),
+				 DefaultnamePackage.Literals.DOCUMENT__STATE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the EReference0 feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEReference0PropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Document_EReference0_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Document_EReference0_feature", "_UI_Document_type"),
+				 DefaultnamePackage.Literals.DOCUMENT__EREFERENCE0,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the EReference1 feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEReference1PropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Document_EReference1_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Document_EReference1_feature", "_UI_Document_type"),
+				 DefaultnamePackage.Literals.DOCUMENT__EREFERENCE1,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the EReference2 feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEReference2PropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Document_EReference2_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Document_EReference2_feature", "_UI_Document_type"),
+				 DefaultnamePackage.Literals.DOCUMENT__EREFERENCE2,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Document.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -171,6 +261,7 @@ public class DocumentItemProvider
 
 		switch (notification.getFeatureID(Document.class)) {
 			case DefaultnamePackage.DOCUMENT__NAME:
+			case DefaultnamePackage.DOCUMENT__STATE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

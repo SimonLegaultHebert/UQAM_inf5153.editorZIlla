@@ -38,6 +38,11 @@ public class DefaultnameTests extends TestSuite {
 		suite.addTestSuite(XMIStrategyTest.class);
 		suite.addTestSuite(PressePapierTest.class);
 		suite.addTestSuite(HTMLStrategyTest.class);
+		suite.addTestSuite(MomentoTest.class);
+		suite.addTestSuite(addSectionTest.class);
+		suite.addTestSuite(RemoveSectionTest.class);
+		suite.addTestSuite(CompositeCommandTest.class);
+		suite.addTestSuite(CommandTest.class);
 		return suite;
 	}
 

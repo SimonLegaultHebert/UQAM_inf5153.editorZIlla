@@ -2,8 +2,8 @@
  */
 package defaultname.tests;
 
-import model.DefaultnameFactory;
-import model.XMLStrategy;
+import defaultname.DefaultnameFactory;
+import defaultname.XMIStrategy;
 
 import junit.framework.TestCase;
 

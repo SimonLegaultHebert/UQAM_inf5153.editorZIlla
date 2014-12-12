@@ -8,10 +8,7 @@ import defaultname.DefaultnamePackage;
 import defaultname.SectionComposite;
 import java.util.Collection;
 import java.util.List;
-
-import model.DefaultnamePackage;
-import model.SectionComposite;
-
+ 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 

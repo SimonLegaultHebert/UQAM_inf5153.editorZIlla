@@ -2,8 +2,7 @@
  */
 package defaultname.tests;
 
-import defaultname.SectionComponent;
-import model.SectionComponent;
+import defaultname.SectionComponent; 
 
 import junit.framework.TestCase;
 
